@@ -32,6 +32,7 @@ class Question:
     cp_reveal_time: str | None = None
     already_forecast: bool = False
     community_centers: list[float] | None = None  # opportunistic anchor, often None for bots
+    tournaments: list[dict[str, Any]] = field(default_factory=list)  # [{slug, name, id}]
     raw: dict[str, Any] = field(default_factory=dict)
 
     @property
@@ -45,6 +46,11 @@ def _parse(post: dict[str, Any]) -> Question | None:
         return None  # groups / notebooks / non-question posts
     agg = ((q.get("aggregations") or {}).get("recency_weighted") or {}).get("latest") or {}
     mf_latest = (q.get("my_forecasts") or {}).get("latest") or {}
+    projects = post.get("projects") or {}
+    tournaments = [
+        {"slug": t.get("slug"), "name": t.get("name"), "id": t.get("id")}
+        for t in (projects.get("tournament") or [])
+    ]
     return Question(
         post_id=post["id"],
         question_id=q["id"],
@@ -59,6 +65,7 @@ def _parse(post: dict[str, Any]) -> Question | None:
         cp_reveal_time=q.get("cp_reveal_time"),
         already_forecast=mf_latest.get("forecast_values") is not None,
         community_centers=agg.get("centers"),
+        tournaments=tournaments,
         raw=post,
     )
 
