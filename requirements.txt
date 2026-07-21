@@ -1,0 +1,3 @@
+# Runtime is stdlib-only (urllib) — nothing required to run the pipeline.
+# Dev/test:
+pytest>=7.0
