@@ -1,0 +1,5 @@
+run:      bootstrap-run1
+started:  2026-07-22
+branch:   curator/bootstrap-run1
+head:     624b590
+note:     first-run bootstrap; full six-lens scan. Stale after 60 min (see Parameters).
