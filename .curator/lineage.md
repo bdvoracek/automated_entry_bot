@@ -12,6 +12,16 @@ supersedes: none (first run)
 why:        Establish the current-state map and the CLAUDE.md trigger stub so future agents
             in this repo load the structure without re-deriving it.
 
+## 2026-07-22 | Curator run 2: both parked gaps closed (human-authorized)
+
+decision:   Human said "take care of the parked gaps." (1) README "Setup" now documents the
+            tunable env vars with defaults and names config.py authoritative. (2) Added
+            docs/exploration.md documenting the exploration pipeline, cross-linked from README.
+            Both Atlas entries moved contested/draft -> validated.
+supersedes: the two contested items from the bootstrap entry below @ 2026-07-22 624b590
+why:        The generative doc-writes were deferred to the human at bootstrap; the human
+            authorized them, so they are now custodial fact captured in-repo, not guesses.
+
 ## 2026-07-22 624b590 | Two decisions parked as contested, not forced
 
 decision:   (1) README "Setup" documents 2 tokens while config.py exposes ~8 env knobs, and

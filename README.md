@@ -3,6 +3,10 @@
 Automate entry into prediction competitions using **51Folds.AI** forecasts.
 First platform: **Metaculus** (all competitions we can answer, not just the AI benchmark).
 
+This README covers the **production** pipeline (discover -> predict -> submit). A second,
+**exploration** pipeline systematically characterizes 51Folds (all tiers x 10 runs/question,
+cost-vs-quality analytics) over the same shared base — see [docs/exploration.md](docs/exploration.md).
+
 ## Pipeline
 
 ```
@@ -44,6 +48,20 @@ Secrets live in a git-ignored `.env`:
 METACULUS_TOKEN=...          # Metaculus bot account access token
 FIFTYONEFOLDS_TOKEN=...       # 51Folds bearer token (still needed)
 ```
+
+Everything else has a sane default in `aeb/config.py` and can be overridden via the same `.env`
+(shown with defaults):
+
+```
+FOLDS_RUNS_PER_QUESTION=5        # N: concurrent 51Folds models per question
+FOLDS_MODEL_TYPE=Insight         # Overview | Insight | Advanced
+FOLDS_POLL_INTERVAL_S=60         # builds take ~30 min; poll gently
+FOLDS_POLL_TIMEOUT_S=3600
+METACULUS_MIN_SLEEP_S=3.5        # self-throttle between Metaculus calls
+METACULUS_JITTER_S=1.0
+```
+
+`aeb/config.py` is the authoritative list of tunable knobs.
 
 ## Run
 
