@@ -2,6 +2,18 @@
 
 One block per run. What the human glances at before merge.
 
+## 2026-07-22 | run gaps-run1 | INCREMENTAL | lenses: A5 A6 (gap closure, human-authorized)
+
+- CREATE docs/exploration.md    -> in-repo doc for the exploration pipeline   (closes bootstrap A6 gap)
+- EDIT   README.md "Setup"      -> document tunable env vars + name config.py authoritative   (closes A5 drift)
+- EDIT   README.md intro        -> cross-link the two pipelines / docs/exploration.md
+- UPDATE .curator/atlas.md      -> A5 + A6 entries moved contested/draft -> validated
+- APPEND .curator/lineage.md    -> run-2 resolution entry (supersedes the two parked items)
+- UPDATE CLAUDE.md stub         -> last-run bumped to this run's commit
+- Both bootstrap-parked contested items now resolved; none left open. No new gaps found.
+tokens: within budget | surface (always-loaded MD): ~18 lines CLAUDE.md unchanged (docs are load-on-demand) | budget: within
+merge: human-authorized ("take care of the parked gaps"); merged to main.
+
 ## 2026-07-22 624b590 | run bootstrap-run1 | FULL | lenses: A1 A2 A3 A4 A5 A6
 
 - CREATE .curator/atlas.md      -> current-state pointer map, 6 lenses   (first Atlas; no prior state)

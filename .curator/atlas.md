@@ -82,10 +82,9 @@ so is out of the Curator's scope; this Atlas maps only what is in the repo tree.
   -> aeb/config.py   [canonical, core]
 - Secrets: METACULUS_TOKEN, FIFTYONEFOLDS_TOKEN, loaded from a git-ignored `.env`.
   -> aeb/config.py; .gitignore; README.md "Setup"   [canonical, validated]
-- CONFIG DRIFT (minor): README "Setup" documents only the 2 tokens; config.py also exposes
-  FOLDS_RUNS_PER_QUESTION, FOLDS_MODEL_TYPE, poll interval/timeout, Metaculus throttle knobs.
-  -> README.md "Setup" vs aeb/config.py:42-53
-     [conflicting; authoritative aeb/config.py; disposition contested -> human glance]
+- Config knobs: README "Setup" now lists the tunable env vars with defaults and names config.py
+  as authoritative. (Was a README/config drift at bootstrap; resolved run 2, 2026-07-22.)
+  -> README.md "Setup"; aeb/config.py:42-53   [canonical, validated; authoritative aeb/config.py]
 - Persistent state is git-ignored: `state/` holds job state (jobstore), the exploration SQLite
   DB, and the sanity watch-list `state/violations.json`.
   -> .gitignore; aeb/jobstore.py; aeb/sanity.py::WatchList   [canonical, validated]
@@ -94,16 +93,17 @@ so is out of the Curator's scope; this Atlas maps only what is in the repo tree.
 
 ## MD-loading hygiene / meta (A6)
 
-- Target topology is minimal and flat: exactly one canonical in-repo doc (README) plus this
-  Curator apparatus. No CLAUDE.md existed before this run; no `@import` graph, no
-  `.claude/rules/`, no subdir docs. Nothing to consolidate or archive.
-  -> README.md; CLAUDE.md (stub, created this run); ./curator.md   [canonical, core]
-- README classification: canonical-doc. Tight, accurate for the production pipeline.   [canonical]
-- DOC GAP (the one real finding): the exploration pipeline (explore.py, data/, resulting.py,
-  analytics.py) has NO in-repo documentation. README covers only production. Not-covered, not
-  wrong. A synthesized draft pointer sits under A1 above; writing an actual in-repo doc is a
-  generative act deferred to the human's call.
-  -> (gap) src/aeb/explore.py; src/aeb/data/   [provisional, draft, disposition contested]
+- Target topology is minimal and flat: two canonical in-repo docs (README = production,
+  docs/exploration.md = exploration) plus this Curator apparatus. CLAUDE.md carries the stub +
+  pointers to both. No `@import` graph, no `.claude/rules/`, no other subdir docs.
+  -> README.md; docs/exploration.md; CLAUDE.md; ./curator.md   [canonical, core]
+- README classification: canonical-doc. Production pipeline; cross-links to docs/exploration.md.
+     [canonical]
+- Exploration pipeline is now documented in-repo (was the bootstrap's one real gap; closed run 2,
+  2026-07-22). Grounded in code anchors (TIERS/RUNS_PER_TIER/SURFACE_TIER); credit figures marked
+  as measured-not-guaranteed.
+  -> docs/exploration.md -> src/aeb/explore.py; src/aeb/data/; aeb/resulting.py; aeb/analytics.py
+     [canonical, validated]
 - Non-.md load-bearing reference: ContinuousDistributionAgent.txt is an LLM prompt template
   whose output format bins.py parses; keep in place, pointed to from A4.   [reference, keep]
 - Drift guard (this run's convention): on each run, re-check that (1) the two-pipeline split in

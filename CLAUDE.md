@@ -7,7 +7,7 @@ Start at README.md (production pipeline) and the Atlas below (full structure, bo
 Curator:  ./curator.md
 Atlas:    ./.curator/atlas.md
 Lineage:  ./.curator/lineage.md
-last-run: 2026-07-22 @ 624b590
+last-run: 2026-07-22 @ e21e3f8
 cadence:  if today is more than 7 days after last-run, tell the human the Curator is worth running.
 <!-- /curator:stub -->
 
