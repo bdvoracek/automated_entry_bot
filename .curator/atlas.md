@@ -29,6 +29,11 @@ so is out of the Curator's scope; this Atlas maps only what is in the repo tree.
   -> production: scripts/run_pipeline.py; scripts/collect_loop.py; scripts/cdf_collect.py
   -> exploration: scripts/explore_cli.py; scripts/explore_collect_loop.py
   -> read-only demo: scripts/discover.py   [canonical, validated]
+- New-question detection (monitor): tight-cadence, newest-first, per-tournament
+  watermark in state/monitor.json; feeds detected questions to Orchestrator.dispatch_questions.
+  An efficiency layer over the jobstore dedup, not a correctness gate. Decoupled from build time.
+  -> aeb/monitor.py::Monitor (poll/poll_all); aeb/monitor.py::WatermarkStore;
+     aeb/orchestrator.py::dispatch_questions; scripts/run_pipeline.py "monitor"   [canonical, validated]
 
 ## Conventions (A2)
 
@@ -51,6 +56,9 @@ so is out of the Curator's scope; this Atlas maps only what is in the repo tree.
      [canonical, validated]
 - Run entry points are the scripts; all default to dry_run and require `--live` to submit.
   -> README.md "Run"; scripts/*.py   [canonical, validated]
+- Commands (run_pipeline.py): dispatch | collect | loop | monitor | status. monitor is the
+  tight-cadence detector (interval MONITOR_INTERVAL_S, default 120s).
+  -> scripts/run_pipeline.py::main   [canonical, validated]
 - NO CI configured: no `.github/workflows`, no pre-commit. Tests are run by hand only.
   -> (absence)   [inferred, draft, drift-guard: flag if CI is added but README's Run section is not]
 
@@ -78,7 +86,8 @@ so is out of the Curator's scope; this Atlas maps only what is in the repo tree.
 ## Configuration and environment (A5)
 
 - All runtime config is centralized in one module: endpoints, required browser User-Agent
-  (Cloudflare 1010-blocks bare urllib), secrets, and ~8 tunable pipeline knobs.
+  (Cloudflare 1010-blocks bare urllib), secrets, and the tunable pipeline + monitor knobs
+  (MONITOR_ORDER_BY default -open_time, MONITOR_INTERVAL_S, MONITOR_MAX_QUESTIONS).
   -> aeb/config.py   [canonical, core]
 - Secrets: METACULUS_TOKEN, FIFTYONEFOLDS_TOKEN, loaded from a git-ignored `.env`.
   -> aeb/config.py; .gitignore; README.md "Setup"   [canonical, validated]

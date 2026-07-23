@@ -30,6 +30,7 @@ class Question:
     open_upper_bound: bool = True
     open_lower_bound: bool = True
     cp_reveal_time: str | None = None
+    open_time: str | None = None    # when the question entered its forecasting window (ISO)
     already_forecast: bool = False
     community_centers: list[float] | None = None  # opportunistic anchor, often None for bots
     tournaments: list[dict[str, Any]] = field(default_factory=list)  # [{slug, name, id}]
@@ -63,6 +64,8 @@ def _parse(post: dict[str, Any]) -> Question | None:
         open_upper_bound=q.get("open_upper_bound", True),
         open_lower_bound=q.get("open_lower_bound", True),
         cp_reveal_time=q.get("cp_reveal_time"),
+        open_time=(q.get("open_time") or q.get("scheduled_open_time")
+                   or post.get("published_at")),
         already_forecast=mf_latest.get("forecast_values") is not None,
         community_centers=agg.get("centers"),
         tournaments=tournaments,
@@ -95,14 +98,20 @@ class MetaculusClient:
         skip_already_forecast: bool = True,
         page_size: int = 50,
         max_questions: int | None = None,
+        order_by: str = "-hotness",
     ) -> Iterable[Question]:
-        """Yield open questions. tournaments=None searches the WHOLE site."""
+        """Yield open questions. tournaments=None searches the WHOLE site.
+
+        order_by defaults to -hotness (relevance) for the pipeline; the monitor
+        passes a recency sort (config.MONITOR_ORDER_BY) so brand-new questions
+        surface first instead of being buried by low hotness.
+        """
         offset, yielded = 0, 0
         while True:
             params: dict[str, Any] = {
                 "limit": page_size,
                 "offset": offset,
-                "order_by": "-hotness",
+                "order_by": order_by,
                 "statuses": "open",
                 "forecast_type": FORECAST_TYPES,
                 "with_cp": "true",

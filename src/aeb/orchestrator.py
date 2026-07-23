@@ -12,7 +12,7 @@ posting (recommended until 51Folds + bin designer are wired and validated).
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Any
+from typing import Any, Iterable
 
 from dataclasses import asdict
 
@@ -127,6 +127,50 @@ class Orchestrator:
         spec = bins.design_bins(q.title, scaling, llm=self.bin_designer, community_anchor=anchor)
         return spec.labels, spec.edges, scaling, spec.source_context
 
+    def _dispatch_one(self, q: Question) -> Job | None:
+        """Fire N models for a single question and persist the job. None if skipped.
+
+        Carries all the guards (type gate, jobstore dedup, readiness) so any
+        caller -- bulk discovery or the monitor -- gets identical behaviour.
+        """
+        if self.folds is None:
+            raise RuntimeError("dispatch requires a 51Folds client")
+        if q.type not in self.enabled_types:
+            self._log(f"skip q{q.question_id} [{q.type}] (type deferred)")
+            return None
+        if self.store.has_open_job_for(q.question_id):
+            return None
+        gate = readiness.check(q)
+        if not gate.ok:
+            self._log(f"skip q{q.question_id} [{q.type}] ({gate.reason})")
+            return None
+        try:
+            labels, edges, scaling, ctx = self._labels_for(q)
+            model_ids = self.folds.dispatch_ensemble(q.title, labels, additional_context=ctx)
+        except NotImplementedError:
+            return None  # numeric without a bin designer wired yet
+        except Exception as e:
+            self._log(f"skip q{q.question_id} [{q.type}] (dispatch error: {e!r})")
+            return None
+        self._log(f"dispatched q{q.question_id} [{q.type}] "
+                  f"{len(model_ids)} models: {q.title[:50]}")
+        job = Job(
+            question_id=q.question_id, post_id=q.post_id, qtype=q.type,
+            labels=labels, model_ids=model_ids, title=q.title,
+            edges=edges, scaling=(asdict(scaling) if scaling else None),
+        )
+        self.store.add(job)
+        return job
+
+    def dispatch_questions(self, questions: Iterable[Question]) -> list[Job]:
+        """Phase 1 over an explicit set of questions (e.g. from the monitor)."""
+        created: list[Job] = []
+        for q in questions:
+            job = self._dispatch_one(q)
+            if job is not None:
+                created.append(job)
+        return created
+
     def dispatch(
         self,
         tournaments: str | int | None = None,
@@ -137,38 +181,10 @@ class Orchestrator:
         """Phase 1: find questions, fire N models each, persist jobs. Non-blocking."""
         if self.folds is None:
             raise RuntimeError("dispatch requires a 51Folds client")
-        created: list[Job] = []
-        for q in self.mc.iter_open_questions(
+        return self.dispatch_questions(self.mc.iter_open_questions(
             tournaments=tournaments, max_questions=limit,
             skip_already_forecast=skip_already_forecast,
-        ):
-            if q.type not in self.enabled_types:
-                self._log(f"skip q{q.question_id} [{q.type}] (type deferred)")
-                continue
-            if self.store.has_open_job_for(q.question_id):
-                continue
-            gate = readiness.check(q)
-            if not gate.ok:
-                self._log(f"skip q{q.question_id} [{q.type}] ({gate.reason})")
-                continue
-            try:
-                labels, edges, scaling, ctx = self._labels_for(q)
-                model_ids = self.folds.dispatch_ensemble(q.title, labels, additional_context=ctx)
-            except NotImplementedError:
-                continue  # numeric without a bin designer wired yet
-            except Exception as e:
-                self._log(f"skip q{q.question_id} [{q.type}] (dispatch error: {e!r})")
-                continue
-            self._log(f"dispatched q{q.question_id} [{q.type}] "
-                      f"{len(model_ids)} models: {q.title[:50]}")
-            job = Job(
-                question_id=q.question_id, post_id=q.post_id, qtype=q.type,
-                labels=labels, model_ids=model_ids, title=q.title,
-                edges=edges, scaling=(asdict(scaling) if scaling else None),
-            )
-            self.store.add(job)
-            created.append(job)
-        return created
+        ))
 
     def collect(self) -> list[Job]:
         """Phase 2: poll pending jobs; when all models are ready, aggregate + submit."""

@@ -51,3 +51,15 @@ METACULUS_MIN_SLEEP_S = float(os.environ.get("METACULUS_MIN_SLEEP_S", "3.5"))
 METACULUS_JITTER_S = float(os.environ.get("METACULUS_JITTER_S", "1.0"))
 
 CDF_SIZE = 201  # Metaculus continuous_cdf point count (numeric/date)
+
+# --- Monitor (new-question detection) -------------------------------------
+# Recency sort for the monitor. Newest-open first so fresh questions surface
+# ahead of low-hotness ones. VERIFIED live 2026-07-23: "-open_time" returns 200
+# and sorts by open_time desc (whereas -hotness scatters open dates, burying new
+# questions). Valid alternatives if ever needed: "-published_at", "-created_time".
+MONITOR_ORDER_BY = os.environ.get("MONITOR_ORDER_BY", "-open_time")
+# Tight cadence for short forecasting windows (some bot tournaments open a
+# question for ~1h). Per-tournament polling is one cheap call per tick.
+MONITOR_INTERVAL_S = float(os.environ.get("MONITOR_INTERVAL_S", "120"))
+# Safety cap on pages walked per tournament per tick (page_size=100 each).
+MONITOR_MAX_QUESTIONS = int(os.environ.get("MONITOR_MAX_QUESTIONS", "300"))

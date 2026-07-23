@@ -2,6 +2,13 @@
 
 One block per run. What the human glances at before merge.
 
+## 2026-07-23 | code change (not a curator run) | A1 A3 A5 pointers refreshed
+
+- New feature: Metaculus new-question monitor (aeb/monitor.py, Orchestrator.dispatch_questions,
+  run_pipeline.py "monitor"). Newest-first order_by + per-tournament watermark for short (~1h) windows.
+- Atlas touched to keep it from drifting: A1 monitor entry, A3 command list + monitor, A5 monitor knobs.
+- README Run/Layout updated. Not a full curatorial pass; next curator run maps it properly. 24/24 tests.
+
 ## 2026-07-22 | run gaps-run1 | INCREMENTAL | lenses: A5 A6 (gap closure, human-authorized)
 
 - CREATE docs/exploration.md    -> in-repo doc for the exploration pipeline   (closes bootstrap A6 gap)
