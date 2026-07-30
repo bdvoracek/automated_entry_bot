@@ -508,16 +508,14 @@ function renderDStats(sA,sB){
   const lg=`<div class="lg"><i><span class="sw"></span>adjusted</i>${sB?'<i><span class="sw base"></span>before</i>':''}</div>`;
   $('dstats').innerHTML = lg
     + chip('P10', money(sA.p10, sB?sB.p10:null))
-    + chip('P90', money(sA.p90, sB?sB.p90:null))
-    + chip('P &gt; $100', pct(sA.above100, sB?sB.above100:null))
-    + chip('P &lt; $60', pct(sA.below60, sB?sB.below60:null));
+    + chip('P90', money(sA.p90, sB?sB.p90:null));
 }
 
 function setTakeaway(res){
   const el=$('takeaway');
   if(!res){
     const s=binStats(MODEL.baseline);
-    el.innerHTML=`No shifts applied — the <b>${MODEL.n_models}-model</b> ensemble baseline. Median <b>$${s.p50.toFixed(1)}</b>, 80% interval <b>P10 $${s.p10.toFixed(0)}</b> – <b>P90 $${s.p90.toFixed(0)}</b>, with <b>${(s.above100*100).toFixed(0)}%</b> of the mass above $100. Open <b>Drivers</b>, nudge a unified driver, and Apply to fan the change out to every model.`;
+    el.innerHTML=`No shifts applied — the <b>${MODEL.n_models}-model</b> ensemble baseline. Median <b>$${s.p50.toFixed(0)}</b>, with an 80% interval of <b>$${s.p10.toFixed(0)}</b> to <b>$${s.p90.toFixed(0)}</b> (P10–P90). Open <b>Drivers</b>, nudge a unified driver, and Apply to fan the change out to every model.`;
     return;
   }
   const sB=binStats(res.baseline), sA=binStats(res.adjusted);
@@ -525,7 +523,7 @@ function setTakeaway(res){
     .map(([u,v])=>`<b>${MODEL.drivers.find(d=>d.uid==u).name}</b> ${v>0?'+'+v:v}`).join(', ');
   const arrow=(a,b)=>{const c=b>=a?'amber':'cool';return `$${a.toFixed(0)} → <span class="${c}">$${b.toFixed(0)}</span>`;};
   const t=res.timings;
-  el.innerHTML=`Shifting ${setLbl} moved the forecast. <b>Median</b> ${arrow(sB.p50,sA.p50)}, <b>P10</b> ${arrow(sB.p10,sA.p10)}, <b>P90</b> ${arrow(sB.p90,sA.p90)}. The <b>&gt;$100 tail</b> goes from ${(sB.above100*100).toFixed(0)}% to <span class="${sA.above100>=sB.above100?'amber':'cool'}">${(sA.above100*100).toFixed(0)}%</span>. ${t.n_done}/${t.n_touched} models recomputed in ${t.total_s}s.`;
+  el.innerHTML=`Shifting ${setLbl} moved the forecast. <b>Median</b> ${arrow(sB.p50,sA.p50)}, <b>P10</b> ${arrow(sB.p10,sA.p10)}, <b>P90</b> ${arrow(sB.p90,sA.p90)}. ${t.n_done}/${t.n_touched} models recomputed in ${t.total_s}s.`;
 }
 
 // member rows grouped by directionality; inverted members preview the OPPOSITE shift
