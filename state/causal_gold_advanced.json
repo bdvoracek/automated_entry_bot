@@ -3,22 +3,22 @@
   "tier": "Advanced",
   "drivers": {
     "1": {
-      "ci": 0.983,
+      "ci": 0.993,
       "reach": 1.0,
       "role": "integrator",
-      "betweenness": 1.07
+      "betweenness": 1.52
     },
     "2": {
-      "ci": 0.288,
+      "ci": 0.269,
       "reach": 1.0,
-      "role": "integrator",
-      "betweenness": 2.97
+      "role": "mediator",
+      "betweenness": 9.52
     },
     "3": {
-      "ci": 0.347,
-      "reach": 0.999,
-      "role": "driver",
-      "betweenness": 0.2
+      "ci": 0.317,
+      "reach": 1.0,
+      "role": "source",
+      "betweenness": 0.0
     },
     "4": {
       "ci": 1.0,
@@ -27,70 +27,70 @@
       "betweenness": 0.0
     },
     "5": {
-      "ci": 0.644,
+      "ci": 0.648,
       "reach": 1.0,
       "role": "integrator",
       "betweenness": 0.0
     },
     "6": {
-      "ci": 0.864,
-      "reach": 1.0,
+      "ci": 0.753,
+      "reach": 0.95,
       "role": "integrator",
-      "betweenness": 1.2
+      "betweenness": 0.2
     },
     "7": {
-      "ci": 0.669,
+      "ci": 0.738,
       "reach": 1.0,
-      "role": "integrator",
-      "betweenness": 1.08
+      "role": "sink",
+      "betweenness": 0.0
     },
     "8": {
-      "ci": 0.304,
-      "reach": 0.875,
+      "ci": 0.329,
+      "reach": 0.9,
       "role": "driver",
       "betweenness": 0.0
     },
     "9": {
-      "ci": 0.542,
+      "ci": 0.552,
       "reach": 1.0,
       "role": "source",
       "betweenness": 0.0
     },
     "10": {
-      "ci": 0.517,
+      "ci": 0.566,
       "reach": 1.0,
       "role": "mediator",
-      "betweenness": 15.05
+      "betweenness": 6.05
     },
     "11": {
-      "ci": 0.22,
+      "ci": 0.234,
       "reach": 1.0,
       "role": "mediator",
-      "betweenness": 13.97
+      "betweenness": 10.85
     },
     "12": {
-      "ci": 0.161,
+      "ci": 0.159,
       "reach": 1.0,
       "role": "driver",
-      "betweenness": 0.67
+      "betweenness": 0.4
     },
     "13": {
-      "ci": 0.464,
-      "reach": 0.996,
-      "role": "integrator",
-      "betweenness": 1.83
+      "ci": 0.367,
+      "reach": 0.968,
+      "role": "driver",
+      "betweenness": 3.95
     },
     "14": {
-      "ci": 0.356,
-      "reach": 0.875,
+      "ci": 0.466,
+      "reach": 0.9,
       "role": "driver",
       "betweenness": 0.0
     },
     "15": {
-      "ci": 0.678,
+      "ci": 0.745,
       "reach": 1.0,
       "role": "mediator",
-      "betweenness": 23.97
+      "betweenness": 12.52
     }
   },
   "fragments": [
@@ -98,7 +98,7 @@
       "id": "frag-4",
       "focal_uid": 4,
       "title": "Central banks keep a bid under the market",
-      "insight": "Official-sector buying is where several forces come to rest: de-dollarization and geopolitical risk both drive central-bank purchases, which land directly on the price. It behaves like a demand sink \u2014 a lot feeds in, and it converts all of it into steady, price-supportive buying. This is the 'someone is always bidding' floor under gold.",
+      "insight": "Official-sector buying is where several forces come to rest: de-dollarization and geopolitical risk drive central-bank purchases that land directly on the price. It behaves like a demand sink \u2014 a lot feeds in, and it converts all of it into steady, price-supportive buying.",
       "role": "sink",
       "importance": 100,
       "aci": 1.0,
@@ -112,14 +112,14 @@
         {
           "uid": 1,
           "label": "BRICS De-dollarization",
-          "influence": 0.983,
+          "influence": 0.993,
           "outcome": false,
           "support": 1.0
         },
         {
-          "uid": 9,
-          "label": "Geopolitical Risk",
-          "influence": 0.542,
+          "uid": 11,
+          "label": "US Dollar",
+          "influence": 0.234,
           "outcome": false,
           "support": 1.0
         }
@@ -138,30 +138,30 @@
       "id": "frag-1",
       "focal_uid": 1,
       "title": "The world edges away from the dollar",
-      "insight": "The clearest story in the gold models: as countries \u2014 led by the BRICS bloc \u2014 try to trade and hold reserves outside the US dollar, they lean on gold, and that pull runs straight into Chinese buying and the price. Geopolitical friction and inflation both feed the urge to de-dollarize, which is why this sits at the busy centre of the gold map. It's the slow-burn structural bid under the market.",
+      "insight": "As countries \u2014 led by the BRICS bloc \u2014 try to trade and hold reserves outside the US dollar, they lean on gold, and that pull runs into Chinese buying and the price. Geopolitical friction and inflation feed the urge to de-dollarize, which is why this sits at the busy centre of the gold map \u2014 the slow-burn structural bid under the market.",
       "role": "integrator",
-      "importance": 95,
-      "aci": 0.952,
+      "importance": 94,
+      "aci": 0.943,
       "focal": {
         "uid": 1,
         "label": "BRICS De-dollarization",
-        "influence": 0.983,
+        "influence": 0.993,
         "outcome": false
       },
       "parents": [
         {
           "uid": 9,
           "label": "Geopolitical Risk",
-          "influence": 0.542,
+          "influence": 0.552,
           "outcome": false,
           "support": 1.0
         },
         {
           "uid": 10,
           "label": "Inflation",
-          "influence": 0.517,
+          "influence": 0.566,
           "outcome": false,
-          "support": 0.875
+          "support": 0.8
         }
       ],
       "children": [
@@ -173,10 +173,50 @@
           "support": 1.0
         },
         {
-          "uid": 7,
-          "label": "Chinese Gold Demand",
-          "influence": 0.669,
+          "uid": "DV",
+          "label": "Gold price",
+          "influence": 1.0,
+          "outcome": true,
+          "support": 1.0
+        }
+      ]
+    },
+    {
+      "id": "frag-7",
+      "focal_uid": 7,
+      "title": "Chinese Gold Demand",
+      "insight": "",
+      "role": "sink",
+      "importance": 74,
+      "aci": 0.738,
+      "focal": {
+        "uid": 7,
+        "label": "Chinese Gold Demand",
+        "influence": 0.738,
+        "outcome": false
+      },
+      "parents": [
+        {
+          "uid": 9,
+          "label": "Geopolitical Risk",
+          "influence": 0.552,
           "outcome": false,
+          "support": 1.0
+        },
+        {
+          "uid": 10,
+          "label": "Inflation",
+          "influence": 0.566,
+          "outcome": false,
+          "support": 1.0
+        }
+      ],
+      "children": [
+        {
+          "uid": "DV",
+          "label": "Gold price",
+          "influence": 1.0,
+          "outcome": true,
           "support": 1.0
         }
       ]
@@ -185,30 +225,30 @@
       "id": "frag-6",
       "focal_uid": 6,
       "title": "Traders amplify the mood",
-      "insight": "Where the financial bets land. Real interest rates and geopolitical nerves push futures positioning, and that positioning flows into both the price and ETF holdings. It's the market's short-term accelerator \u2014 it doesn't set gold's direction on its own, it exaggerates whatever the rates-and-risk backdrop is already saying.",
+      "insight": "Where the financial bets land: real rates and geopolitical nerves push futures positioning, which flows into both the price and ETF holdings. A short-term accelerator \u2014 it exaggerates whatever the rates-and-risk backdrop is already saying rather than setting direction itself.",
       "role": "integrator",
-      "importance": 78,
-      "aci": 0.783,
+      "importance": 60,
+      "aci": 0.603,
       "focal": {
         "uid": 6,
         "label": "Futures / COMEX Positioning",
-        "influence": 0.864,
+        "influence": 0.793,
         "outcome": false
       },
       "parents": [
         {
           "uid": 2,
           "label": "Real Rates & Treasury Yields",
-          "influence": 0.288,
+          "influence": 0.269,
           "outcome": false,
-          "support": 1.0
+          "support": 0.9
         },
         {
           "uid": 9,
           "label": "Geopolitical Risk",
-          "influence": 0.542,
+          "influence": 0.552,
           "outcome": false,
-          "support": 1.0
+          "support": 0.9
         }
       ],
       "children": [
@@ -217,14 +257,14 @@
           "label": "Gold price",
           "influence": 1.0,
           "outcome": true,
-          "support": 1.0
+          "support": 0.9
         },
         {
           "uid": 5,
           "label": "Gold ETF / Investment Flows",
-          "influence": 0.644,
+          "influence": 0.648,
           "outcome": false,
-          "support": 0.625
+          "support": 0.5
         }
       ]
     },
@@ -232,28 +272,28 @@
       "id": "frag-15",
       "focal_uid": 15,
       "title": "Flight to safety",
-      "insight": "Gold's safe-haven engine. Rising recession odds and the level of real rates both run through financial stress, which lands on the price and on Chinese demand. It's the classic flight to safety \u2014 when growth wobbles and markets turn jittery, this channel carries the fear into gold.",
+      "insight": "Gold's safe-haven engine: rising recession odds and the level of real rates run through financial stress, landing on the price and on Chinese demand. The classic flight to safety \u2014 when growth wobbles and markets turn jittery, this channel carries the fear into gold.",
       "role": "mediator",
-      "importance": 51,
-      "aci": 0.508,
+      "importance": 58,
+      "aci": 0.577,
       "focal": {
         "uid": 15,
         "label": "Recession / Financial Stress",
-        "influence": 0.678,
+        "influence": 0.745,
         "outcome": false
       },
       "parents": [
         {
           "uid": 9,
           "label": "Geopolitical Risk",
-          "influence": 0.542,
+          "influence": 0.552,
           "outcome": false,
-          "support": 0.875
+          "support": 0.9
         },
         {
           "uid": 2,
           "label": "Real Rates & Treasury Yields",
-          "influence": 0.288,
+          "influence": 0.269,
           "outcome": false,
           "support": 0.5
         }
@@ -264,108 +304,46 @@
           "label": "Gold price",
           "influence": 1.0,
           "outcome": true,
-          "support": 0.875
+          "support": 0.9
         },
         {
           "uid": 7,
           "label": "Chinese Gold Demand",
-          "influence": 0.669,
+          "influence": 0.738,
           "outcome": false,
-          "support": 0.75
+          "support": 0.8
         }
       ]
     },
     {
-      "id": "frag-10",
-      "focal_uid": 10,
-      "title": "Why people hold gold at all",
-      "insight": "Geopolitical friction and swelling US deficits stoke inflation, and inflation works on gold two ways at once \u2014 directly, and by pushing on real interest rates and Chinese demand. It's the hinge between the fiscal-and-political backdrop and the rates that ultimately price gold.",
-      "role": "mediator",
-      "importance": 44,
-      "aci": 0.436,
+      "id": "frag-9",
+      "focal_uid": 9,
+      "title": "Where the fear starts",
+      "insight": "A true root cause \u2014 nothing upstream drives geopolitical risk, but it feeds the two big gold stories: it accelerates de-dollarization and pulls money into gold ETFs. When the world gets tense, this is the spark that sets the safe-haven chains moving.",
+      "role": "source",
+      "importance": 55,
+      "aci": 0.552,
       "focal": {
-        "uid": 10,
-        "label": "Inflation",
-        "influence": 0.517,
+        "uid": 9,
+        "label": "Geopolitical Risk",
+        "influence": 0.552,
         "outcome": false
       },
-      "parents": [
-        {
-          "uid": 9,
-          "label": "Geopolitical Risk",
-          "influence": 0.542,
-          "outcome": false,
-          "support": 0.875
-        },
-        {
-          "uid": 12,
-          "label": "US Fiscal Deficit & Debt",
-          "influence": 0.161,
-          "outcome": false,
-          "support": 0.5
-        }
-      ],
+      "parents": [],
       "children": [
-        {
-          "uid": 2,
-          "label": "Real Rates & Treasury Yields",
-          "influence": 0.288,
-          "outcome": false,
-          "support": 1.0
-        },
-        {
-          "uid": 7,
-          "label": "Chinese Gold Demand",
-          "influence": 0.669,
-          "outcome": false,
-          "support": 1.0
-        }
-      ]
-    },
-    {
-      "id": "frag-13",
-      "focal_uid": 13,
-      "title": "Global Sovereign Debt",
-      "insight": "",
-      "role": "integrator",
-      "importance": 33,
-      "aci": 0.334,
-      "focal": {
-        "uid": 13,
-        "label": "Global Sovereign Debt",
-        "influence": 0.466,
-        "outcome": false
-      },
-      "parents": [
-        {
-          "uid": 12,
-          "label": "US Fiscal Deficit & Debt",
-          "influence": 0.161,
-          "outcome": false,
-          "support": 0.75
-        },
-        {
-          "uid": 2,
-          "label": "Real Rates & Treasury Yields",
-          "influence": 0.288,
-          "outcome": false,
-          "support": 0.625
-        }
-      ],
-      "children": [
-        {
-          "uid": "DV",
-          "label": "Gold price",
-          "influence": 1.0,
-          "outcome": true,
-          "support": 0.875
-        },
         {
           "uid": 1,
           "label": "BRICS De-dollarization",
-          "influence": 0.983,
+          "influence": 0.993,
           "outcome": false,
-          "support": 0.625
+          "support": 1.0
+        },
+        {
+          "uid": 5,
+          "label": "Gold ETF / Investment Flows",
+          "influence": 0.648,
+          "outcome": false,
+          "support": 1.0
         }
       ]
     }

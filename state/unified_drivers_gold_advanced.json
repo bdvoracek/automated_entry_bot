@@ -10,7 +10,9 @@
     "UQ",
     "UR",
     "US",
-    "UT"
+    "UT",
+    "UU",
+    "UV"
   ],
   "unified": [
     {
@@ -109,6 +111,30 @@
             "rank": 2,
             "n_drivers": 15,
             "points": 13,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UU": [
+          {
+            "code": "DDT",
+            "name": "De-dollarization Trends",
+            "baseline": "Medium",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UV": [
+          {
+            "code": "BDDI",
+            "name": "BRICS De-dollarization Initiatives",
+            "baseline": "Medium",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15,
             "dir": 1,
             "invert": false
           }
@@ -255,6 +281,30 @@
             "dir": -1,
             "invert": false
           }
+        ],
+        "UU": [
+          {
+            "code": "URIR",
+            "name": "US Real Interest Rates",
+            "baseline": "High",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UV": [
+          {
+            "code": "RYUTN",
+            "name": "Real Yields on US Treasury Notes",
+            "baseline": "Medium",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4,
+            "dir": 1,
+            "invert": true
+          }
         ]
       },
       "mode_dir": -1
@@ -331,6 +381,30 @@
             "rank": 3,
             "n_drivers": 15,
             "points": 12,
+            "dir": 1,
+            "invert": true
+          }
+        ],
+        "UU": [
+          {
+            "code": "UFRPR",
+            "name": "US Federal Reserve Policy Rate",
+            "baseline": "Medium",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UV": [
+          {
+            "code": "UFRIRP",
+            "name": "US Federal Reserve Interest Rate Policy",
+            "baseline": "Medium",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1,
             "dir": 1,
             "invert": true
           }
@@ -447,6 +521,30 @@
             "dir": 1,
             "invert": false
           }
+        ],
+        "UU": [
+          {
+            "code": "CBGP",
+            "name": "Central Bank Gold Purchases",
+            "baseline": "Medium",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UV": [
+          {
+            "code": "GCBGP",
+            "name": "Global Central Bank Gold Purchases",
+            "baseline": "High",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12,
+            "dir": 1,
+            "invert": false
+          }
         ]
       },
       "mode_dir": 1
@@ -547,6 +645,30 @@
             "rank": 6,
             "n_drivers": 15,
             "points": 9,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UU": [
+          {
+            "code": "GEF",
+            "name": "Gold ETF Flows",
+            "baseline": "Medium",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UV": [
+          {
+            "code": "IDVGE",
+            "name": "Investment Demand via Gold ETFs",
+            "baseline": "High",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6,
             "dir": 1,
             "invert": false
           }
@@ -653,6 +775,18 @@
             "dir": 1,
             "invert": false
           }
+        ],
+        "UV": [
+          {
+            "code": "FMNP",
+            "name": "Futures Market Net Positioning",
+            "baseline": "High",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13,
+            "dir": 1,
+            "invert": false
+          }
         ]
       },
       "mode_dir": 1
@@ -756,6 +890,30 @@
             "dir": 1,
             "invert": false
           }
+        ],
+        "UU": [
+          {
+            "code": "CGD",
+            "name": "Chinese Gold Demand",
+            "baseline": "High",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UV": [
+          {
+            "code": "CRGD",
+            "name": "Chinese Retail Gold Demand",
+            "baseline": "High",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14,
+            "dir": 1,
+            "invert": false
+          }
         ]
       },
       "mode_dir": 1
@@ -840,6 +998,30 @@
           {
             "code": "IGIP",
             "name": "Indian Gold Import Policy",
+            "baseline": "Medium",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UU": [
+          {
+            "code": "IGD",
+            "name": "Indian Gold Demand",
+            "baseline": "Medium",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UV": [
+          {
+            "code": "IIDD",
+            "name": "Indian Import Duties and Demand",
             "baseline": "Medium",
             "rank": 10,
             "n_drivers": 15,
@@ -950,6 +1132,30 @@
             "dir": 1,
             "invert": false
           }
+        ],
+        "UU": [
+          {
+            "code": "GGR",
+            "name": "Global Geopolitical Risk",
+            "baseline": "High",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UV": [
+          {
+            "code": "GR",
+            "name": "Geopolitical Risk",
+            "baseline": "High",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7,
+            "dir": 1,
+            "invert": false
+          }
         ]
       },
       "mode_dir": 1
@@ -1050,6 +1256,40 @@
             "rank": 7,
             "n_drivers": 15,
             "points": 8,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UU": [
+          {
+            "code": "GIE",
+            "name": "Global Inflation Expectations",
+            "baseline": "High",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8,
+            "dir": 1,
+            "invert": false
+          },
+          {
+            "code": "UIR",
+            "name": "US Inflation Rate",
+            "baseline": "Medium",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UV": [
+          {
+            "code": "GIT",
+            "name": "Global Inflation Trends",
+            "baseline": "Medium",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10,
             "dir": 1,
             "invert": false
           }
@@ -1156,6 +1396,30 @@
             "dir": -1,
             "invert": false
           }
+        ],
+        "UU": [
+          {
+            "code": "UDI",
+            "name": "US Dollar Index",
+            "baseline": "Medium",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UV": [
+          {
+            "code": "UDIS",
+            "name": "US Dollar Index Strength",
+            "baseline": "High",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3,
+            "dir": 1,
+            "invert": true
+          }
         ]
       },
       "mode_dir": -1
@@ -1254,6 +1518,30 @@
             "rank": 14,
             "n_drivers": 15,
             "points": 1,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UU": [
+          {
+            "code": "UND",
+            "name": "US National Debt",
+            "baseline": "High",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UV": [
+          {
+            "code": "UFHDL",
+            "name": "US Fiscal Health and Debt Levels",
+            "baseline": "High",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2,
             "dir": 1,
             "invert": false
           }
@@ -1439,6 +1727,40 @@
             "dir": 1,
             "invert": false
           }
+        ],
+        "UU": [
+          {
+            "code": "GGMP",
+            "name": "Global Gold Mine Production",
+            "baseline": "Medium",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UV": [
+          {
+            "code": "GMC",
+            "name": "Gold Mining Costs",
+            "baseline": "High",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9,
+            "dir": 1,
+            "invert": false
+          },
+          {
+            "code": "GMPV",
+            "name": "Gold Mining Production Volumes",
+            "baseline": "Medium",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8,
+            "dir": 1,
+            "invert": false
+          }
         ]
       },
       "mode_dir": 1
@@ -1537,6 +1859,40 @@
             "rank": 8,
             "n_drivers": 15,
             "points": 7,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UU": [
+          {
+            "code": "GEG",
+            "name": "Global Economic Growth",
+            "baseline": "Medium",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11,
+            "dir": -1,
+            "invert": true
+          },
+          {
+            "code": "SP",
+            "name": "S&P 500 Performance",
+            "baseline": "Medium",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6,
+            "dir": -1,
+            "invert": true
+          }
+        ],
+        "UV": [
+          {
+            "code": "GEGO",
+            "name": "Global Economic Growth Outlook",
+            "baseline": "Medium",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11,
             "dir": 1,
             "invert": false
           }
