@@ -318,6 +318,8 @@ const CHEV={
 const STOPLBL={'-2':'strong down','-1':'down','0':'hold','1':'up','2':'strong up'};
 const STATES=["Negligible","Low","Medium","High","Extreme"];
 let MODEL=null, deltas={}, appliedDeltas={}, busy=false, sortMode='desc';
+let DEC=0;  // price decimals: 2 when the question trades low (e.g. GPU $/hr), else whole
+const dol=v=>'$'+(+v).toLocaleString(undefined,{minimumFractionDigits:DEC,maximumFractionDigits:DEC});
 
 const $=id=>document.getElementById(id);
 const QP = (new URLSearchParams(location.search).get('q')) || '';
@@ -329,6 +331,7 @@ const toast=m=>{const t=$('toast');t.textContent=m;t.classList.add('show');setTi
 
 async function boot(){
   MODEL=await (await fetch(api('/api/model'))).json();
+  DEC = (MODEL.spot!=null && Math.abs(MODEL.spot)<30) ? 2 : 0;
   $('q').textContent=MODEL.question;
   $('sub').innerHTML=`<b>${MODEL.tier}</b> · ${MODEL.n_models} models · <b>${MODEL.n_unified}</b> unified drivers · driver changes are free`;
   const qsel=$('qsel');
@@ -520,12 +523,12 @@ function renderDist(dist, base){
   const medLine=(p,cls,lab,ly)=>{const xx=sx(p).toFixed(1);
     return `<line class="med ${cls}" x1="${xx}" y1="${m.t}" x2="${xx}" y2="${H-m.b}"/>`+
            `<text class="medlab ${cls}" x="${xx}" y="${ly}" text-anchor="middle">${lab}</text>`;};
-  if(sB) ov+=medLine(sB.p50,'base',`$${sB.p50.toFixed(0)}`, m.t-15);
-  ov+=medLine(sA.p50,'', sB?`median → $${sA.p50.toFixed(0)}`:`median $${sA.p50.toFixed(0)}`, m.t-4);
+  if(sB) ov+=medLine(sB.p50,'base',`${dol(sB.p50)}`, m.t-15);
+  ov+=medLine(sA.p50,'', sB?`median → ${dol(sA.p50)}`:`median ${dol(sA.p50)}`, m.t-4);
   // "today" — current spot price plotted on the distribution
   if(MODEL.spot!=null){const sxx=sx(MODEL.spot).toFixed(1);
     ov+=`<line class="spot" x1="${sxx}" y1="${m.t-2}" x2="${sxx}" y2="${H-m.b}"/>`+
-        `<text class="spotlab" x="${sxx}" y="9" text-anchor="middle">◆ spot $${MODEL.spot.toLocaleString()}</text>`;}
+        `<text class="spotlab" x="${sxx}" y="9" text-anchor="middle">◆ spot ${dol(MODEL.spot)}</text>`;}
   $('cdf').innerHTML=g+`<path class="area" d="${curveA} Z"/>`+baseCurve+`<path class="curve" d="${curveA}"/>`+ov;
   renderDStats(sA,sB);
 }
@@ -533,7 +536,7 @@ function renderDist(dist, base){
 // the non-median values live here — a clean strip, current with "was X" on a shift
 function renderDStats(sA,sB){
   const dir=(c,o)=>c>o?'up':c<o?'down':'flat';
-  const money=(c,o)=>`$${c.toFixed(0)}`+(o!=null?` <small class="${dir(c,o)}">was $${o.toFixed(0)}</small>`:'');
+  const money=(c,o)=>`${dol(c)}`+(o!=null?` <small class="${dir(c,o)}">was ${dol(o)}</small>`:'');
   const pct=(c,o)=>{const f=x=>(x*100).toFixed(0)+'%';return f(c)+(o!=null?` <small class="${dir(c,o)}">was ${f(o)}</small>`:'');};
   const chip=(lab,val)=>`<div class="stat"><b>${lab}</b><span class="v">${val}</span></div>`;
   const lg=`<div class="lg"><i><span class="sw"></span>adjusted</i>${sB?'<i><span class="sw base"></span>before</i>':''}</div>`;
@@ -546,13 +549,13 @@ function setTakeaway(res){
   const el=$('takeaway');
   if(!res){
     const s=binStats(MODEL.baseline);
-    el.innerHTML=`No shifts applied — the <b>${MODEL.n_models}-model</b> ensemble baseline. Median <b>$${s.p50.toFixed(0)}</b>, with an 80% interval of <b>$${s.p10.toFixed(0)}</b> to <b>$${s.p90.toFixed(0)}</b> (P10–P90). Open <b>Drivers</b>, nudge a unified driver, and Apply to fan the change out to every model.`;
+    el.innerHTML=`No shifts applied — the <b>${MODEL.n_models}-model</b> ensemble baseline. Median <b>${dol(s.p50)}</b>, with an 80% interval of <b>${dol(s.p10)}</b> to <b>${dol(s.p90)}</b> (P10–P90). Open <b>Drivers</b>, nudge a unified driver, and Apply to fan the change out to every model.`;
     return;
   }
   const sB=binStats(res.baseline), sA=binStats(res.adjusted);
   const setLbl=Object.entries(deltas).filter(([,v])=>v!==0)
     .map(([u,v])=>`<b>${MODEL.drivers.find(d=>d.uid==u).name}</b> ${STOPLBL[v]}`).join(', ');
-  const arrow=(a,b)=>{const c=b>=a?'amber':'cool';return `$${a.toFixed(0)} → <span class="${c}">$${b.toFixed(0)}</span>`;};
+  const arrow=(a,b)=>{const c=b>=a?'amber':'cool';return `${dol(a)} → <span class="${c}">${dol(b)}</span>`;};
   const t=res.timings;
   el.innerHTML=`Shifting ${setLbl} moved the forecast. <b>Median</b> ${arrow(sB.p50,sA.p50)}, <b>P10</b> ${arrow(sB.p10,sA.p10)}, <b>P90</b> ${arrow(sB.p90,sA.p90)}. ${t.n_done}/${t.n_touched} models recomputed in ${t.total_s}s.`;
 }
