@@ -123,6 +123,21 @@
   .spinner{width:13px;height:13px;border:2px solid #ffffff44;border-top-color:#2a0f07;border-radius:50%;
     display:inline-block;vertical-align:-2px;margin-right:7px;animation:spin .7s linear infinite}
   @keyframes spin{to{transform:rotate(360deg)}}
+  /* waiting UX (screen 3): big card, rotating coral dot-ring + message */
+  .hidden{display:none!important}
+  .loading{min-height:352px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+  .dotspin{position:relative;width:48px;height:48px;margin-bottom:28px;animation:dotrot .8s linear infinite}
+  .dotspin i{position:absolute;top:50%;left:50%;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border-radius:50%;background:var(--coral)}
+  .dotspin i:nth-child(1){transform:rotate(0deg)   translateY(-17px);opacity:1}
+  .dotspin i:nth-child(2){transform:rotate(45deg)  translateY(-17px);opacity:.9}
+  .dotspin i:nth-child(3){transform:rotate(90deg)  translateY(-17px);opacity:.8}
+  .dotspin i:nth-child(4){transform:rotate(135deg) translateY(-17px);opacity:.64}
+  .dotspin i:nth-child(5){transform:rotate(180deg) translateY(-17px);opacity:.5}
+  .dotspin i:nth-child(6){transform:rotate(225deg) translateY(-17px);opacity:.38}
+  .dotspin i:nth-child(7){transform:rotate(270deg) translateY(-17px);opacity:.28}
+  .dotspin i:nth-child(8){transform:rotate(315deg) translateY(-17px);opacity:.2}
+  @keyframes dotrot{to{transform:rotate(360deg)}}
+  .loadmsg{font-size:17px;color:var(--ink);line-height:1.7;margin:0}
   .toast{position:fixed;left:50%;bottom:88px;transform:translateX(-50%) translateY(16px);opacity:0;
     background:#2a1512;color:var(--coral);border:1px solid #5a2a20;padding:10px 16px;border-radius:10px;
     font-size:13px;font-weight:600;transition:.2s;pointer-events:none}
@@ -152,17 +167,23 @@
 
   <!-- OUTCOME -->
   <section class="view" id="view-outcome">
-    <div class="split">
-      <div class="card pane">
-        <div class="pane-h">Unified categorical probabilities</div>
-        <div class="bars" id="bars"></div>
-      </div>
-      <div class="card pane">
-        <div class="pane-h">Unified density · price on 28 Aug 2026</div>
-        <svg class="cdf" id="cdf" viewBox="0 0 440 300" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Probability density with tails"></svg>
-      </div>
+    <div class="card loading hidden" id="loading">
+      <div class="dotspin"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <p class="loadmsg">Your model is updating.<br>This will take a few moments.</p>
     </div>
-    <div class="takeaway"><h2>Take away</h2><p id="takeaway">…</p></div>
+    <div id="outcome-content">
+      <div class="split">
+        <div class="card pane">
+          <div class="pane-h">Unified categorical probabilities</div>
+          <div class="bars" id="bars"></div>
+        </div>
+        <div class="card pane">
+          <div class="pane-h">Unified density · price on 28 Aug 2026</div>
+          <svg class="cdf" id="cdf" viewBox="0 0 440 300" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Probability density with tails"></svg>
+        </div>
+      </div>
+      <div class="takeaway"><h2>Take away</h2><p id="takeaway">…</p></div>
+    </div>
   </section>
 
   <!-- DRIVERS -->
@@ -191,7 +212,7 @@
 <script>
 const STOPS=[-2,-1,0,1,2];
 const STATES=["Negligible","Low","Medium","High","Extreme"];
-let MODEL=null, deltas={}, busy=false, sortMode='desc';
+let MODEL=null, deltas={}, appliedDeltas={}, busy=false, sortMode='desc';
 
 const $=id=>document.getElementById(id);
 const fmtpp=v=>(v>=0?'+':'')+(v*100).toFixed(1)+'pp';
@@ -203,7 +224,7 @@ async function boot(){
   MODEL=await (await fetch('/api/model')).json();
   $('q').textContent=MODEL.question;
   $('sub').innerHTML=`<b>${MODEL.tier}</b> · ${MODEL.n_models} models · <b>${MODEL.n_unified}</b> unified drivers · driver changes are free`;
-  MODEL.drivers.forEach(d=>deltas[d.uid]=0);
+  MODEL.drivers.forEach(d=>{deltas[d.uid]=0;appliedDeltas[d.uid]=0;});
   renderBars(MODEL.baseline,null); renderDist(MODEL.baseline,null); setTakeaway(null);
   renderDrivers();
   $('sort').onchange=e=>{sortMode=e.target.value;renderDrivers();};
@@ -322,37 +343,50 @@ function renderDrivers(){
   });
 }
 
+function showLoading(b){
+  $('loading').classList.toggle('hidden',!b);
+  $('outcome-content').classList.toggle('hidden',b);
+}
 function refreshPending(){
-  const n=Object.values(deltas).filter(v=>v!==0).length;
-  $('apply').disabled=n===0||busy;
-  $('pending').innerHTML=n?`<b>${n}</b> driver${n>1?'s':''} shifted — not yet applied`:'';
+  if(busy) return;                          // status line owns the message while recomputing
+  // "pending" = drivers whose current shift differs from what was last applied
+  const unapplied=MODEL.drivers.filter(d=>(deltas[d.uid]||0)!==(appliedDeltas[d.uid]||0)).length;
+  const active=Object.values(deltas).filter(v=>v!==0).length;
+  $('apply').disabled=unapplied===0||busy;
+  $('pending').innerHTML = unapplied
+    ? `<b>${unapplied}</b> change${unapplied>1?'s':''} not yet applied`
+    : (active?`<b>${active}</b> driver${active>1?'s':''} shifted · applied`:'');
 }
 
 $('apply').onclick=async()=>{
   const active=Object.fromEntries(Object.entries(deltas).filter(([,v])=>v!==0));
   if(!Object.keys(active).length)return;
+  switchView('outcome'); showLoading(true);         // flick to Outcome + waiting UX immediately
   setBusy(true,`<span class="spinner"></span>recomputing ${MODEL.n_models} models…`);
   $('status').textContent='recomputing…';$('status').classList.add('live');
   try{
     const r=await (await fetch('/api/move',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({deltas:active})})).json();
-    if(r.error){toast(r.error);setBusy(false);$('status').textContent='error';return;}
+    if(r.error){toast(r.error);showLoading(false);setBusy(false);$('status').textContent='error';return;}
     renderBars(r.adjusted,r.baseline); renderDist(r.adjusted,r.baseline); setTakeaway(r);
+    appliedDeltas={...deltas};                       // this setting is now the applied state
+    showLoading(false);                              // reveal the fresh answers
     $('status').textContent=`adjusted · ${r.timings.n_done}/${r.timings.n_touched} in ${r.timings.total_s}s`;
     $('status').classList.add('live');
-    switchView('outcome');
-  }catch(e){toast('request failed: '+e);}
+  }catch(e){showLoading(false);toast('request failed: '+e);}
   setBusy(false);
 };
 
 $('reset').onclick=async()=>{
+  switchView('outcome'); showLoading(true);
   setBusy(true,`<span class="spinner"></span>resetting to baseline…`);
   try{
     const r=await (await fetch('/api/reset',{method:'POST'})).json();
     if(r.baseline)MODEL.baseline=r.baseline;
-    MODEL.drivers.forEach(d=>deltas[d.uid]=0);
+    MODEL.drivers.forEach(d=>{deltas[d.uid]=0;appliedDeltas[d.uid]=0;});
     renderDrivers(); renderBars(MODEL.baseline,null); renderDist(MODEL.baseline,null); setTakeaway(null);
+    showLoading(false);
     $('status').textContent='baseline';$('status').classList.remove('live');
-  }catch(e){toast('reset failed: '+e);}
+  }catch(e){showLoading(false);toast('reset failed: '+e);}
   setBusy(false);
 };
 
