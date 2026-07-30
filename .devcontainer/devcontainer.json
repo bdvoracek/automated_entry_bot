@@ -1,0 +1,13 @@
+{
+  "name": "automated_entry_bot",
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "forwardPorts": [8765],
+  "portsAttributes": {
+    "8765": {
+      "label": "Meta Mode UI",
+      "visibility": "public",
+      "onAutoForward": "silent"
+    }
+  },
+  "postStartCommand": "bash .devcontainer/start-meta-ui.sh"
+}
