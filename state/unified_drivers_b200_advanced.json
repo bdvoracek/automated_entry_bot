@@ -1,0 +1,1349 @@
+{
+  "question_id": "b200-2026-12-31",
+  "tier": "Advanced",
+  "n_unified": 15,
+  "models": [
+    "UW",
+    "UX",
+    "UY",
+    "UZ",
+    "Ua",
+    "Uc",
+    "Uf"
+  ],
+  "unified": [
+    {
+      "uid": 1,
+      "name": "NVIDIA B200 Supply & Yields",
+      "members": {
+        "UX": [
+          {
+            "code": "BAPY",
+            "name": "Blackwell Architecture Production Yields",
+            "baseline": "High",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15,
+            "dir": -1,
+            "invert": false
+          },
+          {
+            "code": "NBPV",
+            "name": "NVIDIA B200 Production Volume",
+            "baseline": "High",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UY": [
+          {
+            "code": "BGSC",
+            "name": "Blackwell GPU Supply Constraints",
+            "baseline": "High",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UZ": [
+          {
+            "code": "GSNBG",
+            "name": "Global Supply of NVIDIA B200 GPUs",
+            "baseline": "High",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11,
+            "dir": -1,
+            "invert": false
+          },
+          {
+            "code": "NBBYR",
+            "name": "NVIDIA Blackwell B200 Yield Rates",
+            "baseline": "High",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Ua": [
+          {
+            "code": "BUSSV",
+            "name": "Blackwell Ultra Successor Supply Volume",
+            "baseline": "Low",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15,
+            "dir": -1,
+            "invert": false
+          },
+          {
+            "code": "GASBC",
+            "name": "Global Aggregate Supply of Blackwell Chips",
+            "baseline": "Medium",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12,
+            "dir": -1,
+            "invert": false
+          },
+          {
+            "code": "NBPYR",
+            "name": "NVIDIA B200 Production Yield Rates",
+            "baseline": "High",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uc": [
+          {
+            "code": "NBPC",
+            "name": "NVIDIA B200 Production Capacity",
+            "baseline": "High",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uf": [
+          {
+            "code": "BAPY",
+            "name": "Blackwell Architecture Production Yield",
+            "baseline": "High",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14,
+            "dir": -1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": -1
+    },
+    {
+      "uid": 2,
+      "name": "Next-Gen Architecture (Rubin)",
+      "members": {
+        "UW": [
+          {
+            "code": "AAGU",
+            "name": "AI Architecture Generational Upgrades",
+            "baseline": "Medium",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UX": [
+          {
+            "code": "RNRA",
+            "name": "Release of NVIDIA Rubin Architecture",
+            "baseline": "High",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UY": [
+          {
+            "code": "NGNGA",
+            "name": "Next Generation NVIDIA GPU Architecture",
+            "baseline": "Medium",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UZ": [
+          {
+            "code": "NRRAR",
+            "name": "NVIDIA Rubin R100 Architecture Release",
+            "baseline": "Low",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Ua": [
+          {
+            "code": "NRAR",
+            "name": "NVIDIA Rubin Architecture Release",
+            "baseline": "Medium",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uc": [
+          {
+            "code": "NGGAR",
+            "name": "Next Generation GPU Architecture Release",
+            "baseline": "Low",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uf": [
+          {
+            "code": "NGAR",
+            "name": "Next Generation Architecture Release",
+            "baseline": "Extreme",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5,
+            "dir": -1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": -1
+    },
+    {
+      "uid": 3,
+      "name": "Foundry & Packaging (TSMC/CoWoS)",
+      "members": {
+        "UW": [
+          {
+            "code": "FCYR",
+            "name": "Foundry Capacity and Yield Rates",
+            "baseline": "High",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UX": [
+          {
+            "code": "GSMC",
+            "name": "Global Semiconductor Manufacturing Capacity",
+            "baseline": "Medium",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UY": [
+          {
+            "code": "ASPC",
+            "name": "Advanced Semiconductor Packaging Capacity",
+            "baseline": "High",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15,
+            "dir": -1,
+            "invert": false
+          },
+          {
+            "code": "TMC",
+            "name": "TSMC Manufacturing Capacity",
+            "baseline": "Medium",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UZ": [
+          {
+            "code": "TPC",
+            "name": "TSMC Packaging Capacity",
+            "baseline": "High",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3,
+            "dir": -1,
+            "invert": false
+          },
+          {
+            "code": "TWAPY",
+            "name": "TSMC Wafer Allocation and Process Yields",
+            "baseline": "High",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Ua": [
+          {
+            "code": "TCPC",
+            "name": "TSMC CoWoS Packaging Capacity",
+            "baseline": "High",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uc": [
+          {
+            "code": "TAPC",
+            "name": "TSMC Advanced Packaging Capacity",
+            "baseline": "High",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uf": [
+          {
+            "code": "APC",
+            "name": "Advanced Packaging Capacity",
+            "baseline": "Low",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15,
+            "dir": -1,
+            "invert": false
+          },
+          {
+            "code": "SSCC",
+            "name": "Semiconductor Supply Chain Constraints",
+            "baseline": "High",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2,
+            "dir": -1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": -1
+    },
+    {
+      "uid": 4,
+      "name": "HBM Memory Supply",
+      "members": {
+        "UW": [
+          {
+            "code": "HSP",
+            "name": "HBM Supply and Pricing",
+            "baseline": "Medium",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UX": [
+          {
+            "code": "MSCS",
+            "name": "Memory Supply Chain Stability",
+            "baseline": "Medium",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UY": [
+          {
+            "code": "HMSC",
+            "name": "HBM Memory Supply Chain",
+            "baseline": "High",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UZ": [
+          {
+            "code": "HMSA",
+            "name": "HBM Memory Supply Availability",
+            "baseline": "Medium",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Ua": [
+          {
+            "code": "GHPY",
+            "name": "Global HBM4 Production Yields",
+            "baseline": "Low",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9,
+            "dir": -1,
+            "invert": false
+          },
+          {
+            "code": "HMSV",
+            "name": "HBM3e Memory Supply Volume",
+            "baseline": "High",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uc": [
+          {
+            "code": "HPYS",
+            "name": "HBM Production Yields and Supply",
+            "baseline": "High",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uf": [
+          {
+            "code": "MSA",
+            "name": "Memory Supply Availability",
+            "baseline": "Medium",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6,
+            "dir": -1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": -1
+    },
+    {
+      "uid": 5,
+      "name": "Internal Silicon Substitution",
+      "members": {
+        "UW": [
+          {
+            "code": "ISSR",
+            "name": "Internal Silicon Substitution Rate",
+            "baseline": "Low",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UX": [
+          {
+            "code": "HISS",
+            "name": "Hyperscaler Internal Silicon Substitution",
+            "baseline": "Low",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UY": [
+          {
+            "code": "CPISA",
+            "name": "Cloud Provider Internal Silicon Adoption",
+            "baseline": "Medium",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uc": [
+          {
+            "code": "HISS",
+            "name": "Hyperscaler Internal Silicon Substitution",
+            "baseline": "Low",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8,
+            "dir": -1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": -1
+    },
+    {
+      "uid": 6,
+      "name": "Competition (AMD / Alt Accelerators)",
+      "members": {
+        "UW": [
+          {
+            "code": "AGAA",
+            "name": "Alternative GPU Accelerator Availability",
+            "baseline": "Low",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UX": [
+          {
+            "code": "CFRGM",
+            "name": "Competition from Rival GPU Manufacturers",
+            "baseline": "Medium",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UY": [
+          {
+            "code": "CGO",
+            "name": "Competitive GPU Offerings",
+            "baseline": "Medium",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UZ": [
+          {
+            "code": "AIMSC",
+            "name": "AMD Instinct MI400 Series Competition",
+            "baseline": "Low",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Ua": [
+          {
+            "code": "CPFAIG",
+            "name": "Competitive Pressure from AMD Instinct GPUs",
+            "baseline": "Medium",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uc": [
+          {
+            "code": "CGP",
+            "name": "Competitive GPU Performance",
+            "baseline": "High",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uf": [
+          {
+            "code": "CPAIG",
+            "name": "Competitive Performance of AMD Instinct GPUs",
+            "baseline": "Low",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13,
+            "dir": -1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": -1
+    },
+    {
+      "uid": 7,
+      "name": "Secondary Market (Legacy GPU)",
+      "members": {
+        "UW": [
+          {
+            "code": "SML",
+            "name": "Secondary Market Liquidity",
+            "baseline": "Medium",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UX": [
+          {
+            "code": "SMSLG",
+            "name": "Secondary Market Supply of Legacy GPUs",
+            "baseline": "Medium",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UY": [
+          {
+            "code": "SMALG",
+            "name": "Secondary Market Availability of Legacy GPUs",
+            "baseline": "Medium",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UZ": [
+          {
+            "code": "SMGL",
+            "name": "Secondary Market GPU Liquidity",
+            "baseline": "Medium",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Ua": [
+          {
+            "code": "SMGA",
+            "name": "Secondary Market GPU Availability",
+            "baseline": "Medium",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uc": [
+          {
+            "code": "SMGS",
+            "name": "Secondary Market GPU Supply",
+            "baseline": "Medium",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uf": [
+          {
+            "code": "SML",
+            "name": "Secondary Market Liquidity",
+            "baseline": "High",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3,
+            "dir": -1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": -1
+    },
+    {
+      "uid": 8,
+      "name": "AI Funding (VC & Sovereign)",
+      "members": {
+        "UW": [
+          {
+            "code": "SAI",
+            "name": "Sovereign AI Initiatives",
+            "baseline": "High",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UY": [
+          {
+            "code": "VCFAS",
+            "name": "Venture Capital Funding for AI Startups",
+            "baseline": "Low",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UZ": [
+          {
+            "code": "SAPV",
+            "name": "Sovereign AI Procurement Volume",
+            "baseline": "Medium",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "Ua": [
+          {
+            "code": "VCFAS",
+            "name": "Venture Capital Funding for AI Startups",
+            "baseline": "High",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "Uc": [
+          {
+            "code": "ASF",
+            "name": "AI Startup Funding",
+            "baseline": "Medium",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "Uf": [
+          {
+            "code": "SAI",
+            "name": "Sovereign AI Initiatives",
+            "baseline": "Medium",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4,
+            "dir": 1,
+            "invert": false
+          },
+          {
+            "code": "VCFA",
+            "name": "Venture Capital Funding for AI",
+            "baseline": "High",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1,
+            "dir": 1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": 1
+    },
+    {
+      "uid": 9,
+      "name": "Model Efficiency / Quantization",
+      "members": {
+        "UW": [
+          {
+            "code": "MEQT",
+            "name": "Model Efficiency and Quantization Trends",
+            "baseline": "Low",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uc": [
+          {
+            "code": "GIE",
+            "name": "GPU Inference Efficiency",
+            "baseline": "Medium",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10,
+            "dir": -1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": -1
+    },
+    {
+      "uid": 10,
+      "name": "AI Compute Demand",
+      "members": {
+        "UW": [
+          {
+            "code": "GDMT",
+            "name": "Global Demand for Model Training",
+            "baseline": "High",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UX": [
+          {
+            "code": "ODAMW",
+            "name": "Overall Demand for AI and ML Workloads",
+            "baseline": "Extreme",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UY": [
+          {
+            "code": "GACD",
+            "name": "Global AI Compute Demand",
+            "baseline": "High",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UZ": [
+          {
+            "code": "ADAW",
+            "name": "Aggregate Demand for AI Workloads",
+            "baseline": "High",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "Ua": [
+          {
+            "code": "GACD",
+            "name": "Global AI Compute Demand",
+            "baseline": "High",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13,
+            "dir": 1,
+            "invert": false
+          },
+          {
+            "code": "ITDR",
+            "name": "Inference to Training Demand Ratio",
+            "baseline": "High",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "Uc": [
+          {
+            "code": "GACD",
+            "name": "Global AI Compute Demand",
+            "baseline": "High",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "Uf": [
+          {
+            "code": "GACD",
+            "name": "Global AI Compute Demand",
+            "baseline": "Extreme",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10,
+            "dir": 1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": 1
+    },
+    {
+      "uid": 11,
+      "name": "Hyperscaler Capex & Cloud Pricing",
+      "members": {
+        "UW": [
+          {
+            "code": "CSPPS",
+            "name": "Cloud Service Provider Pricing Strategies",
+            "baseline": "Medium",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UX": [
+          {
+            "code": "CPCE",
+            "name": "Cloud Provider Capacity Expansion",
+            "baseline": "High",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UY": [
+          {
+            "code": "CPPS",
+            "name": "Cloud Provider Pricing Strategies",
+            "baseline": "Medium",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UZ": [
+          {
+            "code": "CPPS",
+            "name": "Cloud Provider Pricing Strategies",
+            "baseline": "Negligible",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13,
+            "dir": 1,
+            "invert": false
+          },
+          {
+            "code": "HCET",
+            "name": "Hyperscaler Capital Expenditure Trends",
+            "baseline": "High",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "Ua": [
+          {
+            "code": "HCET",
+            "name": "Hyperscaler Capital Expenditure Trends",
+            "baseline": "Extreme",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "Uf": [
+          {
+            "code": "CPPS",
+            "name": "Cloud Provider Pricing Strategies",
+            "baseline": "Extreme",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12,
+            "dir": 1,
+            "invert": false
+          },
+          {
+            "code": "HCET",
+            "name": "Hyperscaler Capital Expenditure Trends",
+            "baseline": "High",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7,
+            "dir": 1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": 1
+    },
+    {
+      "uid": 12,
+      "name": "Export Controls & Geopolitics",
+      "members": {
+        "UW": [
+          {
+            "code": "ERTP",
+            "name": "Export Restrictions and Trade Policies",
+            "baseline": "Medium",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UX": [
+          {
+            "code": "GTASC",
+            "name": "Geopolitical Tensions Affecting Supply Chains",
+            "baseline": "Medium",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9,
+            "dir": 1,
+            "invert": false
+          },
+          {
+            "code": "UECR",
+            "name": "US Export Control Restrictions",
+            "baseline": "High",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UY": [
+          {
+            "code": "GT",
+            "name": "Geopolitical Tensions",
+            "baseline": "Medium",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8,
+            "dir": 1,
+            "invert": false
+          },
+          {
+            "code": "SEC",
+            "name": "Semiconductor Export Controls",
+            "baseline": "Medium",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UZ": [
+          {
+            "code": "UECR",
+            "name": "US Export Control Restrictions",
+            "baseline": "High",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "Ua": [
+          {
+            "code": "GER",
+            "name": "Geopolitical Export Restrictions",
+            "baseline": "Medium",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "Uc": [
+          {
+            "code": "GTAT",
+            "name": "Geopolitical Tensions Affecting Trade",
+            "baseline": "High",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9,
+            "dir": 1,
+            "invert": false
+          },
+          {
+            "code": "UECR",
+            "name": "US Export Control Regulations",
+            "baseline": "High",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "Uf": [
+          {
+            "code": "GER",
+            "name": "Geopolitical Export Restrictions",
+            "baseline": "Medium",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9,
+            "dir": 1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": 1
+    },
+    {
+      "uid": 13,
+      "name": "Energy Costs",
+      "members": {
+        "UW": [
+          {
+            "code": "ECPGS",
+            "name": "Energy Costs and Power Grid Stability",
+            "baseline": "Medium",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UX": [
+          {
+            "code": "ECV",
+            "name": "Energy Cost Volatility",
+            "baseline": "Low",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UY": [
+          {
+            "code": "DCEC",
+            "name": "Data Center Electricity Costs",
+            "baseline": "Low",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UZ": [
+          {
+            "code": "EEC",
+            "name": "Electricity and Energy Costs",
+            "baseline": "Medium",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "Ua": [
+          {
+            "code": "GEP",
+            "name": "Global Electricity Pricing",
+            "baseline": "High",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "Uc": [
+          {
+            "code": "DCEC",
+            "name": "Data Center Energy Costs",
+            "baseline": "Medium",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "Uf": [
+          {
+            "code": "DCEP",
+            "name": "Data Center Electricity Prices",
+            "baseline": "Medium",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11,
+            "dir": 1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": 1
+    },
+    {
+      "uid": 14,
+      "name": "Data Center Power & Cooling",
+      "members": {
+        "UW": [
+          {
+            "code": "DCICC",
+            "name": "Data Center Infrastructure and Cooling Capacity",
+            "baseline": "Medium",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UX": [
+          {
+            "code": "DCPA",
+            "name": "Data Center Power Availability",
+            "baseline": "Low",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uc": [
+          {
+            "code": "DCPCC",
+            "name": "Data Center Power and Cooling Capacity",
+            "baseline": "High",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12,
+            "dir": -1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": -1
+    },
+    {
+      "uid": 15,
+      "name": "Interest Rates & Macro",
+      "members": {
+        "UW": [
+          {
+            "code": "IRCC",
+            "name": "Interest Rates and Capital Costs",
+            "baseline": "Medium",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6,
+            "dir": -1,
+            "invert": false
+          },
+          {
+            "code": "MGIB",
+            "name": "Macroeconomic Growth and IT Budgets",
+            "baseline": "Low",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UX": [
+          {
+            "code": "IRCC",
+            "name": "Interest Rates and Cost of Capital",
+            "baseline": "Low",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UY": [
+          {
+            "code": "MIR",
+            "name": "Macroeconomic Interest Rates",
+            "baseline": "Low",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UZ": [
+          {
+            "code": "IRE",
+            "name": "Interest Rate Environment",
+            "baseline": "Medium",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uc": [
+          {
+            "code": "MIR",
+            "name": "Macroeconomic Interest Rates",
+            "baseline": "Medium",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uf": [
+          {
+            "code": "GIR",
+            "name": "Global Interest Rates",
+            "baseline": "Medium",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8,
+            "dir": -1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": -1
+    }
+  ]
+}

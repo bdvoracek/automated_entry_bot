@@ -1,0 +1,358 @@
+{
+  "question_id": "b200-2026-12-31",
+  "tier": "Advanced",
+  "drivers": {
+    "1": {
+      "ci": 0.997,
+      "reach": 0.997,
+      "role": "integrator",
+      "betweenness": 2.5
+    },
+    "2": {
+      "ci": 0.408,
+      "reach": 1.0,
+      "role": "driver",
+      "betweenness": 0.0
+    },
+    "3": {
+      "ci": 0.602,
+      "reach": 1.0,
+      "role": "driver",
+      "betweenness": 0.0
+    },
+    "4": {
+      "ci": 0.563,
+      "reach": 1.0,
+      "role": "driver",
+      "betweenness": 0.0
+    },
+    "5": {
+      "ci": 0.183,
+      "reach": 0.571,
+      "role": "driver",
+      "betweenness": 0.0
+    },
+    "6": {
+      "ci": 0.932,
+      "reach": 1.0,
+      "role": "integrator",
+      "betweenness": 3.33
+    },
+    "7": {
+      "ci": 0.184,
+      "reach": 1.0,
+      "role": "integrator",
+      "betweenness": 0.33
+    },
+    "8": {
+      "ci": 0.276,
+      "reach": 0.98,
+      "role": "driver",
+      "betweenness": 3.5
+    },
+    "9": {
+      "ci": 0.0,
+      "reach": 0.0,
+      "role": "source",
+      "betweenness": 0.0
+    },
+    "10": {
+      "ci": 0.738,
+      "reach": 1.0,
+      "role": "mediator",
+      "betweenness": 15.33
+    },
+    "11": {
+      "ci": 0.724,
+      "reach": 0.857,
+      "role": "sink",
+      "betweenness": 0.0
+    },
+    "12": {
+      "ci": 0.602,
+      "reach": 1.0,
+      "role": "source",
+      "betweenness": 0.0
+    },
+    "13": {
+      "ci": 0.767,
+      "reach": 1.0,
+      "role": "driver",
+      "betweenness": 0.0
+    },
+    "14": {
+      "ci": 0.15,
+      "reach": 0.429,
+      "role": "driver",
+      "betweenness": 0.0
+    },
+    "15": {
+      "ci": 0.425,
+      "reach": 0.995,
+      "role": "source",
+      "betweenness": 0.0
+    }
+  },
+  "fragments": [
+    {
+      "id": "frag-6",
+      "focal_uid": 6,
+      "title": "Rivals cap the price",
+      "insight": "Competing accelerators \u2014 AMD's Instinct line and cloud providers' own chips \u2014 set how much Nvidia can charge for a B200-hour. AI demand and the looming next generation both push on it, and it feeds straight into the price and the second-hand market. When competition heats up, the B200 loses pricing power.",
+      "role": "integrator",
+      "importance": 100,
+      "aci": 0.865,
+      "focal": {
+        "uid": 6,
+        "label": "Competition (AMD / Alt Accelerators)",
+        "influence": 0.932,
+        "outcome": false
+      },
+      "parents": [
+        {
+          "uid": 10,
+          "label": "AI Compute Demand",
+          "influence": 0.738,
+          "outcome": false,
+          "support": 1.0
+        },
+        {
+          "uid": 2,
+          "label": "Next-Gen Architecture (Rubin)",
+          "influence": 0.408,
+          "outcome": false,
+          "support": 0.857
+        }
+      ],
+      "children": [
+        {
+          "uid": "DV",
+          "label": "B200 price",
+          "influence": 1.0,
+          "outcome": true,
+          "support": 1.0
+        },
+        {
+          "uid": 7,
+          "label": "Secondary Market (Legacy GPU)",
+          "influence": 0.184,
+          "outcome": false,
+          "support": 0.857
+        }
+      ]
+    },
+    {
+      "id": "frag-1",
+      "focal_uid": 1,
+      "title": "How many chips reach the market",
+      "insight": "Blackwell output is the supply hinge: it depends on TSMC packaging and HBM memory upstream and lands directly on the price \u2014 ample supply eases it, shortages spike it. Everything supply-side funnels through B200 availability, which is why it sits at the centre of the map.",
+      "role": "integrator",
+      "importance": 95,
+      "aci": 0.819,
+      "focal": {
+        "uid": 1,
+        "label": "NVIDIA B200 Supply & Yields",
+        "influence": 1.0,
+        "outcome": false
+      },
+      "parents": [
+        {
+          "uid": 3,
+          "label": "Foundry & Packaging (TSMC/CoWoS)",
+          "influence": 0.602,
+          "outcome": false,
+          "support": 0.857
+        },
+        {
+          "uid": 4,
+          "label": "HBM Memory Supply",
+          "influence": 0.563,
+          "outcome": false,
+          "support": 0.857
+        }
+      ],
+      "children": [
+        {
+          "uid": "DV",
+          "label": "B200 price",
+          "influence": 1.0,
+          "outcome": true,
+          "support": 0.857
+        },
+        {
+          "uid": 6,
+          "label": "Competition (AMD / Alt Accelerators)",
+          "influence": 0.932,
+          "outcome": false,
+          "support": 0.714
+        }
+      ]
+    },
+    {
+      "id": "frag-11",
+      "focal_uid": 11,
+      "title": "The buyers set the clearing price",
+      "insight": "The big cloud providers' capex and their rental pricing are where competition and AI demand come to rest \u2014 a demand sink that turns the whole backdrop into the price you actually pay per GPU-hour.",
+      "role": "sink",
+      "importance": 72,
+      "aci": 0.621,
+      "focal": {
+        "uid": 11,
+        "label": "Hyperscaler Capex & Cloud Pricing",
+        "influence": 0.845,
+        "outcome": false
+      },
+      "parents": [
+        {
+          "uid": 6,
+          "label": "Competition (AMD / Alt Accelerators)",
+          "influence": 0.932,
+          "outcome": false,
+          "support": 0.857
+        },
+        {
+          "uid": 10,
+          "label": "AI Compute Demand",
+          "influence": 0.738,
+          "outcome": false,
+          "support": 0.857
+        }
+      ],
+      "children": [
+        {
+          "uid": "DV",
+          "label": "B200 price",
+          "influence": 1.0,
+          "outcome": true,
+          "support": 0.857
+        }
+      ]
+    },
+    {
+      "id": "frag-12",
+      "focal_uid": 12,
+      "title": "A wildcard from Washington and Beijing",
+      "insight": "Export restrictions are a root cause \u2014 nothing upstream drives them \u2014 but they reshape where chips can flow, pushing supply into the second-hand market and moving the price. A stroke of policy can tighten or loosen the market overnight.",
+      "role": "source",
+      "importance": 70,
+      "aci": 0.602,
+      "focal": {
+        "uid": 12,
+        "label": "Export Controls & Geopolitics",
+        "influence": 0.602,
+        "outcome": false
+      },
+      "parents": [],
+      "children": [
+        {
+          "uid": 7,
+          "label": "Secondary Market (Legacy GPU)",
+          "influence": 0.184,
+          "outcome": false,
+          "support": 1.0
+        },
+        {
+          "uid": "DV",
+          "label": "B200 price",
+          "influence": 1.0,
+          "outcome": true,
+          "support": 1.0
+        }
+      ]
+    },
+    {
+      "id": "frag-10",
+      "focal_uid": 10,
+      "title": "The demand engine",
+      "insight": "Demand for training and inference \u2014 fed by AI funding and the cost of capital \u2014 is the mediator the whole graph routes through, pushing on competition and the second-hand market. Hot demand keeps B200s scarce and pricey; a cooldown does the opposite.",
+      "role": "mediator",
+      "importance": 67,
+      "aci": 0.58,
+      "focal": {
+        "uid": 10,
+        "label": "AI Compute Demand",
+        "influence": 0.738,
+        "outcome": false
+      },
+      "parents": [
+        {
+          "uid": 8,
+          "label": "AI Funding (VC & Sovereign)",
+          "influence": 0.282,
+          "outcome": false,
+          "support": 0.571
+        },
+        {
+          "uid": 15,
+          "label": "Interest Rates & Macro",
+          "influence": 0.427,
+          "outcome": false,
+          "support": 0.571
+        }
+      ],
+      "children": [
+        {
+          "uid": 6,
+          "label": "Competition (AMD / Alt Accelerators)",
+          "influence": 0.932,
+          "outcome": false,
+          "support": 1.0
+        },
+        {
+          "uid": 7,
+          "label": "Secondary Market (Legacy GPU)",
+          "influence": 0.184,
+          "outcome": false,
+          "support": 1.0
+        }
+      ]
+    },
+    {
+      "id": "frag-13",
+      "focal_uid": 13,
+      "title": "What a GPU-hour costs to run",
+      "insight": "Power prices \u2014 driven by AI straining the grid and by geopolitics \u2014 flow into both the rental price and hyperscaler economics. Electricity is an ever-larger slice of what a B200-hour actually costs to deliver.",
+      "role": "driver",
+      "importance": 63,
+      "aci": 0.548,
+      "focal": {
+        "uid": 13,
+        "label": "Energy Costs",
+        "influence": 0.767,
+        "outcome": false
+      },
+      "parents": [
+        {
+          "uid": 10,
+          "label": "AI Compute Demand",
+          "influence": 0.738,
+          "outcome": false,
+          "support": 0.571
+        },
+        {
+          "uid": 12,
+          "label": "Export Controls & Geopolitics",
+          "influence": 0.602,
+          "outcome": false,
+          "support": 0.429
+        }
+      ],
+      "children": [
+        {
+          "uid": "DV",
+          "label": "B200 price",
+          "influence": 1.0,
+          "outcome": true,
+          "support": 1.0
+        },
+        {
+          "uid": 11,
+          "label": "Hyperscaler Capex & Cloud Pricing",
+          "influence": 0.845,
+          "outcome": false,
+          "support": 0.857
+        }
+      ]
+    }
+  ]
+}

@@ -163,6 +163,9 @@ def _build_packs():
     gt, gl, ge, gs = _bins_from_job(STATE / "gold_job.json")
     packs["gold"] = Pack("gold", gt, STATE / "unified_drivers_gold_advanced.json",
                          gl, ge, gs, 4080, STATE / "causal_gold_advanced.json")
+    bt2, bl2, be2, bs2 = _bins_from_job(STATE / "b200_job.json")
+    packs["b200"] = Pack("b200", bt2, STATE / "unified_drivers_b200_advanced.json",
+                         bl2, be2, bs2, 7.70, STATE / "causal_b200_advanced.json")
     return packs
 
 
