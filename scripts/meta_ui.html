@@ -563,7 +563,7 @@ function renderDist(dist, base){
     const b=massBelow(dist, yardstick), xx=sx(yardstick).toFixed(1);
     ov+=`<line class="ymarkline" x1="${xx}" y1="${m.t}" x2="${xx}" y2="${H-m.b}"/>`
       + `<text class="ymarklab" x="${xx}" y="${m.t+11}" text-anchor="middle">${dol(yardstick)}</text>`;
-    if($('yout')) $('yout').innerHTML=`P(&lt; ${dol(yardstick)}) <b class="below">${(b*100).toFixed(0)}%</b> &nbsp;·&nbsp; P(&ge; ${dol(yardstick)}) <b class="above">${((1-b)*100).toFixed(0)}%</b>`;
+    if($('yout')) $('yout').innerHTML=`P(&lt; ${dol(yardstick)}) <b class="below">${(b*100).toFixed(2)}%</b> &nbsp;·&nbsp; P(&ge; ${dol(yardstick)}) <b class="above">${((1-b)*100).toFixed(2)}%</b>`;
   } else if($('yout')) $('yout').innerHTML='';
   $('cdf').innerHTML=g+`<path class="area" d="${curveA} Z"/>`+baseCurve+`<path class="curve" d="${curveA}"/>`+ov;
   renderDStats(sA,sB);
