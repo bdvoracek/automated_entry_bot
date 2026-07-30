@@ -61,14 +61,17 @@ def _capture_baseline() -> None:
 
 def _model_payload() -> dict:
     drivers = []
-    for u in mp.unified:
+    for u in mp.sorted_by_weight(descending=True):   # Most-to-Least by default
         bi = mp.unified_baseline_index(u.uid)
-        members = [{"model": mid, "code": m["code"], "name": m["name"], "baseline": m["baseline"]}
+        members = [{"model": mid, "code": m["code"], "name": m["name"],
+                    "baseline": m["baseline"], "rank": m.get("rank")}
                    for mid, mems in u.members.items() for m in mems]
+        members.sort(key=lambda m: (m["rank"] is None, m["rank"]))  # most influential first
         drivers.append({
             "uid": u.uid, "name": u.name,
             "neutral_idx": bi, "models_covered": u.models_covered(),
             "member_count": u.member_count(), "members": members,
+            "weight": u.weight(), "influence_points": u.influence_points(),
         })
     return {
         "question": _question_title(),

@@ -63,6 +63,12 @@
   .stop{border:none;background:transparent;color:var(--muted);font-size:12px;font-weight:600;min-width:46px;padding:7px 0;border-radius:999px;cursor:pointer;font-variant-numeric:tabular-nums;transition:.12s}
   .stop.active{background:var(--white);color:#1a1a1a}
   .stop.zero.active{background:#4a4a4a;color:var(--ink)}
+  /* sort dropdown (screen: rounded dark control, stacked label) */
+  .sortwrap{display:flex;flex-direction:column;align-items:flex-end;gap:2px;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:7px 14px}
+  .sortwrap label{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .sortwrap select{background:transparent;border:none;color:var(--ink);font:inherit;font-size:13px;font-weight:600;cursor:pointer;outline:none;padding-right:2px}
+  .sortwrap select option{background:var(--panel2);color:var(--ink)}
+  .wt{color:var(--muted)}
   .chev{background:none;border:none;color:var(--blue);font-size:18px;cursor:pointer;line-height:1;padding:4px;transition:transform .18s}
   .chev.open{transform:rotate(90deg)}
   .members{margin-top:12px;display:none;font-size:12px;color:var(--muted)}
@@ -101,7 +107,13 @@
   <section class="panel">
     <div class="phead">
       <h2>Unified drivers · relative shift</h2>
-      <span class="status" id="dcount"></span>
+      <div class="sortwrap">
+        <label>Sort order</label>
+        <select id="sort">
+          <option value="desc">Driver influence (Most to Least)</option>
+          <option value="asc">Driver influence (Least to Most)</option>
+        </select>
+      </div>
     </div>
     <p class="meta" style="margin:2px 0 4px;font-size:12px">Each slider nudges every member driver up/down from its own baseline (−2…+2), then fans out to all models.</p>
     <div id="drivers"></div>
@@ -111,7 +123,7 @@
 
 <script>
 const STOPS=[-2,-1,0,1,2];
-let MODEL=null, deltas={}, busy=false;
+let MODEL=null, deltas={}, busy=false, sortMode='desc';
 
 const $=id=>document.getElementById(id);
 const fmtpp=v=>(v>=0?'+':'')+ (v*100).toFixed(1)+'pp';
@@ -121,10 +133,10 @@ async function boot(){
   MODEL = await (await fetch('/api/model')).json();
   $('q').textContent = MODEL.question;
   $('sub').innerHTML = `<b>${MODEL.tier}</b> · ${MODEL.n_models} models · <b>${MODEL.n_unified}</b> unified drivers · driver changes are free`;
-  $('dcount').textContent = `${MODEL.n_unified} drivers`;
   MODEL.drivers.forEach(d=>deltas[d.uid]=0);
   renderBars(MODEL.baseline, null, 'baseline');
   renderDrivers();
+  $('sort').onchange = e=>{ sortMode=e.target.value; renderDrivers(); };
 }
 
 function scaleMax(dist){ return Math.max(0.35, Math.max(...Object.values(dist))*1.12); }
@@ -149,15 +161,17 @@ function renderBars(dist, baseline, statusText, live){
 }
 
 function renderDrivers(){
-  $('drivers').innerHTML = MODEL.drivers.map(d=>{
-    const neutral = idxToState(d.neutral_idx);
-    const sel = STOPS.map(v=>`<button class="stop ${v===0?'zero active':''}" data-uid="${d.uid}" data-v="${v}">${v>0?'+'+v:v}</button>`).join('');
+  const ordered = [...MODEL.drivers].sort((a,b)=>
+    sortMode==='desc' ? b.weight-a.weight : a.weight-b.weight);
+  $('drivers').innerHTML = ordered.map(d=>{
+    const neutral = idxToState(d.neutral_idx), cur = deltas[d.uid]||0;
+    const sel = STOPS.map(v=>`<button class="stop ${v===cur?'active':''} ${v===0?'zero':''}" data-uid="${d.uid}" data-v="${v}">${v>0?'+'+v:v}</button>`).join('');
     const rows = d.members.map(m=>`<tr><td>${m.model}</td><td class="code">${m.code}</td><td>${m.name}</td><td>${m.baseline}</td></tr>`).join('');
-    return `<div class="drow" id="drow-${d.uid}">
+    return `<div class="drow ${cur!==0?'on':''}" id="drow-${d.uid}">
       <div class="drow-top">
         <div>
           <div class="dname">${d.name}<span class="changed"></span></div>
-          <div class="dsub">neutral ${neutral} · ${d.models_covered}/${MODEL.n_models} models · ${d.member_count} drivers</div>
+          <div class="dsub">neutral ${neutral} · ${d.models_covered}/${MODEL.n_models} models · <span class="wt">weight ${d.weight}</span></div>
         </div>
         <div class="sel">${sel}</div>
         <button class="chev" data-uid="${d.uid}">›</button>

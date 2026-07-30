@@ -44,6 +44,16 @@ class UnifiedDriver:
     def models_covered(self) -> int:
         return sum(1 for v in self.members.values() if v)
 
+    def influence_points(self) -> int:
+        """Sum of member rank-points, where a member's points = n_drivers - its
+        influence position in its model (top-ranked driver scores highest)."""
+        return sum(m.get("points", 0) for members in self.members.values() for m in members)
+
+    def weight(self) -> int:
+        """Importance weight = influence points x number of models it appears in.
+        Rewards drivers that both rank highly within models and recur across them."""
+        return self.influence_points() * self.models_covered()
+
 
 @dataclass
 class UnifiedMapping:
@@ -55,6 +65,13 @@ class UnifiedMapping:
     @property
     def n(self) -> int:
         return len(self.unified)
+
+    def sorted_by_weight(self, descending: bool = True) -> list[UnifiedDriver]:
+        """Unified drivers ranked by importance weight (see UnifiedDriver.weight).
+        descending=True is 'Most to Least', False is 'Least to Most'."""
+        return sorted(self.unified,
+                      key=lambda u: (u.weight(), u.influence_points()),
+                      reverse=descending)
 
     def by_uid(self, uid: int) -> UnifiedDriver:
         for u in self.unified:

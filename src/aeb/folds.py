@@ -57,6 +57,7 @@ class FoldsModel:
     raw: dict[str, Any]
     drivers: list[dict[str, Any]] = None  # catalogue: [{code, name, stateDescriptors?}]
     driver_states: dict[str, str] = None  # code -> current state (normalized)
+    driver_order: list[str] = None        # codes in current.drivers order = influence rank (most->least)
 
 
 class FoldsClient:
@@ -115,15 +116,20 @@ class FoldsClient:
             if o.get("probability") is not None
         }
         catalogue = d.get("drivers") or []
-        # Normalize current states (tolerate the "Negligent" descriptor spelling).
+        # current.drivers is ordered by influence (most -> least); its array
+        # position is the driver's rank within this model. The catalogue array,
+        # by contrast, is alphabetical, so rank must come from current.drivers.
         driver_states: dict[str, str] = {}
+        driver_order: list[str] = []
         for c in current.get("drivers", []) or []:
             code, st = c.get("code"), c.get("state")
-            if code and st is not None:
-                driver_states[code] = index_to_state(state_to_index(st))
+            if code:
+                driver_order.append(code)
+                if st is not None:
+                    driver_states[code] = index_to_state(state_to_index(st))
         return FoldsModel(model_id=d.get("modelId", model_id), status=status,
-                          outcomes=outcomes, raw=d,
-                          drivers=catalogue, driver_states=driver_states)
+                          outcomes=outcomes, raw=d, drivers=catalogue,
+                          driver_states=driver_states, driver_order=driver_order)
 
     def set_drivers(self, model_id: str, states: dict[str, str]) -> str:
         """Set ALL driver states and trigger a recompute. PUT /models/{id}/drivers.

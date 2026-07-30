@@ -65,3 +65,29 @@ def test_unified_baseline_index_is_mean_ordinal():
     m = _mapping()
     # U1 members at Medium(2) and High(3) -> mean 2.5
     assert m.unified_baseline_index(1) == 2.5
+
+
+def _weighted_mapping():
+    return UnifiedMapping(
+        question_id=1, tier="Advanced", models=["A", "B", "C"], unified=[
+            UnifiedDriver(uid=1, name="Wide+high", members={  # pts 12, in 3 models -> 36
+                "A": [{"code": "a", "name": "", "baseline": "Low", "points": 5}],
+                "B": [{"code": "b", "name": "", "baseline": "Low", "points": 4}],
+                "C": [{"code": "c", "name": "", "baseline": "Low", "points": 3}]}),
+            UnifiedDriver(uid=2, name="Deep+narrow", members={  # pts 10, in 1 model -> 10
+                "A": [{"code": "d", "name": "", "baseline": "Low", "points": 5},
+                      {"code": "e", "name": "", "baseline": "Low", "points": 5}], "B": [], "C": []}),
+        ])
+
+
+def test_weight_is_influence_points_times_model_coverage():
+    m = _weighted_mapping()
+    assert m.by_uid(1).influence_points() == 12
+    assert m.by_uid(1).weight() == 36        # 12 points x 3 models
+    assert m.by_uid(2).weight() == 10        # 10 points x 1 model
+
+
+def test_sort_both_directions():
+    m = _weighted_mapping()
+    assert [u.uid for u in m.sorted_by_weight(descending=True)] == [1, 2]
+    assert [u.uid for u in m.sorted_by_weight(descending=False)] == [2, 1]

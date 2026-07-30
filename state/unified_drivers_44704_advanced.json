@@ -22,56 +22,80 @@
           {
             "code": "SHNS",
             "name": "Strait of Hormuz Navigation Security",
-            "baseline": "Low"
+            "baseline": "Low",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15
           }
         ],
         "TC": [
           {
             "code": "NSSH",
             "name": "Navigational Security in the Strait of Hormuz",
-            "baseline": "Low"
+            "baseline": "Low",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15
           }
         ],
         "TD": [
           {
             "code": "SHS",
             "name": "Strait of Hormuz Security",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15
           }
         ],
         "TF": [
           {
             "code": "SHSS",
             "name": "Strait of Hormuz Security Status",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15
           }
         ],
         "TG": [
           {
             "code": "SHNS",
             "name": "Strait of Hormuz Navigation Security",
-            "baseline": "High"
+            "baseline": "High",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15
           }
         ],
         "TH": [
           {
             "code": "SHOS",
             "name": "Strait of Hormuz Operational Status",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15
           }
         ],
         "TI": [
           {
             "code": "SHS",
             "name": "Strait of Hormuz Security",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15
           }
         ],
         "TJ": [
           {
             "code": "SHS",
             "name": "Strait of Hormuz Security",
-            "baseline": "Negligible"
+            "baseline": "Negligible",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15
           }
         ]
       }
@@ -84,63 +108,90 @@
           {
             "code": "USPRP",
             "name": "US Strategic Petroleum Reserve Policy",
-            "baseline": "High"
+            "baseline": "High",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14
           }
         ],
         "TC": [
           {
             "code": "SPRP",
             "name": "Strategic Petroleum Reserve Policy",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14
           }
         ],
         "TD": [
           {
             "code": "USPRP",
             "name": "US Strategic Petroleum Reserve Policy",
-            "baseline": "High"
+            "baseline": "High",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14
           }
         ],
         "TE": [
           {
             "code": "SPRP",
             "name": "Strategic Petroleum Reserve Policy",
-            "baseline": "Low"
+            "baseline": "Low",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15
           }
         ],
         "TF": [
           {
             "code": "USPRP",
             "name": "US Strategic Petroleum Reserve Policy",
-            "baseline": "Negligible"
+            "baseline": "Negligible",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14
           }
         ],
         "TG": [
           {
             "code": "SPRP",
             "name": "Strategic Petroleum Reserve Policy",
-            "baseline": "High"
+            "baseline": "High",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14
           }
         ],
         "TH": [
           {
             "code": "GSPRP",
             "name": "Global Strategic Petroleum Reserve Policy",
-            "baseline": "High"
+            "baseline": "High",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14
           }
         ],
         "TI": [
           {
             "code": "SPRA",
             "name": "Strategic Petroleum Reserve Adjustments",
-            "baseline": "Low"
+            "baseline": "Low",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14
           }
         ],
         "TJ": [
           {
             "code": "USPRP",
             "name": "US Strategic Petroleum Reserve Policy",
-            "baseline": "Negligible"
+            "baseline": "Negligible",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14
           }
         ]
       }
@@ -153,69 +204,102 @@
           {
             "code": "NOSG",
             "name": "Non OPEC Supply Growth",
-            "baseline": "Negligible"
+            "baseline": "Negligible",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13
           },
           {
             "code": "ROES",
             "name": "Russian Oil Export Sanctions",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12
           }
         ],
         "TD": [
           {
             "code": "LPS",
             "name": "Libyan Production Stability",
-            "baseline": "Extreme"
+            "baseline": "Extreme",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13
           },
           {
             "code": "NEC",
             "name": "Nigerian Export Consistency",
-            "baseline": "High"
+            "baseline": "High",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12
           },
           {
             "code": "RESC",
             "name": "Russian Export Sanctions Compliance",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11
           }
         ],
         "TE": [
           {
             "code": "NOSG",
             "name": "Non OPEC Supply Growth",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14
           }
         ],
         "TF": [
           {
             "code": "ISEC",
             "name": "Iranian Sanctions and Export Capacity",
-            "baseline": "Low"
+            "baseline": "Low",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13
           },
           {
             "code": "RSEC",
             "name": "Russian Sanctions and Export Capacity",
-            "baseline": "Low"
+            "baseline": "Low",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12
           }
         ],
         "TH": [
           {
             "code": "ROEV",
             "name": "Russian Oil Export Volumes",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13
           }
         ],
         "TI": [
           {
             "code": "RCEV",
             "name": "Russian Crude Export Volumes",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13
           }
         ],
         "TJ": [
           {
             "code": "RCEP",
             "name": "Russian Crude Export Policy",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13
           }
         ]
       }
@@ -228,68 +312,98 @@
           {
             "code": "MEGT",
             "name": "Middle East Geopolitical Tensions",
-            "baseline": "High"
+            "baseline": "High",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13
           },
           {
             "code": "UIMC",
             "name": "US Iran Military Conflict",
-            "baseline": "High"
+            "baseline": "High",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12
           }
         ],
         "TC": [
           {
             "code": "GTME",
             "name": "Geopolitical Tension in the Middle East",
-            "baseline": "High"
+            "baseline": "High",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11
           }
         ],
         "TD": [
           {
             "code": "MEGC",
             "name": "Middle East Geopolitical Conflict",
-            "baseline": "High"
+            "baseline": "High",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10
           }
         ],
         "TE": [
           {
             "code": "GT",
             "name": "Geopolitical Tensions",
-            "baseline": "Extreme"
+            "baseline": "Extreme",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13
           }
         ],
         "TF": [
           {
             "code": "MEGC",
             "name": "Middle East Geopolitical Conflict",
-            "baseline": "High"
+            "baseline": "High",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11
           }
         ],
         "TG": [
           {
             "code": "GCE",
             "name": "Geopolitical Conflict Escalation",
-            "baseline": "High"
+            "baseline": "High",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13
           }
         ],
         "TH": [
           {
             "code": "UIGT",
             "name": "US Iran Geopolitical Tension",
-            "baseline": "High"
+            "baseline": "High",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12
           }
         ],
         "TI": [
           {
             "code": "GCE",
             "name": "Geopolitical Conflict Escalation",
-            "baseline": "High"
+            "baseline": "High",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12
           }
         ],
         "TJ": [
           {
             "code": "USIKC",
             "name": "United States Iran Kinetic Conflict",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12
           }
         ]
       }
@@ -302,56 +416,80 @@
           {
             "code": "AHSA",
             "name": "Atlantic Hurricane Season Activity",
-            "baseline": "Low"
+            "baseline": "Low",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11
           }
         ],
         "TC": [
           {
             "code": "AHSS",
             "name": "Atlantic Hurricane Season Severity",
-            "baseline": "Low"
+            "baseline": "Low",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10
           }
         ],
         "TE": [
           {
             "code": "HA",
             "name": "Hurricane Activity",
-            "baseline": "Negligible"
+            "baseline": "Negligible",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12
           }
         ],
         "TF": [
           {
             "code": "HAGM",
             "name": "Hurricane Activity in Gulf of Mexico",
-            "baseline": "Negligible"
+            "baseline": "Negligible",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10
           }
         ],
         "TG": [
           {
             "code": "AHS",
             "name": "Atlantic Hurricane Season",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12
           }
         ],
         "TH": [
           {
             "code": "AHSS",
             "name": "Atlantic Hurricane Season Severity",
-            "baseline": "Low"
+            "baseline": "Low",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11
           }
         ],
         "TI": [
           {
             "code": "AHSS",
             "name": "Atlantic Hurricane Season Severity",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11
           }
         ],
         "TJ": [
           {
             "code": "AHS",
             "name": "Atlantic Hurricane Season",
-            "baseline": "Low"
+            "baseline": "Low",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11
           }
         ]
       }
@@ -364,63 +502,90 @@
           {
             "code": "CIAIP",
             "name": "Chinese Industrial Activity and Import Policy",
-            "baseline": "Extreme"
+            "baseline": "Extreme",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10
           }
         ],
         "TC": [
           {
             "code": "CIPD",
             "name": "Chinese Industrial Production Data",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9
           }
         ],
         "TD": [
           {
             "code": "CID",
             "name": "Chinese Industrial Demand",
-            "baseline": "Low"
+            "baseline": "Low",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9
           }
         ],
         "TE": [
           {
             "code": "CEA",
             "name": "Chinese Economic Activity",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11
           }
         ],
         "TF": [
           {
             "code": "CIP",
             "name": "Chinese Industrial Production",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9
           }
         ],
         "TG": [
           {
             "code": "CIP",
             "name": "Chinese Industrial Production",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11
           }
         ],
         "TH": [
           {
             "code": "CIPD",
             "name": "Chinese Industrial Production Data",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10
           }
         ],
         "TI": [
           {
             "code": "CEP",
             "name": "Chinese Economic Performance",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10
           }
         ],
         "TJ": [
           {
             "code": "CIP",
             "name": "Chinese Industrial Production",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10
           }
         ]
       }
@@ -433,56 +598,80 @@
           {
             "code": "UCPT",
             "name": "US Crude Production Trends",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9
           }
         ],
         "TC": [
           {
             "code": "USOPT",
             "name": "US Shale Oil Production Trends",
-            "baseline": "Negligible"
+            "baseline": "Negligible",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8
           }
         ],
         "TD": [
           {
             "code": "USP",
             "name": "US Shale Production",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8
           }
         ],
         "TF": [
           {
             "code": "USPL",
             "name": "US Shale Production Levels",
-            "baseline": "Low"
+            "baseline": "Low",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8
           }
         ],
         "TG": [
           {
             "code": "USOF",
             "name": "US Shale Output Forecast",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10
           }
         ],
         "TH": [
           {
             "code": "USPO",
             "name": "US Shale Production Output",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9
           }
         ],
         "TI": [
           {
             "code": "UDCP",
             "name": "US Domestic Crude Production",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9
           }
         ],
         "TJ": [
           {
             "code": "UDCP",
             "name": "US Domestic Crude Production",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9
           }
         ]
       }
@@ -495,73 +684,106 @@
           {
             "code": "OPD",
             "name": "OPEC Production Decisions",
-            "baseline": "Low"
+            "baseline": "Low",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8
           }
         ],
         "TC": [
           {
             "code": "OPQD",
             "name": "OPEC Production Quota Decisions",
-            "baseline": "Low"
+            "baseline": "Low",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7
           }
         ],
         "TD": [
           {
             "code": "OPD",
             "name": "OPEC Production Decisions",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7
           }
         ],
         "TE": [
           {
             "code": "PQD",
             "name": "Production Quota Decisions",
-            "baseline": "Extreme"
+            "baseline": "Extreme",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10
           }
         ],
         "TF": [
           {
             "code": "OPQD",
             "name": "OPEC Production Quota Decisions",
-            "baseline": "Low"
+            "baseline": "Low",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7
           }
         ],
         "TG": [
           {
             "code": "OPQD",
             "name": "OPEC Production Quota Decisions",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9
           },
           {
             "code": "SASC",
             "name": "Saudi Arabia Spare Capacity",
-            "baseline": "High"
+            "baseline": "High",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8
           }
         ],
         "TH": [
           {
             "code": "OPD",
             "name": "OPEC Production Decisions",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8
           }
         ],
         "TI": [
           {
             "code": "OPQ",
             "name": "OPEC Production Quotas",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8
           },
           {
             "code": "SAPA",
             "name": "Saudi Arabia Production Adjustments",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7
           }
         ],
         "TJ": [
           {
             "code": "OPD",
             "name": "OPEC Production Decisions",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8
           }
         ]
       }
@@ -574,42 +796,60 @@
           {
             "code": "GRUR",
             "name": "Global Refinery Utilization Rates",
-            "baseline": "Low"
+            "baseline": "Low",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6
           }
         ],
         "TE": [
           {
             "code": "GRUR",
             "name": "Global Refining Utilization Rates",
-            "baseline": "Low"
+            "baseline": "Low",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9
           }
         ],
         "TF": [
           {
             "code": "GRUR",
             "name": "Global Refinery Utilization Rates",
-            "baseline": "High"
+            "baseline": "High",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6
           }
         ],
         "TG": [
           {
             "code": "GRMT",
             "name": "Global Refining Margin Trends",
-            "baseline": "High"
+            "baseline": "High",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7
           }
         ],
         "TH": [
           {
             "code": "GRUR",
             "name": "Global Refinery Utilisation Rates",
-            "baseline": "High"
+            "baseline": "High",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7
           }
         ],
         "TJ": [
           {
             "code": "GRM",
             "name": "Global Refining Margins",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7
           }
         ]
       }
@@ -622,73 +862,106 @@
           {
             "code": "GOI",
             "name": "Global Oil Inventories",
-            "baseline": "Extreme"
+            "baseline": "Extreme",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7
           }
         ],
         "TC": [
           {
             "code": "GCIL",
             "name": "Global Crude Inventory Levels",
-            "baseline": "Extreme"
+            "baseline": "Extreme",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5
           }
         ],
         "TD": [
           {
             "code": "ENGS",
             "name": "European Natural Gas Storage",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6
           },
           {
             "code": "GOI",
             "name": "Global Oil Inventories",
-            "baseline": "High"
+            "baseline": "High",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5
           }
         ],
         "TE": [
           {
             "code": "IL",
             "name": "Inventory Levels",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8
           },
           {
             "code": "NGIL",
             "name": "Natural Gas Inventory Levels",
-            "baseline": "Negligible"
+            "baseline": "Negligible",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7
           }
         ],
         "TF": [
           {
             "code": "GOIL",
             "name": "Global Oil Inventory Levels",
-            "baseline": "Extreme"
+            "baseline": "Extreme",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5
           }
         ],
         "TG": [
           {
             "code": "GCCI",
             "name": "Global Commercial Crude Inventories",
-            "baseline": "Extreme"
+            "baseline": "Extreme",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6
           }
         ],
         "TH": [
           {
             "code": "GCI",
             "name": "Global Crude Inventories",
-            "baseline": "High"
+            "baseline": "High",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6
           }
         ],
         "TI": [
           {
             "code": "GOIL",
             "name": "Global Oil Inventory Levels",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6
           }
         ],
         "TJ": [
           {
             "code": "UCOI",
             "name": "US Crude Oil Inventories",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6
           }
         ]
       }
@@ -701,35 +974,50 @@
           {
             "code": "GODF",
             "name": "Global Oil Demand Forecast",
-            "baseline": "High"
+            "baseline": "High",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6
           }
         ],
         "TE": [
           {
             "code": "GOD",
             "name": "Global Oil Demand",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6
           }
         ],
         "TH": [
           {
             "code": "GODF",
             "name": "Global Oil Demand Forecast",
-            "baseline": "Low"
+            "baseline": "Low",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5
           }
         ],
         "TI": [
           {
             "code": "ICID",
             "name": "Indian Crude Import Demand",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5
           }
         ],
         "TJ": [
           {
             "code": "ICID",
             "name": "Indian Crude Import Demand",
-            "baseline": "High"
+            "baseline": "High",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5
           }
         ]
       }
@@ -742,78 +1030,114 @@
           {
             "code": "GEGO",
             "name": "Global Economic Growth Outlook",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5
           },
           {
             "code": "GMP",
             "name": "Global Manufacturing PMI",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4
           }
         ],
         "TC": [
           {
             "code": "GGGF",
             "name": "Global GDP Growth Forecasts",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4
           }
         ],
         "TD": [
           {
             "code": "GMP",
             "name": "Global Manufacturing PMI",
-            "baseline": "High"
+            "baseline": "High",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4
           }
         ],
         "TE": [
           {
             "code": "GGGF",
             "name": "Global GDP Growth Forecasts",
-            "baseline": "High"
+            "baseline": "High",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5
           },
           {
             "code": "IPG",
             "name": "Industrial Production Growth",
-            "baseline": "Low"
+            "baseline": "Low",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4
           }
         ],
         "TF": [
           {
             "code": "GEGF",
             "name": "Global Economic Growth Forecasts",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4
           }
         ],
         "TG": [
           {
             "code": "GEGF",
             "name": "Global Economic Growth Forecast",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5
           },
           {
             "code": "GMP",
             "name": "Global Manufacturing PMI",
-            "baseline": "Low"
+            "baseline": "Low",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4
           }
         ],
         "TH": [
           {
             "code": "GMPT",
             "name": "Global Manufacturing PMI Trends",
-            "baseline": "High"
+            "baseline": "High",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4
           }
         ],
         "TI": [
           {
             "code": "GGGF",
             "name": "Global GDP Growth Forecasts",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4
           }
         ],
         "TJ": [
           {
             "code": "GGGF",
             "name": "Global GDP Growth Forecasts",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4
           }
         ]
       }
@@ -826,63 +1150,90 @@
           {
             "code": "SMP",
             "name": "Speculative Market Positioning",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3
           }
         ],
         "TC": [
           {
             "code": "SMP",
             "name": "Speculative Market Positioning",
-            "baseline": "Low"
+            "baseline": "Low",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3
           }
         ],
         "TD": [
           {
             "code": "SMP",
             "name": "Speculative Market Positioning",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3
           }
         ],
         "TE": [
           {
             "code": "SP",
             "name": "Speculative Positioning",
-            "baseline": "High"
+            "baseline": "High",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3
           }
         ],
         "TF": [
           {
             "code": "SPFM",
             "name": "Speculative Positioning in Futures Markets",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3
           }
         ],
         "TG": [
           {
             "code": "SNLP",
             "name": "Speculative Net Long Positions",
-            "baseline": "High"
+            "baseline": "High",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3
           }
         ],
         "TH": [
           {
             "code": "SOMP",
             "name": "Speculative Oil Market Positioning",
-            "baseline": "High"
+            "baseline": "High",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3
           }
         ],
         "TI": [
           {
             "code": "SMP",
             "name": "Speculative Market Positioning",
-            "baseline": "High"
+            "baseline": "High",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3
           }
         ],
         "TJ": [
           {
             "code": "SNLP",
             "name": "Speculative Net Long Positions",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3
           }
         ]
       }
@@ -895,63 +1246,90 @@
           {
             "code": "UDI",
             "name": "US Dollar Index",
-            "baseline": "Low"
+            "baseline": "Low",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2
           }
         ],
         "TC": [
           {
             "code": "UDIS",
             "name": "US Dollar Index Strength",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2
           }
         ],
         "TD": [
           {
             "code": "UER",
             "name": "USD Exchange Rate",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2
           }
         ],
         "TE": [
           {
             "code": "UDI",
             "name": "US Dollar Index",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2
           }
         ],
         "TF": [
           {
             "code": "UDS",
             "name": "US Dollar Strength",
-            "baseline": "Low"
+            "baseline": "Low",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2
           }
         ],
         "TG": [
           {
             "code": "UDI",
             "name": "US Dollar Index",
-            "baseline": "High"
+            "baseline": "High",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2
           }
         ],
         "TH": [
           {
             "code": "US",
             "name": "USD Strength",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2
           }
         ],
         "TI": [
           {
             "code": "UDIS",
             "name": "US Dollar Index Strength",
-            "baseline": "Low"
+            "baseline": "Low",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2
           }
         ],
         "TJ": [
           {
             "code": "UDI",
             "name": "US Dollar Index",
-            "baseline": "High"
+            "baseline": "High",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2
           }
         ]
       }
@@ -964,63 +1342,90 @@
           {
             "code": "UFRMP",
             "name": "US Federal Reserve Monetary Policy",
-            "baseline": "Negligible"
+            "baseline": "Negligible",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1
           }
         ],
         "TC": [
           {
             "code": "FRMP",
             "name": "Federal Reserve Monetary Policy",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1
           }
         ],
         "TD": [
           {
             "code": "UFRMP",
             "name": "US Federal Reserve Monetary Policy",
-            "baseline": "Negligible"
+            "baseline": "Negligible",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1
           }
         ],
         "TE": [
           {
             "code": "IRP",
             "name": "Interest Rate Policy",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1
           }
         ],
         "TF": [
           {
             "code": "UFRIRD",
             "name": "US Federal Reserve Interest Rate Decisions",
-            "baseline": "Negligible"
+            "baseline": "Negligible",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1
           }
         ],
         "TG": [
           {
             "code": "FRIRP",
             "name": "Federal Reserve Interest Rate Policy",
-            "baseline": "High"
+            "baseline": "High",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1
           }
         ],
         "TH": [
           {
             "code": "UFRIRP",
             "name": "US Federal Reserve Interest Rate Policy",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1
           }
         ],
         "TI": [
           {
             "code": "UFRMP",
             "name": "US Federal Reserve Monetary Policy",
-            "baseline": "Low"
+            "baseline": "Low",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1
           }
         ],
         "TJ": [
           {
             "code": "FRIRP",
             "name": "Federal Reserve Interest Rate Policy",
-            "baseline": "Medium"
+            "baseline": "Medium",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1
           }
         ]
       }
