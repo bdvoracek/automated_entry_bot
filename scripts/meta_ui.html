@@ -130,11 +130,13 @@
   .dsub .wt{color:#7f7f7f}
   /* 5-stop RELATIVE selector (-2..+2); center 0 = neutral */
   .sel{display:flex;background:var(--track);border-radius:999px;padding:5px;gap:3px}
-  .stop{border:none;background:transparent;color:var(--muted);font-size:13px;font-weight:600;min-width:52px;
-    padding:9px 0;border-radius:999px;cursor:pointer;font-variant-numeric:tabular-nums;transition:.12s}
+  .stop{border:none;background:transparent;color:var(--muted);font-size:15px;font-weight:700;min-width:52px;
+    height:40px;padding:0;border-radius:999px;cursor:pointer;transition:.12s;
+    display:inline-flex;align-items:center;justify-content:center}
   .stop:hover{color:var(--ink)}
   .stop.active{background:var(--white);color:#1a1a1a}
-  .stop.zero.active{background:#4d4d4d;color:var(--ink)}   /* neutral looks distinct from a real shift */
+  .stop.zero{font-size:11px} .stop.zero.active{background:#4d4d4d;color:var(--ink)}
+  .cst{display:inline-flex;flex-direction:column;line-height:.62}   /* stacked double chevron */
   .chev{background:none;border:none;color:var(--blue);font-size:22px;cursor:pointer;line-height:1;padding:2px;
     transition:transform .18s;justify-self:end}
   .chev.open{transform:rotate(90deg)}
@@ -301,6 +303,9 @@
 
 <script>
 const STOPS=[-2,-1,0,1,2];
+// semantic chevrons: single = one-notch nudge, stacked double = strong nudge
+const CHEV={'-2':'<span class="cst"><span>⌄</span><span>⌄</span></span>','-1':'⌄','0':'·','1':'⌃','2':'<span class="cst"><span>⌃</span><span>⌃</span></span>'};
+const STOPLBL={'-2':'strong down','-1':'down','0':'hold','1':'up','2':'strong up'};
 const STATES=["Negligible","Low","Medium","High","Extreme"];
 let MODEL=null, deltas={}, appliedDeltas={}, busy=false, sortMode='desc';
 
@@ -520,7 +525,7 @@ function setTakeaway(res){
   }
   const sB=binStats(res.baseline), sA=binStats(res.adjusted);
   const setLbl=Object.entries(deltas).filter(([,v])=>v!==0)
-    .map(([u,v])=>`<b>${MODEL.drivers.find(d=>d.uid==u).name}</b> ${v>0?'+'+v:v}`).join(', ');
+    .map(([u,v])=>`<b>${MODEL.drivers.find(d=>d.uid==u).name}</b> ${STOPLBL[v]}`).join(', ');
   const arrow=(a,b)=>{const c=b>=a?'amber':'cool';return `$${a.toFixed(0)} → <span class="${c}">$${b.toFixed(0)}</span>`;};
   const t=res.timings;
   el.innerHTML=`Shifting ${setLbl} moved the forecast. <b>Median</b> ${arrow(sB.p50,sA.p50)}, <b>P10</b> ${arrow(sB.p10,sA.p10)}, <b>P90</b> ${arrow(sB.p90,sA.p90)}. ${t.n_done}/${t.n_touched} models recomputed in ${t.total_s}s.`;
@@ -543,7 +548,7 @@ function renderDrivers(){
   const ordered=[...MODEL.drivers].sort((a,b)=>sortMode==='desc'?b.ci-a.ci:a.ci-b.ci);
   $('drivers').innerHTML=ordered.map(d=>{
     const cur=deltas[d.uid]||0;
-    const sel=STOPS.map(v=>`<button class="stop ${v===cur?'active':''} ${v===0?'zero':''}" data-uid="${d.uid}" data-v="${v}">${v>0?'+'+v:v}</button>`).join('');
+    const sel=STOPS.map(v=>`<button class="stop ${v===cur?'active':''} ${v===0?'zero':''}" data-uid="${d.uid}" data-v="${v}" title="${STOPLBL[v]}">${CHEV[v]}</button>`).join('');
     const ninv=d.members.filter(m=>m.invert).length;
     const invtag=ninv?` · <span class="invtag">⇄ ${ninv} inverted</span>`:'';
     const pdir=d.mode_dir>0?'raises price':'lowers price';
