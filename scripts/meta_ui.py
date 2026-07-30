@@ -25,6 +25,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
 from aeb.aggregate import aggregate_outcomes  # noqa: E402
+from aeb.cdf import Scaling, bins_to_cdf, location_to_nominal  # noqa: E402
 from aeb.meta import MetaEngine, load_mapping  # noqa: E402
 
 MAPPING_PATH = ROOT / "state" / "unified_drivers_44704_advanced.json"
@@ -37,6 +38,34 @@ engine = MetaEngine(mp)
 _lock = threading.Lock()          # serialize fan-outs (one recompute at a time)
 _baseline: dict[str, float] = {}  # cached true baseline distribution
 _outcome_order: list[str] = []
+
+
+def _load_bin_design():
+    """Bin labels/edges/scaling for the question -> lets us turn the aggregated
+    5-bin PMF into a Metaculus 201-point continuous CDF (numeric question)."""
+    con = sqlite3.connect(DB_PATH)
+    row = con.execute("SELECT doc FROM bin_designs WHERE pk=?", (str(mp.question_id),)).fetchone()
+    con.close()
+    d = json.loads(row[0])
+    sc = d["scaling"]
+    scaling = Scaling(range_min=sc["range_min"], range_max=sc["range_max"],
+                      zero_point=sc.get("zero_point"),
+                      open_lower_bound=sc.get("open_lower_bound", True),
+                      open_upper_bound=sc.get("open_upper_bound", True),
+                      cdf_size=sc.get("cdf_size", 201))
+    return d["labels"], d["edges"], scaling
+
+
+LABELS, EDGES, SCALING = _load_bin_design()
+# nominal price at each of the 201 CDF points (x-axis for the chart)
+CDF_X = [round(location_to_nominal(i / (SCALING.cdf_size - 1), SCALING), 4)
+         for i in range(SCALING.cdf_size)]
+
+
+def to_cdf(agg: dict[str, float]) -> list[float]:
+    """Aggregated bin probabilities -> 201-point continuous CDF."""
+    masses = [agg.get(lab, 0.0) for lab in LABELS]
+    return [round(x, 6) for x in bins_to_cdf(EDGES, masses, SCALING)]
 
 
 def _question_title() -> str:
@@ -77,6 +106,9 @@ def _model_payload() -> dict:
         "question": _question_title(),
         "tier": mp.tier, "n_models": len(mp.models), "n_unified": mp.n,
         "outcomes": _outcome_order, "baseline": _baseline, "drivers": drivers,
+        "cdf": to_cdf(_baseline), "cdf_x": CDF_X,
+        "range": [SCALING.range_min, SCALING.range_max],
+        "bin_edges": EDGES, "bin_labels": LABELS,   # effective edges incl. open-tail extents
     }
 
 
@@ -101,6 +133,7 @@ def _run_move(deltas: dict[int, int]) -> dict:
     times = list(done.values())
     return {
         "adjusted": adjusted, "baseline": _baseline, "per_model": per,
+        "cdf": to_cdf(adjusted), "cdf_baseline": to_cdf(_baseline),
         "changes": changes,
         "timings": {"n_touched": len(touched), "n_done": len(done),
                     "total_s": round(time.time() - t0, 1),
@@ -151,7 +184,7 @@ class Handler(BaseHTTPRequestHandler):
                     if engine.try_collect()[0] == "ready":
                         break
                 _capture_baseline()
-                self._json({"baseline": _baseline})
+                self._json({"baseline": _baseline, "cdf": to_cdf(_baseline)})
             else:
                 self._json({"error": "unknown endpoint"}, 404)
         except Exception as e:  # surface engine/API errors to the UI
