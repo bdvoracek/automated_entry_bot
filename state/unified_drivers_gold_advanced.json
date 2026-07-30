@@ -1,0 +1,1546 @@
+{
+  "question_id": "gold-2027-08-01",
+  "tier": "Advanced",
+  "n_unified": 15,
+  "models": [
+    "UK",
+    "UL",
+    "UM",
+    "UP",
+    "UQ",
+    "UR",
+    "US",
+    "UT"
+  ],
+  "unified": [
+    {
+      "uid": 1,
+      "name": "BRICS De-dollarization",
+      "members": {
+        "UK": [
+          {
+            "code": "BDDI",
+            "name": "BRICS De-dollarization Initiatives",
+            "baseline": "Medium",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UL": [
+          {
+            "code": "BCCD",
+            "name": "BRICS Common Currency Development",
+            "baseline": "Low",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UM": [
+          {
+            "code": "DDBI",
+            "name": "De-dollarization and BRICS Initiatives",
+            "baseline": "Medium",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UP": [
+          {
+            "code": "BACI",
+            "name": "BRICS alternative currency initiatives",
+            "baseline": "Medium",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UQ": [
+          {
+            "code": "BCD",
+            "name": "BRICS Currency Development",
+            "baseline": "Medium",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UR": [
+          {
+            "code": "BDDI",
+            "name": "BRICS De-dollarization Initiatives",
+            "baseline": "Medium",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "US": [
+          {
+            "code": "BASC",
+            "name": "BRICS Alternative Settlement Currency",
+            "baseline": "Medium",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UT": [
+          {
+            "code": "DDBI",
+            "name": "De-dollarization and BRICS Initiatives",
+            "baseline": "High",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13,
+            "dir": 1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": 1
+    },
+    {
+      "uid": 2,
+      "name": "Real Rates & Treasury Yields",
+      "members": {
+        "UK": [
+          {
+            "code": "URIR",
+            "name": "US Real Interest Rates",
+            "baseline": "High",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UL": [
+          {
+            "code": "RIRD",
+            "name": "Real Interest Rate Differentials",
+            "baseline": "Low",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UM": [
+          {
+            "code": "RUTY",
+            "name": "Real US Treasury Yields",
+            "baseline": "Low",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UP": [
+          {
+            "code": "RUIR",
+            "name": "Real U.S. interest rates",
+            "baseline": "High",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3,
+            "dir": -1,
+            "invert": false
+          },
+          {
+            "code": "UTYCS",
+            "name": "U.S. Treasury yield curve shape",
+            "baseline": "Medium",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UQ": [
+          {
+            "code": "GRIR",
+            "name": "Global Real Interest Rates",
+            "baseline": "Medium",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7,
+            "dir": -1,
+            "invert": false
+          },
+          {
+            "code": "UTYC",
+            "name": "US Treasury Yield Curve",
+            "baseline": "Medium",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UR": [
+          {
+            "code": "RIR",
+            "name": "Real Interest Rates",
+            "baseline": "High",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4,
+            "dir": -1,
+            "invert": false
+          },
+          {
+            "code": "UTY",
+            "name": "US Treasury Yields",
+            "baseline": "Medium",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "US": [
+          {
+            "code": "RYTN",
+            "name": "Real Yields on Treasury Notes",
+            "baseline": "Medium",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4,
+            "dir": -1,
+            "invert": false
+          },
+          {
+            "code": "URIR",
+            "name": "U.S. Real Interest Rates",
+            "baseline": "High",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UT": [
+          {
+            "code": "RIR",
+            "name": "Real Interest Rates",
+            "baseline": "Low",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3,
+            "dir": -1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": -1
+    },
+    {
+      "uid": 3,
+      "name": "US Monetary Policy (Fed)",
+      "members": {
+        "UK": [
+          {
+            "code": "UMP",
+            "name": "US Monetary Policy",
+            "baseline": "High",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UL": [
+          {
+            "code": "UFRMP",
+            "name": "US Federal Reserve Monetary Policy",
+            "baseline": "Low",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UM": [
+          {
+            "code": "FRPR",
+            "name": "Federal Reserve Policy Rates",
+            "baseline": "High",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UP": [
+          {
+            "code": "CBGRP",
+            "name": "Central bank gold reserve policy",
+            "baseline": "High",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14,
+            "dir": -1,
+            "invert": false
+          },
+          {
+            "code": "FRMPS",
+            "name": "Federal Reserve monetary policy stance",
+            "baseline": "Medium",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UQ": [
+          {
+            "code": "UFRP",
+            "name": "US Federal Reserve Policy",
+            "baseline": "High",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UR": [
+          {
+            "code": "FRMP",
+            "name": "Federal Reserve Monetary Policy",
+            "baseline": "High",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12,
+            "dir": -1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": -1
+    },
+    {
+      "uid": 4,
+      "name": "Central Bank Gold Buying",
+      "members": {
+        "UK": [
+          {
+            "code": "CBGR",
+            "name": "Central Bank Gold Reserves",
+            "baseline": "High",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UL": [
+          {
+            "code": "CBGRA",
+            "name": "Central Bank Gold Reserve Accumulation",
+            "baseline": "High",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UM": [
+          {
+            "code": "CBGRP",
+            "name": "Central Bank Gold Reserve Purchases",
+            "baseline": "High",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15,
+            "dir": 1,
+            "invert": false
+          },
+          {
+            "code": "PGRA",
+            "name": "PBOC Gold Reserve Accumulation",
+            "baseline": "High",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UQ": [
+          {
+            "code": "CBGR",
+            "name": "Central Bank Gold Reserves",
+            "baseline": "Extreme",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UR": [
+          {
+            "code": "CBGR",
+            "name": "Central Bank Gold Reserves",
+            "baseline": "High",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "US": [
+          {
+            "code": "CBGP",
+            "name": "Central Bank Gold Purchases",
+            "baseline": "High",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UT": [
+          {
+            "code": "CBNGP",
+            "name": "Central Bank Net Gold Purchases",
+            "baseline": "Extreme",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15,
+            "dir": 1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": 1
+    },
+    {
+      "uid": 5,
+      "name": "Gold ETF / Investment Flows",
+      "members": {
+        "UK": [
+          {
+            "code": "GEH",
+            "name": "Gold ETF Holdings",
+            "baseline": "Medium",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UL": [
+          {
+            "code": "IIGEF",
+            "name": "Institutional Investor Gold ETF Flows",
+            "baseline": "Medium",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UM": [
+          {
+            "code": "GEIO",
+            "name": "Gold ETF Inflows and Outflows",
+            "baseline": "Medium",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UP": [
+          {
+            "code": "GETFF",
+            "name": "Gold exchange traded fund flows",
+            "baseline": "Medium",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UQ": [
+          {
+            "code": "EGH",
+            "name": "ETF Gold Holdings",
+            "baseline": "Extreme",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UR": [
+          {
+            "code": "GEI",
+            "name": "Gold ETF Inflows",
+            "baseline": "Low",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "US": [
+          {
+            "code": "GENI",
+            "name": "Gold ETF Net Inflows",
+            "baseline": "Medium",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UT": [
+          {
+            "code": "GEIT",
+            "name": "Gold ETF Inflow Trends",
+            "baseline": "High",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9,
+            "dir": 1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": 1
+    },
+    {
+      "uid": 6,
+      "name": "Futures / COMEX Positioning",
+      "members": {
+        "UK": [
+          {
+            "code": "CGP",
+            "name": "COMEX Gold Positioning",
+            "baseline": "Medium",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UL": [
+          {
+            "code": "CGFP",
+            "name": "COMEX Gold Futures Positioning",
+            "baseline": "Extreme",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UM": [
+          {
+            "code": "CGFP",
+            "name": "COMEX Gold Futures Positioning",
+            "baseline": "High",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UP": [
+          {
+            "code": "CGFP",
+            "name": "COMEX gold futures positioning",
+            "baseline": "Medium",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UQ": [
+          {
+            "code": "CFP",
+            "name": "COMEX Futures Positioning",
+            "baseline": "Extreme",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UR": [
+          {
+            "code": "CFMP",
+            "name": "COMEX Futures Market Positioning",
+            "baseline": "Medium",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "US": [
+          {
+            "code": "CGFP",
+            "name": "COMEX Gold Futures Positioning",
+            "baseline": "Medium",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UT": [
+          {
+            "code": "FMP",
+            "name": "Futures Market Positioning",
+            "baseline": "High",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11,
+            "dir": 1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": 1
+    },
+    {
+      "uid": 7,
+      "name": "Chinese Gold Demand",
+      "members": {
+        "UK": [
+          {
+            "code": "CPGD",
+            "name": "Chinese Physical Gold Demand",
+            "baseline": "High",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UL": [
+          {
+            "code": "PGDC",
+            "name": "Physical Gold Demand in China",
+            "baseline": "High",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UM": [
+          {
+            "code": "PGDC",
+            "name": "Physical Gold Demand in China",
+            "baseline": "High",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UP": [
+          {
+            "code": "CRGD",
+            "name": "Chinese retail gold demand",
+            "baseline": "High",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UQ": [
+          {
+            "code": "CRGD",
+            "name": "Chinese Retail Gold Demand",
+            "baseline": "Negligible",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UR": [
+          {
+            "code": "RGDC",
+            "name": "Retail Gold Demand in China",
+            "baseline": "High",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "US": [
+          {
+            "code": "CPGD",
+            "name": "Chinese Physical Gold Demand",
+            "baseline": "High",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UT": [
+          {
+            "code": "CRGD",
+            "name": "Chinese Retail Gold Demand",
+            "baseline": "High",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14,
+            "dir": 1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": 1
+    },
+    {
+      "uid": 8,
+      "name": "Indian Gold Demand & Policy",
+      "members": {
+        "UK": [
+          {
+            "code": "IPGD",
+            "name": "Indian Physical Gold Demand",
+            "baseline": "Medium",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UL": [
+          {
+            "code": "IGIDP",
+            "name": "Indian Gold Import Duty Policy",
+            "baseline": "Negligible",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UM": [
+          {
+            "code": "PGDI",
+            "name": "Physical Gold Demand in India",
+            "baseline": "Medium",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UP": [
+          {
+            "code": "IPGD",
+            "name": "Indian physical gold demand",
+            "baseline": "Medium",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UR": [
+          {
+            "code": "RGDI",
+            "name": "Retail Gold Demand in India",
+            "baseline": "Medium",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "US": [
+          {
+            "code": "IPGD",
+            "name": "Indian Physical Gold Demand",
+            "baseline": "Medium",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UT": [
+          {
+            "code": "IGIP",
+            "name": "Indian Gold Import Policy",
+            "baseline": "Medium",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5,
+            "dir": 1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": 1
+    },
+    {
+      "uid": 9,
+      "name": "Geopolitical Risk",
+      "members": {
+        "UK": [
+          {
+            "code": "GT",
+            "name": "Geopolitical Tensions",
+            "baseline": "High",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UL": [
+          {
+            "code": "GR",
+            "name": "Geopolitical Risk",
+            "baseline": "Medium",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UM": [
+          {
+            "code": "GRI",
+            "name": "Geopolitical Risk Index",
+            "baseline": "High",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UP": [
+          {
+            "code": "GRI",
+            "name": "Geopolitical risk index",
+            "baseline": "Medium",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UQ": [
+          {
+            "code": "GT",
+            "name": "Geopolitical Tensions",
+            "baseline": "High",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UR": [
+          {
+            "code": "GT",
+            "name": "Geopolitical Tension",
+            "baseline": "High",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "US": [
+          {
+            "code": "GTI",
+            "name": "Geopolitical Tension Index",
+            "baseline": "Extreme",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UT": [
+          {
+            "code": "GCI",
+            "name": "Geopolitical Conflict Intensity",
+            "baseline": "High",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10,
+            "dir": 1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": 1
+    },
+    {
+      "uid": 10,
+      "name": "Inflation",
+      "members": {
+        "UK": [
+          {
+            "code": "UIT",
+            "name": "US Inflation Trends",
+            "baseline": "Medium",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UL": [
+          {
+            "code": "GIE",
+            "name": "Global Inflation Expectations",
+            "baseline": "Low",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UM": [
+          {
+            "code": "UIE",
+            "name": "US Inflation Expectations",
+            "baseline": "Medium",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UP": [
+          {
+            "code": "GIE",
+            "name": "Global inflation expectations",
+            "baseline": "Low",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UQ": [
+          {
+            "code": "GIR",
+            "name": "Global Inflation Rates",
+            "baseline": "Extreme",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UR": [
+          {
+            "code": "GIR",
+            "name": "Global Inflation Rates",
+            "baseline": "Medium",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "US": [
+          {
+            "code": "GIE",
+            "name": "Global Inflation Expectations",
+            "baseline": "Medium",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UT": [
+          {
+            "code": "GIT",
+            "name": "Global Inflation Trends",
+            "baseline": "High",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8,
+            "dir": 1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": 1
+    },
+    {
+      "uid": 11,
+      "name": "US Dollar",
+      "members": {
+        "UK": [
+          {
+            "code": "UDI",
+            "name": "US Dollar Index",
+            "baseline": "High",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UL": [
+          {
+            "code": "UDIS",
+            "name": "US Dollar Index Strength",
+            "baseline": "Medium",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UM": [
+          {
+            "code": "UDIS",
+            "name": "US Dollar Index Strength",
+            "baseline": "Medium",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UP": [
+          {
+            "code": "UDI",
+            "name": "U.S. dollar index",
+            "baseline": "Medium",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UQ": [
+          {
+            "code": "UDI",
+            "name": "US Dollar Index",
+            "baseline": "High",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UR": [
+          {
+            "code": "UDS",
+            "name": "US Dollar Strength",
+            "baseline": "High",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "US": [
+          {
+            "code": "UDIS",
+            "name": "U.S. Dollar Index Strength",
+            "baseline": "Medium",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "UT": [
+          {
+            "code": "UDIS",
+            "name": "US Dollar Index Strength",
+            "baseline": "Medium",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2,
+            "dir": -1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": -1
+    },
+    {
+      "uid": 12,
+      "name": "US Fiscal Deficit & Debt",
+      "members": {
+        "UK": [
+          {
+            "code": "UFD",
+            "name": "US Fiscal Deficit",
+            "baseline": "Medium",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5,
+            "dir": 1,
+            "invert": false
+          },
+          {
+            "code": "UND",
+            "name": "US National Debt",
+            "baseline": "High",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UL": [
+          {
+            "code": "UFDP",
+            "name": "US Federal Deficit Projections",
+            "baseline": "High",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UM": [
+          {
+            "code": "UFDFP",
+            "name": "US Federal Deficit and Fiscal Policy",
+            "baseline": "High",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UQ": [
+          {
+            "code": "UFD",
+            "name": "US Fiscal Deficit",
+            "baseline": "High",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UR": [
+          {
+            "code": "UFDD",
+            "name": "US Fiscal Deficits and Debt",
+            "baseline": "High",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "US": [
+          {
+            "code": "UFDD",
+            "name": "U.S. Fiscal Deficit and Debt",
+            "baseline": "High",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UT": [
+          {
+            "code": "UNDT",
+            "name": "US National Debt Trajectory",
+            "baseline": "High",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1,
+            "dir": 1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": 1
+    },
+    {
+      "uid": 13,
+      "name": "Global Sovereign Debt",
+      "members": {
+        "UK": [
+          {
+            "code": "GDGR",
+            "name": "Global Debt to GDP Ratios",
+            "baseline": "High",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UL": [
+          {
+            "code": "GSDL",
+            "name": "Global Sovereign Debt Levels",
+            "baseline": "High",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UM": [
+          {
+            "code": "GDGR",
+            "name": "Global Debt to GDP Ratios",
+            "baseline": "High",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UP": [
+          {
+            "code": "GSDL",
+            "name": "Global sovereign debt levels",
+            "baseline": "Low",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UQ": [
+          {
+            "code": "SDL",
+            "name": "Sovereign Debt Levels",
+            "baseline": "Extreme",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "US": [
+          {
+            "code": "GSDR",
+            "name": "Global Sovereign Debt Ratios",
+            "baseline": "High",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UT": [
+          {
+            "code": "GSDL",
+            "name": "Global Sovereign Debt Levels",
+            "baseline": "High",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6,
+            "dir": 1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": 1
+    },
+    {
+      "uid": 14,
+      "name": "Mining Supply & Costs",
+      "members": {
+        "UK": [
+          {
+            "code": "GMPC",
+            "name": "Gold Mining Production Costs",
+            "baseline": "Medium",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UL": [
+          {
+            "code": "MASC",
+            "name": "Mining All In Sustaining Costs",
+            "baseline": "High",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UP": [
+          {
+            "code": "MPCT",
+            "name": "Mining production cost trends",
+            "baseline": "High",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UQ": [
+          {
+            "code": "GMP",
+            "name": "Gold Mining Production",
+            "baseline": "Medium",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UR": [
+          {
+            "code": "GMPL",
+            "name": "Gold Mining Production Levels",
+            "baseline": "Medium",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "US": [
+          {
+            "code": "GMP",
+            "name": "Gold Mining Production",
+            "baseline": "Medium",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UT": [
+          {
+            "code": "MASC",
+            "name": "Mining All In Sustaining Costs",
+            "baseline": "High",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4,
+            "dir": 1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": 1
+    },
+    {
+      "uid": 15,
+      "name": "Recession / Financial Stress",
+      "members": {
+        "UL": [
+          {
+            "code": "GRP",
+            "name": "Global Recession Probability",
+            "baseline": "Medium",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UM": [
+          {
+            "code": "GRP",
+            "name": "Global Recession Probability",
+            "baseline": "Medium",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UP": [
+          {
+            "code": "GEGO",
+            "name": "Global economic growth outlook",
+            "baseline": "Low",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UQ": [
+          {
+            "code": "BSS",
+            "name": "Banking Sector Stability",
+            "baseline": "Low",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UR": [
+          {
+            "code": "GRP",
+            "name": "Global Recession Probability",
+            "baseline": "Medium",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "US": [
+          {
+            "code": "GEG",
+            "name": "Global Economic Growth",
+            "baseline": "Medium",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "UT": [
+          {
+            "code": "EMV",
+            "name": "Equity Market Volatility",
+            "baseline": "Medium",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12,
+            "dir": 1,
+            "invert": false
+          },
+          {
+            "code": "GRP",
+            "name": "Global Recession Probability",
+            "baseline": "Medium",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7,
+            "dir": 1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": 1
+    }
+  ]
+}

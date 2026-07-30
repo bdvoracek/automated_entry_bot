@@ -1,0 +1,66 @@
+{
+  "id": "gold-2027-08-01",
+  "question": "What will be the price of gold (USD per troy ounce) on 1 August 2027?",
+  "tier": "Advanced",
+  "outcomes": [
+    "< $3,500",
+    "$3,500-3,900",
+    "$3,900-4,300",
+    "$4,300-4,700",
+    "> $4,700"
+  ],
+  "bin_labels": [
+    "< $3,500",
+    "$3,500-3,900",
+    "$3,900-4,300",
+    "$4,300-4,700",
+    "> $4,700"
+  ],
+  "bin_edges": [
+    2900,
+    3500,
+    3900,
+    4300,
+    4700,
+    5300
+  ],
+  "scaling": {
+    "range_min": 3500,
+    "range_max": 4700,
+    "zero_point": null,
+    "open_lower_bound": true,
+    "open_upper_bound": true,
+    "cdf_size": 201
+  },
+  "anchor": 4100,
+  "spot": 4080,
+  "model_ids": [
+    "UK",
+    "UL",
+    "UM",
+    "UN",
+    "UO",
+    "UP",
+    "UQ",
+    "UR",
+    "US",
+    "UT"
+  ],
+  "created_at": "2026-07-30",
+  "abandoned_biased_batch": [
+    "UA",
+    "UB",
+    "UC",
+    "UD",
+    "UE",
+    "UF",
+    "UG",
+    "UH",
+    "UI",
+    "UJ"
+  ],
+  "replacement_ids": [
+    "UU",
+    "UV"
+  ]
+}

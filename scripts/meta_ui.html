@@ -77,6 +77,12 @@
   .cdf .band{fill:#ffffff;opacity:.045}
   .cdf .bandedge{stroke:#bcbcbc;stroke-width:1;stroke-dasharray:4 3;opacity:.5}
   .cdf .bandlab{fill:#8f8f8f;font-size:9px;font-weight:600;letter-spacing:.03em}
+  .cdf .spot{stroke:#f2f0ec;stroke-width:1.6;stroke-dasharray:2 2;opacity:.92}
+  .cdf .spotlab{fill:#f2f0ec;font-size:9.5px;font-weight:800}
+  .qswitch{float:right;display:flex;flex-direction:column;align-items:flex-end;gap:1px;background:#242424;border:1px solid var(--line);border-radius:12px;padding:7px 15px;margin-bottom:4px}
+  .qswitch label{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .qswitch select{background:transparent;border:none;color:var(--ink);font:inherit;font-size:13.5px;font-weight:600;cursor:pointer;outline:none}
+  .qswitch select option{background:#242424}
   /* stat strip under the density */
   .dstats{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px 24px;align-items:flex-end}
   .dstats .lg{width:100%;display:flex;gap:16px;color:var(--muted);font-size:11px;margin-bottom:4px}
@@ -220,6 +226,7 @@
 </head>
 <body>
 <div class="wrap">
+  <div class="qswitch"><label>Question</label><select id="qsel"></select></div>
   <h1 id="q">…</h1>
   <p class="sub" id="sub">…</p>
 
@@ -254,7 +261,7 @@
         </div>
         <div class="divider" id="divider" title="drag to resize · double-click to reset"><span></span></div>
         <div class="card pane" id="pane-dens">
-          <div class="pane-h"><span>Unified density · price on 28 Aug 2026</span><button class="min" data-pane="dens" title="minimise">»</button></div>
+          <div class="pane-h"><span>Unified density · price on the resolution date</span><button class="min" data-pane="dens" title="minimise">»</button></div>
           <svg class="cdf" id="cdf" viewBox="0 0 460 300" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Probability density with tails"></svg>
           <div class="dstats" id="dstats"></div>
         </div>
@@ -298,15 +305,20 @@ const STATES=["Negligible","Low","Medium","High","Extreme"];
 let MODEL=null, deltas={}, appliedDeltas={}, busy=false, sortMode='desc';
 
 const $=id=>document.getElementById(id);
+const QP = (new URLSearchParams(location.search).get('q')) || '';
+const api = p => p + (QP ? (p.includes('?')?'&':'?')+'q='+QP : '');   // carry ?q= to the API
 const fmtpp=v=>(v>=0?'+':'')+(v*100).toFixed(1)+'pp';
 const sidx=s=>{const i=STATES.indexOf(s);return i<0?0:i;};
 const clampState=i=>STATES[Math.max(0,Math.min(4,i))];
 const toast=m=>{const t=$('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2800);};
 
 async function boot(){
-  MODEL=await (await fetch('/api/model')).json();
+  MODEL=await (await fetch(api('/api/model'))).json();
   $('q').textContent=MODEL.question;
   $('sub').innerHTML=`<b>${MODEL.tier}</b> · ${MODEL.n_models} models · <b>${MODEL.n_unified}</b> unified drivers · driver changes are free`;
+  const qsel=$('qsel');
+  qsel.innerHTML=(MODEL.questions||[]).map(q=>`<option value="${q.key}" ${q.key===MODEL.key?'selected':''}>${q.title}</option>`).join('');
+  qsel.onchange=e=>{location.search='?q='+e.target.value;};
   MODEL.drivers.forEach(d=>{deltas[d.uid]=0;appliedDeltas[d.uid]=0;});
   renderBars(MODEL.baseline,null); renderDist(MODEL.baseline,null); setTakeaway(null);
   renderDrivers(); initPanes(); renderInsights();
@@ -460,9 +472,11 @@ function renderDist(dist, base){
   const pts=d=>[[x0,0],...centers.map((c,i)=>[c,d[i]]),[x1,0]].map(([X,Y])=>[sx(X),sy(Y)]);
   // behind: gridlines + P10–P90 band fill
   let g='';
-  [60,70,80,90,100,110].forEach(xv=>{const xx=sx(xv);
+  const niceStep=x=>{const p=Math.pow(10,Math.floor(Math.log10(x)));const r=x/p;return (r<1.5?1:r<3.5?2:r<7.5?5:10)*p;};
+  const step=niceStep((x1-x0)/6);
+  for(let xv=Math.ceil(x0/step)*step; xv<=x1; xv+=step){const xx=sx(xv);
     g+=`<line class="grid" x1="${xx.toFixed(1)}" y1="${m.t}" x2="${xx.toFixed(1)}" y2="${H-m.b}"/>`+
-       `<text class="tick" x="${xx.toFixed(1)}" y="${H-m.b+16}" text-anchor="middle">$${xv}</text>`;});
+       `<text class="tick" x="${xx.toFixed(1)}" y="${H-m.b+16}" text-anchor="middle">$${xv.toLocaleString()}</text>`;}
   const bx=sx(sA.p10), bw=sx(sA.p90)-sx(sA.p10);
   g+=`<rect class="band" x="${bx.toFixed(1)}" y="${m.t}" width="${bw.toFixed(1)}" height="${(H-m.b-m.t).toFixed(1)}"/>`;
   // curves
@@ -477,6 +491,10 @@ function renderDist(dist, base){
            `<text class="medlab ${cls}" x="${xx}" y="${ly}" text-anchor="middle">${lab}</text>`;};
   if(sB) ov+=medLine(sB.p50,'base',`$${sB.p50.toFixed(0)}`, m.t-15);
   ov+=medLine(sA.p50,'', sB?`median → $${sA.p50.toFixed(0)}`:`median $${sA.p50.toFixed(0)}`, m.t-4);
+  // "today" — current spot price plotted on the distribution
+  if(MODEL.spot!=null){const sxx=sx(MODEL.spot).toFixed(1);
+    ov+=`<line class="spot" x1="${sxx}" y1="${m.t-2}" x2="${sxx}" y2="${H-m.b}"/>`+
+        `<text class="spotlab" x="${sxx}" y="9" text-anchor="middle">◆ spot $${MODEL.spot.toLocaleString()}</text>`;}
   $('cdf').innerHTML=g+`<path class="area" d="${curveA} Z"/>`+baseCurve+`<path class="curve" d="${curveA}"/>`+ov;
   renderDStats(sA,sB);
 }
@@ -577,7 +595,7 @@ $('apply').onclick=async()=>{
   setBusy(true,`<span class="spinner"></span>recomputing ${MODEL.n_models} models…`);
   $('status').textContent='recomputing…';$('status').classList.add('live');
   try{
-    const r=await (await fetch('/api/move',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({deltas:active})})).json();
+    const r=await (await fetch(api('/api/move'),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({deltas:active})})).json();
     if(r.error){toast(r.error);showLoading(false);setBusy(false);$('status').textContent='error';return;}
     renderBars(r.adjusted,r.baseline); renderDist(r.adjusted,r.baseline); setTakeaway(r);
     appliedDeltas={...deltas};                       // this setting is now the applied state
@@ -592,7 +610,7 @@ $('reset').onclick=async()=>{
   switchView('outcome'); showLoading(true);
   setBusy(true,`<span class="spinner"></span>resetting to baseline…`);
   try{
-    const r=await (await fetch('/api/reset',{method:'POST'})).json();
+    const r=await (await fetch(api('/api/reset'),{method:'POST'})).json();
     if(r.baseline)MODEL.baseline=r.baseline;
     MODEL.drivers.forEach(d=>{deltas[d.uid]=0;appliedDeltas[d.uid]=0;});
     renderDrivers(); renderBars(MODEL.baseline,null); renderDist(MODEL.baseline,null); setTakeaway(null);

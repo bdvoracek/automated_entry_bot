@@ -1,26 +1,26 @@
-"""Interactive Meta Mode UI — local server wiring the dark slider panel to MetaEngine.
+"""Interactive Meta Mode UI — local server, multi-question.
 
-Stdlib only (http.server). The 51Folds bearer token stays server-side; the page
-talks to these JSON endpoints:
+Stdlib only. The 51Folds bearer token stays server-side. Serves one or more
+"question packs" (e.g. Brent, Gold); the page picks via ?q=<key>.
 
-  GET  /                -> the single-page UI (scripts/meta_ui.html)
-  GET  /api/model       -> question, unified drivers (+membership), outcomes, baseline
-  POST /api/move  {deltas:{uid:delta}}  -> fan out, poll, return adjusted + timings
-  POST /api/reset       -> restore all models to baseline
+  GET  /?q=gold          -> the single-page UI
+  GET  /api/model?q=...  -> question, unified drivers (+CI/role), outcomes,
+                            baseline, CDF, spot, and causal fragments
+  POST /api/move?q=...   {deltas:{uid:delta}} -> fan out, poll, adjusted + timings
+  POST /api/reset?q=...  -> restore baseline
 
-Run:  python scripts/meta_ui.py         (then open http://localhost:8765)
-A move mutates model driver states live; Reset (and startup) restore baseline.
+Run:  python scripts/meta_ui.py   (open http://localhost:8765)
 """
 from __future__ import annotations
 
 import json
-import re
 import sqlite3
 import sys
 import threading
 import time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+from urllib.parse import parse_qs, urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
@@ -29,195 +29,206 @@ from aeb.aggregate import aggregate_outcomes  # noqa: E402
 from aeb.cdf import Scaling, bins_to_cdf, location_to_nominal  # noqa: E402
 from aeb.meta import MetaEngine, load_mapping  # noqa: E402
 
-MAPPING_PATH = ROOT / "state" / "unified_drivers_44704_advanced.json"
 DB_PATH = ROOT / "state" / "exploration.db"
 HTML_PATH = Path(__file__).with_suffix(".html")
 PORT = 8765
-
-mp = load_mapping(MAPPING_PATH)
-engine = MetaEngine(mp)
-_lock = threading.Lock()          # serialize fan-outs (one recompute at a time)
-_baseline: dict[str, float] = {}  # cached true baseline distribution
-_outcome_order: list[str] = []
+STATE = ROOT / "state"
 
 
-def _load_bin_design():
-    """Bin labels/edges/scaling for the question -> lets us turn the aggregated
-    5-bin PMF into a Metaculus 201-point continuous CDF (numeric question)."""
+def _scaling(sc: dict) -> Scaling:
+    return Scaling(range_min=sc["range_min"], range_max=sc["range_max"],
+                   zero_point=sc.get("zero_point"),
+                   open_lower_bound=sc.get("open_lower_bound", True),
+                   open_upper_bound=sc.get("open_upper_bound", True),
+                   cdf_size=sc.get("cdf_size", 201))
+
+
+def _bins_from_db(qid):
     con = sqlite3.connect(DB_PATH)
-    row = con.execute("SELECT doc FROM bin_designs WHERE pk=?", (str(mp.question_id),)).fetchone()
+    row = con.execute("SELECT doc FROM bin_designs WHERE pk=?", (str(qid),)).fetchone()
+    trow = con.execute("SELECT doc FROM questions WHERE pk=?", (str(qid),)).fetchone()
     con.close()
     d = json.loads(row[0])
-    sc = d["scaling"]
-    scaling = Scaling(range_min=sc["range_min"], range_max=sc["range_max"],
-                      zero_point=sc.get("zero_point"),
-                      open_lower_bound=sc.get("open_lower_bound", True),
-                      open_upper_bound=sc.get("open_upper_bound", True),
-                      cdf_size=sc.get("cdf_size", 201))
-    return d["labels"], d["edges"], scaling
+    title = json.loads(trow[0]).get("title", str(qid)) if trow else str(qid)
+    return title, d["labels"], d["edges"], _scaling(d["scaling"])
 
 
-LABELS, EDGES, SCALING = _load_bin_design()
-# nominal price at each of the 201 CDF points (x-axis for the chart)
-CDF_X = [round(location_to_nominal(i / (SCALING.cdf_size - 1), SCALING), 4)
-         for i in range(SCALING.cdf_size)]
+def _bins_from_job(path):
+    j = json.loads(Path(path).read_text())
+    return j["question"], j["bin_labels"], j["bin_edges"], _scaling(j["scaling"])
 
 
-def to_cdf(agg: dict[str, float]) -> list[float]:
-    """Aggregated bin probabilities -> 201-point continuous CDF."""
-    masses = [agg.get(lab, 0.0) for lab in LABELS]
-    return [round(x, 6) for x in bins_to_cdf(EDGES, masses, SCALING)]
+class Pack:
+    """Everything the UI needs for one question, plus its own MetaEngine/lock."""
+
+    def __init__(self, key, title, mapping_path, labels, edges, scaling, spot, causal_path):
+        self.key, self.title, self.spot = key, title, spot
+        self.mp = load_mapping(mapping_path)
+        self.engine = MetaEngine(self.mp)
+        self.labels, self.edges, self.scaling = labels, edges, scaling
+        n = scaling.cdf_size
+        self.cdf_x = [round(location_to_nominal(i / (n - 1), scaling), 4) for i in range(n)]
+        cj = json.loads(Path(causal_path).read_text()) if Path(causal_path).exists() else {}
+        self.fragments = cj.get("fragments", [])
+        self.ci = {int(k): v for k, v in cj.get("drivers", {}).items()}
+        self.lock = threading.Lock()
+        self.baseline: dict = {}
+        self.order: list = []
+
+    def capture_baseline(self):
+        per = {mid: self.engine.fc.get_model(mid).outcomes for mid in self.mp.models}
+        per = {k: v for k, v in per.items() if v}
+        self.baseline = aggregate_outcomes(per.values())
+        self.order = list(next(iter(per.values())).keys())
+
+    def to_cdf(self, agg):
+        # key off the models' actual outcome labels (the API may reformat the
+        # ones we submitted, e.g. strip commas), ordered ascending = bin order
+        masses = [agg.get(lab, 0.0) for lab in (self.order or self.labels)]
+        return [round(x, 6) for x in bins_to_cdf(self.edges, masses, self.scaling)]
+
+    def model_payload(self):
+        mp = self.mp
+        drivers = []
+        for u in mp.sorted_by_weight(descending=True):
+            bi = mp.unified_baseline_index(u.uid)
+            members = [{"model": mid, "code": m["code"], "name": m["name"],
+                        "baseline": m["baseline"], "rank": m.get("rank"),
+                        "dir": int(m.get("dir", 0)), "invert": bool(m.get("invert"))}
+                       for mid, mems in u.members.items() for m in mems]
+            members.sort(key=lambda m: (m["rank"] is None, m["rank"]))
+            ci = self.ci.get(u.uid, {})
+            drivers.append({
+                "uid": u.uid, "name": u.name, "neutral_idx": bi,
+                "models_covered": u.models_covered(), "member_count": u.member_count(),
+                "members": members, "weight": u.weight(),
+                "influence_points": u.influence_points(), "mode_dir": u.mode_dir,
+                "ci": ci.get("ci", 0), "role": ci.get("role", "driver"),
+                "reach": ci.get("reach", 0), "betweenness": ci.get("betweenness", 0),
+            })
+        return {
+            "key": self.key, "question": self.title, "tier": mp.tier,
+            "n_models": len(mp.models), "n_unified": mp.n, "outcomes": self.order,
+            "baseline": self.baseline, "drivers": drivers,
+            "cdf": self.to_cdf(self.baseline), "cdf_x": self.cdf_x,
+            "range": [self.scaling.range_min, self.scaling.range_max],
+            "bin_edges": self.edges, "bin_labels": self.order or self.labels,
+            "spot": self.spot, "insights": self.fragments,
+            "questions": [{"key": k, "title": p.title} for k, p in PACKS.items()],
+        }
+
+    def run_move(self, deltas):
+        eng = self.engine
+        changes = eng.apply(deltas)
+        touched = dict(eng._pending)
+        t0 = time.time()
+        done = {}
+        while len(done) < len(touched) and time.time() - t0 < 120:
+            time.sleep(3)
+            for mid, pre in touched.items():
+                if mid in done:
+                    continue
+                m = eng.fc.get_model(mid)
+                if m.status == "succeeded" and m.outcomes and (m.raw or {}).get("updatedAt") != pre:
+                    done[mid] = round(time.time() - t0, 1)
+        per = {mid: eng.fc.get_model(mid).outcomes for mid in self.mp.models}
+        per = {k: v for k, v in per.items() if v}
+        adjusted = aggregate_outcomes(per.values()) if per else dict(self.baseline)
+        times = list(done.values())
+        return {"adjusted": adjusted, "baseline": self.baseline, "per_model": per,
+                "cdf": self.to_cdf(adjusted), "cdf_baseline": self.to_cdf(self.baseline),
+                "changes": changes,
+                "timings": {"n_touched": len(touched), "n_done": len(done),
+                            "total_s": round(time.time() - t0, 1),
+                            "span": [min(times), max(times)] if times else [0, 0]}}
+
+    def reset(self):
+        eng = self.engine
+        eng.reset()
+        t0 = time.time()
+        while eng._pending and time.time() - t0 < 120:
+            time.sleep(3)
+            if eng.try_collect()[0] == "ready":
+                break
+        self.capture_baseline()
+        return {"baseline": self.baseline, "cdf": self.to_cdf(self.baseline)}
 
 
-def _load_causal() -> dict:
-    """Consensus causal artifact (driver CI/role + ranked fragment subgraphs),
-    produced by scripts/build_causal.py."""
-    p = ROOT / "state" / f"causal_{mp.question_id}_{mp.tier.lower()}.json"
-    return json.loads(p.read_text()) if p.exists() else {"drivers": {}, "fragments": []}
+# ---- question registry ------------------------------------------------------
+def _build_packs():
+    packs = {}
+    bt, bl, be, bs = _bins_from_db(44704)
+    packs["brent"] = Pack("brent", bt, STATE / "unified_drivers_44704_advanced.json",
+                          bl, be, bs, 88, STATE / "causal_44704_advanced.json")
+    gt, gl, ge, gs = _bins_from_job(STATE / "gold_job.json")
+    packs["gold"] = Pack("gold", gt, STATE / "unified_drivers_gold_advanced.json",
+                         gl, ge, gs, 4080, STATE / "causal_gold_advanced.json")
+    return packs
 
 
-_CAUSAL = _load_causal()
-_CI = {int(k): v for k, v in _CAUSAL.get("drivers", {}).items()}
+PACKS: dict = {}
+DEFAULT_Q = "gold"
 
 
-def _question_title() -> str:
-    try:
-        con = sqlite3.connect(DB_PATH)
-        row = con.execute("SELECT doc FROM questions WHERE pk=?", (str(mp.question_id),)).fetchone()
-        con.close()
-        if row:
-            return json.loads(row[0]).get("title", f"q:{mp.question_id}")
-    except Exception:
-        pass
-    return f"q:{mp.question_id}"
-
-
-def _capture_baseline() -> None:
-    global _baseline, _outcome_order
-    per = {mid: engine.fc.get_model(mid).outcomes for mid in mp.models}
-    per = {k: v for k, v in per.items() if v}
-    _baseline = aggregate_outcomes(per.values())
-    _outcome_order = list(next(iter(per.values())).keys())
-
-
-def _model_payload() -> dict:
-    drivers = []
-    for u in mp.sorted_by_weight(descending=True):   # Most-to-Least by default
-        bi = mp.unified_baseline_index(u.uid)
-        members = [{"model": mid, "code": m["code"], "name": m["name"],
-                    "baseline": m["baseline"], "rank": m.get("rank"),
-                    "dir": int(m.get("dir", 0)), "invert": bool(m.get("invert"))}
-                   for mid, mems in u.members.items() for m in mems]
-        members.sort(key=lambda m: (m["rank"] is None, m["rank"]))  # most influential first
-        ci = _CI.get(u.uid, {})
-        drivers.append({
-            "uid": u.uid, "name": u.name,
-            "neutral_idx": bi, "models_covered": u.models_covered(),
-            "member_count": u.member_count(), "members": members,
-            "weight": u.weight(), "influence_points": u.influence_points(),
-            "mode_dir": u.mode_dir,
-            "ci": ci.get("ci", 0), "role": ci.get("role", "driver"),
-            "reach": ci.get("reach", 0), "betweenness": ci.get("betweenness", 0),
-        })
-    return {
-        "question": _question_title(),
-        "tier": mp.tier, "n_models": len(mp.models), "n_unified": mp.n,
-        "outcomes": _outcome_order, "baseline": _baseline, "drivers": drivers,
-        "cdf": to_cdf(_baseline), "cdf_x": CDF_X,
-        "range": [SCALING.range_min, SCALING.range_max],
-        "bin_edges": EDGES, "bin_labels": LABELS,   # effective edges incl. open-tail extents
-        "insights": _CAUSAL.get("fragments", []),
-    }
-
-
-def _run_move(deltas: dict[int, int]) -> dict:
-    """Fan a meta setting out to all touched models, poll, aggregate. Instrumented
-    with per-model recompute times for the UI status line."""
-    changes = engine.apply(deltas)                 # GET+PUT only the models that change
-    touched = dict(engine._pending)                # {mid: pre_updatedAt}
-    t0 = time.time()
-    done: dict[str, float] = {}
-    while len(done) < len(touched) and time.time() - t0 < 120:
-        time.sleep(3)
-        for mid, pre in touched.items():
-            if mid in done:
-                continue
-            m = engine.fc.get_model(mid)
-            if m.status == "succeeded" and m.outcomes and (m.raw or {}).get("updatedAt") != pre:
-                done[mid] = round(time.time() - t0, 1)
-    per = {mid: engine.fc.get_model(mid).outcomes for mid in mp.models}
-    per = {k: v for k, v in per.items() if v}
-    adjusted = aggregate_outcomes(per.values()) if per else dict(_baseline)
-    times = list(done.values())
-    return {
-        "adjusted": adjusted, "baseline": _baseline, "per_model": per,
-        "cdf": to_cdf(adjusted), "cdf_baseline": to_cdf(_baseline),
-        "changes": changes,
-        "timings": {"n_touched": len(touched), "n_done": len(done),
-                    "total_s": round(time.time() - t0, 1),
-                    "span": [min(times), max(times)] if times else [0, 0]},
-    }
+def _pack(qs):
+    return PACKS.get((qs.get("q", [DEFAULT_Q])[0]), PACKS[DEFAULT_Q])
 
 
 class Handler(BaseHTTPRequestHandler):
-    def log_message(self, *a):  # quiet
+    def log_message(self, *a):
         pass
 
-    def _send(self, code: int, body: bytes, ctype: str) -> None:
+    def _send(self, code, body, ctype):
         self.send_response(code)
         self.send_header("Content-Type", ctype)
         self.send_header("Content-Length", str(len(body)))
         self.end_headers()
         self.wfile.write(body)
 
-    def _json(self, obj, code: int = 200) -> None:
+    def _json(self, obj, code=200):
         self._send(code, json.dumps(obj).encode(), "application/json")
 
     def do_GET(self):
-        if self.path == "/" or self.path.startswith("/index"):
+        u = urlparse(self.path)
+        if u.path == "/" or u.path.startswith("/index"):
             self._send(200, HTML_PATH.read_bytes(), "text/html; charset=utf-8")
-        elif self.path == "/api/model":
-            self._json(_model_payload())
+        elif u.path == "/api/model":
+            self._json(_pack(parse_qs(u.query)).model_payload())
         else:
             self._send(404, b"not found", "text/plain")
 
     def do_POST(self):
+        u = urlparse(self.path)
+        pack = _pack(parse_qs(u.query))
         n = int(self.headers.get("Content-Length", 0))
         try:
             body = json.loads(self.rfile.read(n) or b"{}")
         except json.JSONDecodeError:
             return self._json({"error": "bad json"}, 400)
-        if not _lock.acquire(blocking=False):
+        if not pack.lock.acquire(blocking=False):
             return self._json({"error": "busy — a recompute is already running"}, 409)
         try:
-            if self.path == "/api/move":
+            if u.path == "/api/move":
                 deltas = {int(k): int(v) for k, v in (body.get("deltas") or {}).items()}
-                self._json(_run_move(deltas))
-            elif self.path == "/api/reset":
-                engine.reset()
-                # poll back to baseline before responding
-                t0 = time.time()
-                while engine._pending and time.time() - t0 < 120:
-                    time.sleep(3)
-                    if engine.try_collect()[0] == "ready":
-                        break
-                _capture_baseline()
-                self._json({"baseline": _baseline, "cdf": to_cdf(_baseline)})
+                self._json(pack.run_move(deltas))
+            elif u.path == "/api/reset":
+                self._json(pack.reset())
             else:
                 self._json({"error": "unknown endpoint"}, 404)
-        except Exception as e:  # surface engine/API errors to the UI
+        except Exception as e:
             self._json({"error": f"{type(e).__name__}: {e}"}, 500)
         finally:
-            _lock.release()
+            pack.lock.release()
 
 
-def main() -> None:
-    print(f"Meta Mode UI — q:{mp.question_id} [{mp.tier}] {len(mp.models)} models, N={mp.n}")
-    print("Capturing baseline distribution ...")
-    _capture_baseline()
-    print("  baseline:", "  ".join(f"{k}={v*100:.1f}%" for k, v in _baseline.items()))
+def main():
+    global PACKS
+    PACKS = _build_packs()
+    for k, p in PACKS.items():
+        print(f"capturing baseline: {k} ({len(p.mp.models)} models) ...", flush=True)
+        p.capture_baseline()
     srv = ThreadingHTTPServer(("127.0.0.1", PORT), Handler)
-    print(f"\n  ->  http://localhost:{PORT}\n(Ctrl-C to stop)", flush=True)
+    print(f"\n  ->  http://localhost:{PORT}   questions: {list(PACKS)}\n(Ctrl-C to stop)", flush=True)
     try:
         srv.serve_forever()
     except KeyboardInterrupt:

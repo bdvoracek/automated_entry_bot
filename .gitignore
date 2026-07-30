@@ -19,6 +19,7 @@ venv/
 state/*
 !state/unified_drivers_*.json
 !state/causal_*.json
+!state/gold_job.json
 
 # Claude Code local settings (personal, not shared)
 .claude/settings.local.json
