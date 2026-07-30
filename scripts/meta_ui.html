@@ -35,12 +35,27 @@
 
   .view{display:block} .view.hidden{display:none}
 
-  /* outcome: split panes */
-  .split{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-  @media(max-width:760px){.split{grid-template-columns:1fr}}
+  /* outcome: split panes with draggable divider + minimise */
+  .split{display:flex;align-items:stretch;gap:0}
+  .split.dragging{user-select:none} .split.dragging .pane{transition:none}
   .card{background:var(--card);border-radius:var(--r);padding:26px 30px;box-shadow:var(--shadow)}
-  .pane{padding:22px 24px;display:flex;flex-direction:column}
-  .pane-h{font-size:12.5px;font-weight:600;color:var(--muted);margin:0 0 20px;letter-spacing:.03em}
+  .pane{flex:1 1 0;min-width:0;padding:22px 24px;display:flex;flex-direction:column;overflow:hidden;transition:flex-grow .25s ease,flex-basis .25s ease}
+  .pane-h{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12.5px;font-weight:600;color:var(--muted);margin:0 0 20px;letter-spacing:.03em}
+  .pane-h .min{background:none;border:none;color:var(--muted);font-size:17px;line-height:1;cursor:pointer;padding:0 2px;flex:none}
+  .pane-h .min:hover{color:var(--coral)}
+  .divider{flex:0 0 16px;display:flex;align-items:center;justify-content:center;cursor:col-resize;align-self:stretch;touch-action:none}
+  .divider span{width:4px;height:48px;border-radius:3px;background:#3d3d3d;transition:background .15s,height .15s}
+  .divider:hover span{background:var(--coral);height:70px}
+  .pane.min{flex:0 0 46px!important;padding:18px 6px;cursor:pointer}
+  .pane.min .bars,.pane.min .cdf{display:none}
+  .pane.min .pane-h{writing-mode:vertical-rl;transform:rotate(180deg);margin:0;color:var(--ink)}
+  @media(max-width:760px){
+    .split{flex-direction:column}
+    .divider{display:none}
+    .pane,.pane.min{flex:auto!important;padding:22px 24px!important;cursor:auto!important}
+    .pane.min .bars,.pane.min .cdf{display:block}
+    .pane.min .pane-h{writing-mode:horizontal-tb;transform:none}
+  }
   .bars{display:flex;flex-direction:column;gap:18px;flex:1;justify-content:center}
   .bar-row{display:grid;grid-template-columns:62px 1fr 94px;align-items:center;gap:12px}
   .bar-lab{font-size:13.5px;color:var(--ink)}
@@ -49,13 +64,18 @@
   .cdf .grid{stroke:#2f2f2f;stroke-width:1}
   .cdf .axis{stroke:#3a3a3a;stroke-width:1}
   .cdf .tick{fill:#7f7f7f;font-size:10px;font-variant-numeric:tabular-nums}
-  .cdf .curve{fill:none;stroke:var(--coral);stroke-width:2.4;stroke-linejoin:round}
-  .cdf .curve.ghost{stroke:var(--muted);stroke-width:1.6;opacity:.55;stroke-dasharray:4 4}
-  .cdf .area{fill:var(--coral);opacity:.12}
-  .cdf .ref{stroke:var(--muted);stroke-width:1;stroke-dasharray:3 3;opacity:.55}
-  .cdf .ref.amber{stroke:var(--coral);opacity:.7}
-  .cdf .reflab{fill:var(--muted);font-size:9.5px;font-weight:600}
-  .cdf .reflab.amber{fill:var(--coral)}
+  .cdf .curve{fill:none;stroke:var(--coral);stroke-width:2.6;stroke-linejoin:round}
+  .cdf .area{fill:var(--coral);opacity:.13}
+  .cdf .dens-base{fill:none;stroke:#8f97a8;stroke-width:2;opacity:.95}   /* the 'before' curve */
+  .cdf .bound{stroke:#4c4c4c;stroke-width:1;stroke-dasharray:2 3;opacity:.8}
+  .cdf .med{stroke:var(--coral);stroke-width:1.6}
+  .cdf .med.base{stroke:#8f97a8;stroke-width:1.4;stroke-dasharray:4 3;opacity:.95}
+  .cdf .medlab{fill:var(--coral);font-size:10.5px;font-weight:700}
+  .cdf .medlab.base{fill:#9aa2b2;font-weight:600}
+  .cdf .taillab{fill:#9a9a9a;font-size:9.5px;font-weight:700}
+  .cdf .lgd{fill:var(--muted);font-size:10px;font-weight:600}
+  .cdf .pct{stroke:#c9c9c9;stroke-width:1;stroke-dasharray:3 3;opacity:.45}
+  .cdf .pctlab{fill:#b6b6b6;font-size:9px;font-weight:700;font-variant-numeric:tabular-nums}
   .bar-track{position:relative;height:12px;background:#232323;border-radius:999px;overflow:visible}
   .bar-fill{position:absolute;top:0;left:0;height:100%;width:0;background:var(--coral);border-radius:999px;
     transition:width .7s cubic-bezier(.2,.7,.2,1)}
@@ -172,14 +192,15 @@
       <p class="loadmsg">Your model is updating.<br>This will take a few moments.</p>
     </div>
     <div id="outcome-content">
-      <div class="split">
-        <div class="card pane">
-          <div class="pane-h">Unified categorical probabilities</div>
+      <div class="split" id="split">
+        <div class="card pane" id="pane-cat">
+          <div class="pane-h"><span>Unified categorical probabilities</span><button class="min" data-pane="cat" title="minimise">«</button></div>
           <div class="bars" id="bars"></div>
         </div>
-        <div class="card pane">
-          <div class="pane-h">Unified density · price on 28 Aug 2026</div>
-          <svg class="cdf" id="cdf" viewBox="0 0 440 300" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Probability density with tails"></svg>
+        <div class="divider" id="divider" title="drag to resize · double-click to reset"><span></span></div>
+        <div class="card pane" id="pane-dens">
+          <div class="pane-h"><span>Unified density · price on 28 Aug 2026</span><button class="min" data-pane="dens" title="minimise">»</button></div>
+          <svg class="cdf" id="cdf" viewBox="0 0 460 320" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Probability density with tails"></svg>
         </div>
       </div>
       <div class="takeaway"><h2>Take away</h2><p id="takeaway">…</p></div>
@@ -226,7 +247,7 @@ async function boot(){
   $('sub').innerHTML=`<b>${MODEL.tier}</b> · ${MODEL.n_models} models · <b>${MODEL.n_unified}</b> unified drivers · driver changes are free`;
   MODEL.drivers.forEach(d=>{deltas[d.uid]=0;appliedDeltas[d.uid]=0;});
   renderBars(MODEL.baseline,null); renderDist(MODEL.baseline,null); setTakeaway(null);
-  renderDrivers();
+  renderDrivers(); initPanes();
   $('sort').onchange=e=>{sortMode=e.target.value;renderDrivers();};
   $('tab-outcome').onclick=()=>switchView('outcome');
   $('tab-drivers').onclick=()=>switchView('drivers');
@@ -240,6 +261,37 @@ function switchView(v){
   $('view-drivers').classList.toggle('hidden',v!=='drivers');
   $('tab-outcome').classList.toggle('active',v==='outcome');
   $('tab-drivers').classList.toggle('active',v==='drivers');
+}
+
+// ---- resizable / minimisable split panes ----
+let paneMode='split', splitPct=0.5;   // mode: 'split' | 'min-cat' | 'min-dens'
+function applyPaneLayout(){
+  const cat=$('pane-cat'), dens=$('pane-dens');
+  cat.classList.toggle('min',paneMode==='min-cat');
+  dens.classList.toggle('min',paneMode==='min-dens');
+  if(paneMode==='split'){ cat.style.flex=`${splitPct} 1 0`; dens.style.flex=`${1-splitPct} 1 0`; }
+  else { cat.style.flex=''; dens.style.flex=''; }
+  cat.querySelector('.min').textContent = paneMode==='min-cat' ? '»' : '«';
+  dens.querySelector('.min').textContent = paneMode==='min-dens' ? '«' : '»';
+}
+function initPanes(){
+  const cat=$('pane-cat'), dens=$('pane-dens'), split=$('split'), div=$('divider');
+  cat.querySelector('.min').onclick=e=>{e.stopPropagation();paneMode=paneMode==='min-cat'?'split':'min-cat';applyPaneLayout();};
+  dens.querySelector('.min').onclick=e=>{e.stopPropagation();paneMode=paneMode==='min-dens'?'split':'min-dens';applyPaneLayout();};
+  cat.onclick=()=>{if(paneMode==='min-cat'){paneMode='split';applyPaneLayout();}};
+  dens.onclick=()=>{if(paneMode==='min-dens'){paneMode='split';applyPaneLayout();}};
+  const onMove=e=>{
+    const r=split.getBoundingClientRect(); let p=(e.clientX-r.left)/r.width;
+    if(p<0.12)paneMode='min-cat'; else if(p>0.88)paneMode='min-dens';
+    else {paneMode='split';splitPct=Math.max(0.12,Math.min(0.88,p));}
+    applyPaneLayout();
+  };
+  const onUp=()=>{split.classList.remove('dragging');
+    window.removeEventListener('pointermove',onMove);window.removeEventListener('pointerup',onUp);};
+  div.addEventListener('pointerdown',e=>{e.preventDefault();split.classList.add('dragging');
+    window.addEventListener('pointermove',onMove);window.addEventListener('pointerup',onUp);});
+  div.addEventListener('dblclick',()=>{paneMode='split';splitPct=0.5;applyPaneLayout();});
+  applyPaneLayout();
 }
 
 function scaleMax(d){return Math.max(0.35,Math.max(...Object.values(d))*1.12);}
@@ -266,41 +318,71 @@ function catmull(pts){                       // smooth path through [[x,y]...]
   } return d;
 }
 
-// Density over price: mass/width per bin, smoothed, with the open tails drawn
-// out to the effective bin edges so the >$100 and <$60 mass is visible.
+// median price (where the CDF crosses 0.5), interpolated on the price axis
+// Percentiles + tail mass straight from the bin masses over the effective edges
+// (uniform-within-bin), consistent with the density curve and covering the open
+// tails — so P90 can legitimately land past $100.
+function binStats(dist){
+  const e=MODEL.bin_edges, labels=MODEL.bin_labels, n=labels.length;
+  const raw=labels.map(l=>dist[l]||0), tot=raw.reduce((a,b)=>a+b,0)||1, m=raw.map(x=>x/tot);
+  const price=q=>{let c=0;for(let i=0;i<n;i++){const nc=c+m[i];
+    if(nc>=q)return e[i]+(m[i]?(q-c)/m[i]:0)*(e[i+1]-e[i]); c=nc;} return e[n];};
+  const below=x=>{let c=0;for(let i=0;i<n;i++){
+    if(x>=e[i+1])c+=m[i]; else if(x>e[i]){c+=m[i]*(x-e[i])/(e[i+1]-e[i]);break;} else break;} return c;};
+  return {p10:price(0.1),p50:price(0.5),p90:price(0.9),below60:below(60),above100:1-below(100)};
+}
+
+// Density over price: mass/width per bin, smoothed, tails drawn to the effective
+// edges. Overlays the 'before' curve; marks P10 / median / P90 and the tail mass.
 function renderDist(dist, base){
   const edges=MODEL.bin_edges, labels=MODEL.bin_labels, n=labels.length;
   const centers=[],widths=[];
   for(let i=0;i<n;i++){centers.push((edges[i]+edges[i+1])/2); widths.push(edges[i+1]-edges[i]);}
   const dens=d=>labels.map((l,i)=>(d[l]||0)/widths[i]);
   const dA=dens(dist), dB=base?dens(base):null;
-  const ymax=(Math.max(...dA, ...(dB||[0]))*1.15)||1;
-  const W=440,H=300,m={l:14,r:14,t:20,b:34}, x0=edges[0]+1, x1=edges[n]-2;
-  const sx=v=> m.l+(v-x0)/(x1-x0)*(W-m.l-m.r);
+  const sA=binStats(dist), sB=base?binStats(base):null;
+  const ymax=(Math.max(...dA, ...(dB||[0]))*1.2)||1;
+  const W=460,H=320,m={l:16,r:16,t:44,b:44}, x0=edges[0]+1, x1=edges[n]-2;
+  const sx=v=> m.l+(Math.max(x0,Math.min(x1,v))-x0)/(x1-x0)*(W-m.l-m.r);
   const sy=v=> (H-m.b)-(v/ymax)*(H-m.t-m.b);
   const pts=d=>[[x0,0],...centers.map((c,i)=>[c,d[i]]),[x1,0]].map(([X,Y])=>[sx(X),sy(Y)]);
   let g='';
   [60,70,80,90,100,110].forEach(xv=>{const xx=sx(xv);
     g+=`<line class="grid" x1="${xx.toFixed(1)}" y1="${m.t}" x2="${xx.toFixed(1)}" y2="${H-m.b}"/>`+
        `<text class="tick" x="${xx.toFixed(1)}" y="${H-m.b+16}" text-anchor="middle">$${xv}</text>`;});
-  g+=`<line class="ref" x1="${sx(88).toFixed(1)}" y1="${m.t}" x2="${sx(88).toFixed(1)}" y2="${H-m.b}"/>`+
-     `<text class="reflab" x="${sx(88).toFixed(1)}" y="${m.t-4}" text-anchor="middle">anchor $88</text>`;
-  g+=`<line class="ref amber" x1="${sx(100).toFixed(1)}" y1="${m.t}" x2="${sx(100).toFixed(1)}" y2="${H-m.b}"/>`+
-     `<text class="reflab amber" x="${sx(100).toFixed(1)}" y="${m.t-4}" text-anchor="middle">$100</text>`;
-  const A=pts(dA), curve=catmull(A);
-  const ghost=dB?`<path class="curve ghost" d="${catmull(pts(dB))}"/>`:'';
-  $('cdf').innerHTML=g+`<path class="area" d="${curve} Z"/>`+ghost+`<path class="curve" d="${curve}"/>`;
+  [60,100].forEach(b=>{const xx=sx(b).toFixed(1); g+=`<line class="bound" x1="${xx}" y1="${m.t}" x2="${xx}" y2="${H-m.b}"/>`;});
+  g+=`<text class="taillab" x="${sx(x0).toFixed(1)}" y="${m.t+13}" text-anchor="start">&lt;$60 · ${(sA.below60*100).toFixed(0)}%</text>`;
+  g+=`<text class="taillab" x="${(W-m.r).toFixed(1)}" y="${m.t+13}" text-anchor="end">&gt;$100 · ${(sA.above100*100).toFixed(0)}%</text>`;
+  g+=`<line class="curve" x1="${m.l}" y1="16" x2="${m.l+18}" y2="16"/><text class="lgd" x="${m.l+24}" y="19.5">adjusted</text>`;
+  if(sB) g+=`<line class="dens-base" x1="${m.l+96}" y1="16" x2="${m.l+114}" y2="16"/><text class="lgd" x="${m.l+120}" y="19.5">before</text>`;
+  const A=pts(dA), curveA=catmull(A);
+  const baseCurve=dB?`<path class="dens-base" d="${catmull(pts(dB))}"/>`:'';
+  // P10 / P90 (bottom labels) + median on top (with shift)
+  const pctLine=(p,lab)=>{const xx=sx(p).toFixed(1);
+    return `<line class="pct" x1="${xx}" y1="${m.t}" x2="${xx}" y2="${H-m.b}"/>`+
+           `<text class="pctlab" x="${xx}" y="${H-m.b-6}" text-anchor="middle">${lab} $${p.toFixed(0)}</text>`;};
+  let marks=pctLine(sA.p10,'P10')+pctLine(sA.p90,'P90');
+  const medLine=(p,cls,lab,ly)=>{const xx=sx(p).toFixed(1);
+    return `<line class="med ${cls}" x1="${xx}" y1="${m.t}" x2="${xx}" y2="${H-m.b}"/>`+
+           `<text class="medlab ${cls}" x="${xx}" y="${ly}" text-anchor="middle">${lab}</text>`;};
+  if(sB) marks+=medLine(sB.p50,'base',`$${sB.p50.toFixed(0)}`, m.t-16);
+  marks+=medLine(sA.p50,'', sB?`median → $${sA.p50.toFixed(0)}`:`median $${sA.p50.toFixed(0)}`, m.t-4);
+  $('cdf').innerHTML=g+`<path class="area" d="${curveA} Z"/>`+baseCurve+`<path class="curve" d="${curveA}"/>`+marks;
 }
 
 function setTakeaway(res){
   const el=$('takeaway');
-  if(!res){el.innerHTML=`No shifts applied — showing the <b>${MODEL.n_models}-model</b> ensemble baseline distribution across the ${MODEL.outcomes.length} bins. Open <b>Drivers</b>, nudge a unified driver up or down, and Apply to fan the change out to every model.`;return;}
-  const diff=MODEL.outcomes.map(l=>[l,(res.adjusted[l]||0)-(res.baseline[l]||0)]);
-  const up=diff.reduce((a,b)=>b[1]>a[1]?b:a),dn=diff.reduce((a,b)=>b[1]<a[1]?b:a);
+  if(!res){
+    const s=binStats(MODEL.baseline);
+    el.innerHTML=`No shifts applied — the <b>${MODEL.n_models}-model</b> ensemble baseline. Median <b>$${s.p50.toFixed(1)}</b>, 80% interval <b>P10 $${s.p10.toFixed(0)}</b> – <b>P90 $${s.p90.toFixed(0)}</b>, with <b>${(s.above100*100).toFixed(0)}%</b> of the mass above $100. Open <b>Drivers</b>, nudge a unified driver, and Apply to fan the change out to every model.`;
+    return;
+  }
+  const sB=binStats(res.baseline), sA=binStats(res.adjusted);
   const setLbl=Object.entries(deltas).filter(([,v])=>v!==0)
     .map(([u,v])=>`<b>${MODEL.drivers.find(d=>d.uid==u).name}</b> ${v>0?'+'+v:v}`).join(', ');
+  const arrow=(a,b)=>{const c=b>=a?'amber':'cool';return `$${a.toFixed(0)} → <span class="${c}">$${b.toFixed(0)}</span>`;};
   const t=res.timings;
-  el.innerHTML=`Shifting ${setLbl} moved the ensemble forecast: <span class="${up[1]>=0?'amber':'cool'}">${up[0]} ${fmtpp(up[1])}</span> to ${((res.adjusted[up[0]])*100).toFixed(1)}%, and <span class="${dn[1]>=0?'amber':'cool'}">${dn[0]} ${fmtpp(dn[1])}</span> to ${((res.adjusted[dn[0]])*100).toFixed(1)}%. ${t.n_done}/${t.n_touched} models recomputed in ${t.total_s}s.`;
+  el.innerHTML=`Shifting ${setLbl} moved the forecast. <b>Median</b> ${arrow(sB.p50,sA.p50)}, <b>P10</b> ${arrow(sB.p10,sA.p10)}, <b>P90</b> ${arrow(sB.p90,sA.p90)}. The <b>&gt;$100 tail</b> goes from ${(sB.above100*100).toFixed(0)}% to <span class="${sA.above100>=sB.above100?'amber':'cool'}">${(sA.above100*100).toFixed(0)}%</span>. ${t.n_done}/${t.n_touched} models recomputed in ${t.total_s}s.`;
 }
 
 function renderDrivers(){
