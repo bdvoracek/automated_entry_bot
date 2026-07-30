@@ -1,0 +1,1029 @@
+{
+  "question_id": 44704,
+  "tier": "Advanced",
+  "n_unified": 15,
+  "models": [
+    "TB",
+    "TC",
+    "TD",
+    "TE",
+    "TF",
+    "TG",
+    "TH",
+    "TI",
+    "TJ"
+  ],
+  "unified": [
+    {
+      "uid": 1,
+      "name": "Strait of Hormuz Navigation Security",
+      "members": {
+        "TB": [
+          {
+            "code": "SHNS",
+            "name": "Strait of Hormuz Navigation Security",
+            "baseline": "Low"
+          }
+        ],
+        "TC": [
+          {
+            "code": "NSSH",
+            "name": "Navigational Security in the Strait of Hormuz",
+            "baseline": "Low"
+          }
+        ],
+        "TD": [
+          {
+            "code": "SHS",
+            "name": "Strait of Hormuz Security",
+            "baseline": "Medium"
+          }
+        ],
+        "TF": [
+          {
+            "code": "SHSS",
+            "name": "Strait of Hormuz Security Status",
+            "baseline": "Medium"
+          }
+        ],
+        "TG": [
+          {
+            "code": "SHNS",
+            "name": "Strait of Hormuz Navigation Security",
+            "baseline": "High"
+          }
+        ],
+        "TH": [
+          {
+            "code": "SHOS",
+            "name": "Strait of Hormuz Operational Status",
+            "baseline": "Medium"
+          }
+        ],
+        "TI": [
+          {
+            "code": "SHS",
+            "name": "Strait of Hormuz Security",
+            "baseline": "Medium"
+          }
+        ],
+        "TJ": [
+          {
+            "code": "SHS",
+            "name": "Strait of Hormuz Security",
+            "baseline": "Negligible"
+          }
+        ]
+      }
+    },
+    {
+      "uid": 2,
+      "name": "Strategic Petroleum Reserve Policy",
+      "members": {
+        "TB": [
+          {
+            "code": "USPRP",
+            "name": "US Strategic Petroleum Reserve Policy",
+            "baseline": "High"
+          }
+        ],
+        "TC": [
+          {
+            "code": "SPRP",
+            "name": "Strategic Petroleum Reserve Policy",
+            "baseline": "Medium"
+          }
+        ],
+        "TD": [
+          {
+            "code": "USPRP",
+            "name": "US Strategic Petroleum Reserve Policy",
+            "baseline": "High"
+          }
+        ],
+        "TE": [
+          {
+            "code": "SPRP",
+            "name": "Strategic Petroleum Reserve Policy",
+            "baseline": "Low"
+          }
+        ],
+        "TF": [
+          {
+            "code": "USPRP",
+            "name": "US Strategic Petroleum Reserve Policy",
+            "baseline": "Negligible"
+          }
+        ],
+        "TG": [
+          {
+            "code": "SPRP",
+            "name": "Strategic Petroleum Reserve Policy",
+            "baseline": "High"
+          }
+        ],
+        "TH": [
+          {
+            "code": "GSPRP",
+            "name": "Global Strategic Petroleum Reserve Policy",
+            "baseline": "High"
+          }
+        ],
+        "TI": [
+          {
+            "code": "SPRA",
+            "name": "Strategic Petroleum Reserve Adjustments",
+            "baseline": "Low"
+          }
+        ],
+        "TJ": [
+          {
+            "code": "USPRP",
+            "name": "US Strategic Petroleum Reserve Policy",
+            "baseline": "Negligible"
+          }
+        ]
+      }
+    },
+    {
+      "uid": 3,
+      "name": "Non-OPEC / Russian Supply & Sanctions",
+      "members": {
+        "TC": [
+          {
+            "code": "NOSG",
+            "name": "Non OPEC Supply Growth",
+            "baseline": "Negligible"
+          },
+          {
+            "code": "ROES",
+            "name": "Russian Oil Export Sanctions",
+            "baseline": "Medium"
+          }
+        ],
+        "TD": [
+          {
+            "code": "LPS",
+            "name": "Libyan Production Stability",
+            "baseline": "Extreme"
+          },
+          {
+            "code": "NEC",
+            "name": "Nigerian Export Consistency",
+            "baseline": "High"
+          },
+          {
+            "code": "RESC",
+            "name": "Russian Export Sanctions Compliance",
+            "baseline": "Medium"
+          }
+        ],
+        "TE": [
+          {
+            "code": "NOSG",
+            "name": "Non OPEC Supply Growth",
+            "baseline": "Medium"
+          }
+        ],
+        "TF": [
+          {
+            "code": "ISEC",
+            "name": "Iranian Sanctions and Export Capacity",
+            "baseline": "Low"
+          },
+          {
+            "code": "RSEC",
+            "name": "Russian Sanctions and Export Capacity",
+            "baseline": "Low"
+          }
+        ],
+        "TH": [
+          {
+            "code": "ROEV",
+            "name": "Russian Oil Export Volumes",
+            "baseline": "Medium"
+          }
+        ],
+        "TI": [
+          {
+            "code": "RCEV",
+            "name": "Russian Crude Export Volumes",
+            "baseline": "Medium"
+          }
+        ],
+        "TJ": [
+          {
+            "code": "RCEP",
+            "name": "Russian Crude Export Policy",
+            "baseline": "Medium"
+          }
+        ]
+      }
+    },
+    {
+      "uid": 4,
+      "name": "Middle East / US-Iran Conflict Risk",
+      "members": {
+        "TB": [
+          {
+            "code": "MEGT",
+            "name": "Middle East Geopolitical Tensions",
+            "baseline": "High"
+          },
+          {
+            "code": "UIMC",
+            "name": "US Iran Military Conflict",
+            "baseline": "High"
+          }
+        ],
+        "TC": [
+          {
+            "code": "GTME",
+            "name": "Geopolitical Tension in the Middle East",
+            "baseline": "High"
+          }
+        ],
+        "TD": [
+          {
+            "code": "MEGC",
+            "name": "Middle East Geopolitical Conflict",
+            "baseline": "High"
+          }
+        ],
+        "TE": [
+          {
+            "code": "GT",
+            "name": "Geopolitical Tensions",
+            "baseline": "Extreme"
+          }
+        ],
+        "TF": [
+          {
+            "code": "MEGC",
+            "name": "Middle East Geopolitical Conflict",
+            "baseline": "High"
+          }
+        ],
+        "TG": [
+          {
+            "code": "GCE",
+            "name": "Geopolitical Conflict Escalation",
+            "baseline": "High"
+          }
+        ],
+        "TH": [
+          {
+            "code": "UIGT",
+            "name": "US Iran Geopolitical Tension",
+            "baseline": "High"
+          }
+        ],
+        "TI": [
+          {
+            "code": "GCE",
+            "name": "Geopolitical Conflict Escalation",
+            "baseline": "High"
+          }
+        ],
+        "TJ": [
+          {
+            "code": "USIKC",
+            "name": "United States Iran Kinetic Conflict",
+            "baseline": "Medium"
+          }
+        ]
+      }
+    },
+    {
+      "uid": 5,
+      "name": "Atlantic Hurricane / Gulf Storm",
+      "members": {
+        "TB": [
+          {
+            "code": "AHSA",
+            "name": "Atlantic Hurricane Season Activity",
+            "baseline": "Low"
+          }
+        ],
+        "TC": [
+          {
+            "code": "AHSS",
+            "name": "Atlantic Hurricane Season Severity",
+            "baseline": "Low"
+          }
+        ],
+        "TE": [
+          {
+            "code": "HA",
+            "name": "Hurricane Activity",
+            "baseline": "Negligible"
+          }
+        ],
+        "TF": [
+          {
+            "code": "HAGM",
+            "name": "Hurricane Activity in Gulf of Mexico",
+            "baseline": "Negligible"
+          }
+        ],
+        "TG": [
+          {
+            "code": "AHS",
+            "name": "Atlantic Hurricane Season",
+            "baseline": "Medium"
+          }
+        ],
+        "TH": [
+          {
+            "code": "AHSS",
+            "name": "Atlantic Hurricane Season Severity",
+            "baseline": "Low"
+          }
+        ],
+        "TI": [
+          {
+            "code": "AHSS",
+            "name": "Atlantic Hurricane Season Severity",
+            "baseline": "Medium"
+          }
+        ],
+        "TJ": [
+          {
+            "code": "AHS",
+            "name": "Atlantic Hurricane Season",
+            "baseline": "Low"
+          }
+        ]
+      }
+    },
+    {
+      "uid": 6,
+      "name": "Chinese Industrial Demand",
+      "members": {
+        "TB": [
+          {
+            "code": "CIAIP",
+            "name": "Chinese Industrial Activity and Import Policy",
+            "baseline": "Extreme"
+          }
+        ],
+        "TC": [
+          {
+            "code": "CIPD",
+            "name": "Chinese Industrial Production Data",
+            "baseline": "Medium"
+          }
+        ],
+        "TD": [
+          {
+            "code": "CID",
+            "name": "Chinese Industrial Demand",
+            "baseline": "Low"
+          }
+        ],
+        "TE": [
+          {
+            "code": "CEA",
+            "name": "Chinese Economic Activity",
+            "baseline": "Medium"
+          }
+        ],
+        "TF": [
+          {
+            "code": "CIP",
+            "name": "Chinese Industrial Production",
+            "baseline": "Medium"
+          }
+        ],
+        "TG": [
+          {
+            "code": "CIP",
+            "name": "Chinese Industrial Production",
+            "baseline": "Medium"
+          }
+        ],
+        "TH": [
+          {
+            "code": "CIPD",
+            "name": "Chinese Industrial Production Data",
+            "baseline": "Medium"
+          }
+        ],
+        "TI": [
+          {
+            "code": "CEP",
+            "name": "Chinese Economic Performance",
+            "baseline": "Medium"
+          }
+        ],
+        "TJ": [
+          {
+            "code": "CIP",
+            "name": "Chinese Industrial Production",
+            "baseline": "Medium"
+          }
+        ]
+      }
+    },
+    {
+      "uid": 7,
+      "name": "US Shale / Domestic Crude Production",
+      "members": {
+        "TB": [
+          {
+            "code": "UCPT",
+            "name": "US Crude Production Trends",
+            "baseline": "Medium"
+          }
+        ],
+        "TC": [
+          {
+            "code": "USOPT",
+            "name": "US Shale Oil Production Trends",
+            "baseline": "Negligible"
+          }
+        ],
+        "TD": [
+          {
+            "code": "USP",
+            "name": "US Shale Production",
+            "baseline": "Medium"
+          }
+        ],
+        "TF": [
+          {
+            "code": "USPL",
+            "name": "US Shale Production Levels",
+            "baseline": "Low"
+          }
+        ],
+        "TG": [
+          {
+            "code": "USOF",
+            "name": "US Shale Output Forecast",
+            "baseline": "Medium"
+          }
+        ],
+        "TH": [
+          {
+            "code": "USPO",
+            "name": "US Shale Production Output",
+            "baseline": "Medium"
+          }
+        ],
+        "TI": [
+          {
+            "code": "UDCP",
+            "name": "US Domestic Crude Production",
+            "baseline": "Medium"
+          }
+        ],
+        "TJ": [
+          {
+            "code": "UDCP",
+            "name": "US Domestic Crude Production",
+            "baseline": "Medium"
+          }
+        ]
+      }
+    },
+    {
+      "uid": 8,
+      "name": "OPEC & Saudi Production Policy",
+      "members": {
+        "TB": [
+          {
+            "code": "OPD",
+            "name": "OPEC Production Decisions",
+            "baseline": "Low"
+          }
+        ],
+        "TC": [
+          {
+            "code": "OPQD",
+            "name": "OPEC Production Quota Decisions",
+            "baseline": "Low"
+          }
+        ],
+        "TD": [
+          {
+            "code": "OPD",
+            "name": "OPEC Production Decisions",
+            "baseline": "Medium"
+          }
+        ],
+        "TE": [
+          {
+            "code": "PQD",
+            "name": "Production Quota Decisions",
+            "baseline": "Extreme"
+          }
+        ],
+        "TF": [
+          {
+            "code": "OPQD",
+            "name": "OPEC Production Quota Decisions",
+            "baseline": "Low"
+          }
+        ],
+        "TG": [
+          {
+            "code": "OPQD",
+            "name": "OPEC Production Quota Decisions",
+            "baseline": "Medium"
+          },
+          {
+            "code": "SASC",
+            "name": "Saudi Arabia Spare Capacity",
+            "baseline": "High"
+          }
+        ],
+        "TH": [
+          {
+            "code": "OPD",
+            "name": "OPEC Production Decisions",
+            "baseline": "Medium"
+          }
+        ],
+        "TI": [
+          {
+            "code": "OPQ",
+            "name": "OPEC Production Quotas",
+            "baseline": "Medium"
+          },
+          {
+            "code": "SAPA",
+            "name": "Saudi Arabia Production Adjustments",
+            "baseline": "Medium"
+          }
+        ],
+        "TJ": [
+          {
+            "code": "OPD",
+            "name": "OPEC Production Decisions",
+            "baseline": "Medium"
+          }
+        ]
+      }
+    },
+    {
+      "uid": 9,
+      "name": "Global Refinery Utilization / Margins",
+      "members": {
+        "TC": [
+          {
+            "code": "GRUR",
+            "name": "Global Refinery Utilization Rates",
+            "baseline": "Low"
+          }
+        ],
+        "TE": [
+          {
+            "code": "GRUR",
+            "name": "Global Refining Utilization Rates",
+            "baseline": "Low"
+          }
+        ],
+        "TF": [
+          {
+            "code": "GRUR",
+            "name": "Global Refinery Utilization Rates",
+            "baseline": "High"
+          }
+        ],
+        "TG": [
+          {
+            "code": "GRMT",
+            "name": "Global Refining Margin Trends",
+            "baseline": "High"
+          }
+        ],
+        "TH": [
+          {
+            "code": "GRUR",
+            "name": "Global Refinery Utilisation Rates",
+            "baseline": "High"
+          }
+        ],
+        "TJ": [
+          {
+            "code": "GRM",
+            "name": "Global Refining Margins",
+            "baseline": "Medium"
+          }
+        ]
+      }
+    },
+    {
+      "uid": 10,
+      "name": "Global Oil Inventories / Crude Stocks",
+      "members": {
+        "TB": [
+          {
+            "code": "GOI",
+            "name": "Global Oil Inventories",
+            "baseline": "Extreme"
+          }
+        ],
+        "TC": [
+          {
+            "code": "GCIL",
+            "name": "Global Crude Inventory Levels",
+            "baseline": "Extreme"
+          }
+        ],
+        "TD": [
+          {
+            "code": "ENGS",
+            "name": "European Natural Gas Storage",
+            "baseline": "Medium"
+          },
+          {
+            "code": "GOI",
+            "name": "Global Oil Inventories",
+            "baseline": "High"
+          }
+        ],
+        "TE": [
+          {
+            "code": "IL",
+            "name": "Inventory Levels",
+            "baseline": "Medium"
+          },
+          {
+            "code": "NGIL",
+            "name": "Natural Gas Inventory Levels",
+            "baseline": "Negligible"
+          }
+        ],
+        "TF": [
+          {
+            "code": "GOIL",
+            "name": "Global Oil Inventory Levels",
+            "baseline": "Extreme"
+          }
+        ],
+        "TG": [
+          {
+            "code": "GCCI",
+            "name": "Global Commercial Crude Inventories",
+            "baseline": "Extreme"
+          }
+        ],
+        "TH": [
+          {
+            "code": "GCI",
+            "name": "Global Crude Inventories",
+            "baseline": "High"
+          }
+        ],
+        "TI": [
+          {
+            "code": "GOIL",
+            "name": "Global Oil Inventory Levels",
+            "baseline": "Medium"
+          }
+        ],
+        "TJ": [
+          {
+            "code": "UCOI",
+            "name": "US Crude Oil Inventories",
+            "baseline": "Medium"
+          }
+        ]
+      }
+    },
+    {
+      "uid": 11,
+      "name": "Global Oil Demand",
+      "members": {
+        "TB": [
+          {
+            "code": "GODF",
+            "name": "Global Oil Demand Forecast",
+            "baseline": "High"
+          }
+        ],
+        "TE": [
+          {
+            "code": "GOD",
+            "name": "Global Oil Demand",
+            "baseline": "Medium"
+          }
+        ],
+        "TH": [
+          {
+            "code": "GODF",
+            "name": "Global Oil Demand Forecast",
+            "baseline": "Low"
+          }
+        ],
+        "TI": [
+          {
+            "code": "ICID",
+            "name": "Indian Crude Import Demand",
+            "baseline": "Medium"
+          }
+        ],
+        "TJ": [
+          {
+            "code": "ICID",
+            "name": "Indian Crude Import Demand",
+            "baseline": "High"
+          }
+        ]
+      }
+    },
+    {
+      "uid": 12,
+      "name": "Global Economic Growth (GDP & PMI)",
+      "members": {
+        "TB": [
+          {
+            "code": "GEGO",
+            "name": "Global Economic Growth Outlook",
+            "baseline": "Medium"
+          },
+          {
+            "code": "GMP",
+            "name": "Global Manufacturing PMI",
+            "baseline": "Medium"
+          }
+        ],
+        "TC": [
+          {
+            "code": "GGGF",
+            "name": "Global GDP Growth Forecasts",
+            "baseline": "Medium"
+          }
+        ],
+        "TD": [
+          {
+            "code": "GMP",
+            "name": "Global Manufacturing PMI",
+            "baseline": "High"
+          }
+        ],
+        "TE": [
+          {
+            "code": "GGGF",
+            "name": "Global GDP Growth Forecasts",
+            "baseline": "High"
+          },
+          {
+            "code": "IPG",
+            "name": "Industrial Production Growth",
+            "baseline": "Low"
+          }
+        ],
+        "TF": [
+          {
+            "code": "GEGF",
+            "name": "Global Economic Growth Forecasts",
+            "baseline": "Medium"
+          }
+        ],
+        "TG": [
+          {
+            "code": "GEGF",
+            "name": "Global Economic Growth Forecast",
+            "baseline": "Medium"
+          },
+          {
+            "code": "GMP",
+            "name": "Global Manufacturing PMI",
+            "baseline": "Low"
+          }
+        ],
+        "TH": [
+          {
+            "code": "GMPT",
+            "name": "Global Manufacturing PMI Trends",
+            "baseline": "High"
+          }
+        ],
+        "TI": [
+          {
+            "code": "GGGF",
+            "name": "Global GDP Growth Forecasts",
+            "baseline": "Medium"
+          }
+        ],
+        "TJ": [
+          {
+            "code": "GGGF",
+            "name": "Global GDP Growth Forecasts",
+            "baseline": "Medium"
+          }
+        ]
+      }
+    },
+    {
+      "uid": 13,
+      "name": "Speculative Market Positioning",
+      "members": {
+        "TB": [
+          {
+            "code": "SMP",
+            "name": "Speculative Market Positioning",
+            "baseline": "Medium"
+          }
+        ],
+        "TC": [
+          {
+            "code": "SMP",
+            "name": "Speculative Market Positioning",
+            "baseline": "Low"
+          }
+        ],
+        "TD": [
+          {
+            "code": "SMP",
+            "name": "Speculative Market Positioning",
+            "baseline": "Medium"
+          }
+        ],
+        "TE": [
+          {
+            "code": "SP",
+            "name": "Speculative Positioning",
+            "baseline": "High"
+          }
+        ],
+        "TF": [
+          {
+            "code": "SPFM",
+            "name": "Speculative Positioning in Futures Markets",
+            "baseline": "Medium"
+          }
+        ],
+        "TG": [
+          {
+            "code": "SNLP",
+            "name": "Speculative Net Long Positions",
+            "baseline": "High"
+          }
+        ],
+        "TH": [
+          {
+            "code": "SOMP",
+            "name": "Speculative Oil Market Positioning",
+            "baseline": "High"
+          }
+        ],
+        "TI": [
+          {
+            "code": "SMP",
+            "name": "Speculative Market Positioning",
+            "baseline": "High"
+          }
+        ],
+        "TJ": [
+          {
+            "code": "SNLP",
+            "name": "Speculative Net Long Positions",
+            "baseline": "Medium"
+          }
+        ]
+      }
+    },
+    {
+      "uid": 14,
+      "name": "US Dollar Index / Strength",
+      "members": {
+        "TB": [
+          {
+            "code": "UDI",
+            "name": "US Dollar Index",
+            "baseline": "Low"
+          }
+        ],
+        "TC": [
+          {
+            "code": "UDIS",
+            "name": "US Dollar Index Strength",
+            "baseline": "Medium"
+          }
+        ],
+        "TD": [
+          {
+            "code": "UER",
+            "name": "USD Exchange Rate",
+            "baseline": "Medium"
+          }
+        ],
+        "TE": [
+          {
+            "code": "UDI",
+            "name": "US Dollar Index",
+            "baseline": "Medium"
+          }
+        ],
+        "TF": [
+          {
+            "code": "UDS",
+            "name": "US Dollar Strength",
+            "baseline": "Low"
+          }
+        ],
+        "TG": [
+          {
+            "code": "UDI",
+            "name": "US Dollar Index",
+            "baseline": "High"
+          }
+        ],
+        "TH": [
+          {
+            "code": "US",
+            "name": "USD Strength",
+            "baseline": "Medium"
+          }
+        ],
+        "TI": [
+          {
+            "code": "UDIS",
+            "name": "US Dollar Index Strength",
+            "baseline": "Low"
+          }
+        ],
+        "TJ": [
+          {
+            "code": "UDI",
+            "name": "US Dollar Index",
+            "baseline": "High"
+          }
+        ]
+      }
+    },
+    {
+      "uid": 15,
+      "name": "US Federal Reserve Monetary Policy",
+      "members": {
+        "TB": [
+          {
+            "code": "UFRMP",
+            "name": "US Federal Reserve Monetary Policy",
+            "baseline": "Negligible"
+          }
+        ],
+        "TC": [
+          {
+            "code": "FRMP",
+            "name": "Federal Reserve Monetary Policy",
+            "baseline": "Medium"
+          }
+        ],
+        "TD": [
+          {
+            "code": "UFRMP",
+            "name": "US Federal Reserve Monetary Policy",
+            "baseline": "Negligible"
+          }
+        ],
+        "TE": [
+          {
+            "code": "IRP",
+            "name": "Interest Rate Policy",
+            "baseline": "Medium"
+          }
+        ],
+        "TF": [
+          {
+            "code": "UFRIRD",
+            "name": "US Federal Reserve Interest Rate Decisions",
+            "baseline": "Negligible"
+          }
+        ],
+        "TG": [
+          {
+            "code": "FRIRP",
+            "name": "Federal Reserve Interest Rate Policy",
+            "baseline": "High"
+          }
+        ],
+        "TH": [
+          {
+            "code": "UFRIRP",
+            "name": "US Federal Reserve Interest Rate Policy",
+            "baseline": "Medium"
+          }
+        ],
+        "TI": [
+          {
+            "code": "UFRMP",
+            "name": "US Federal Reserve Monetary Policy",
+            "baseline": "Low"
+          }
+        ],
+        "TJ": [
+          {
+            "code": "FRIRP",
+            "name": "Federal Reserve Interest Rate Policy",
+            "baseline": "Medium"
+          }
+        ]
+      }
+    }
+  ]
+}

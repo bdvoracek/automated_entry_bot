@@ -15,8 +15,9 @@ venv/
 # OS / editor
 .DS_Store
 
-# Pipeline job state
-state/
+# Pipeline job state (runtime), but keep versioned unified-driver mappings
+state/*
+!state/unified_drivers_*.json
 
 # Claude Code local settings (personal, not shared)
 .claude/settings.local.json

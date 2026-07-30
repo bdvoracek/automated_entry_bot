@@ -25,12 +25,38 @@ class FoldsError(RuntimeError):
     pass
 
 
+# Ordinal driver states, weakest -> strongest. The write API accepts these exact
+# strings; the 51Folds UI labels them Min/Low/Med/High/Max (see API docs p.8).
+# Note: a model's stateDescriptors sometimes spell the floor "Negligent"; the
+# current-state and write paths use "Negligible". We normalize both to the latter.
+DRIVER_STATES: tuple[str, ...] = ("Negligible", "Low", "Medium", "High", "Extreme")
+_STATE_INDEX = {s.lower(): i for i, s in enumerate(DRIVER_STATES)}
+_STATE_INDEX["negligent"] = 0  # tolerate the descriptor spelling on read
+UI_STATE_LABELS = {"Negligible": "Min", "Low": "Low", "Medium": "Med",
+                   "High": "High", "Extreme": "Max"}
+
+
+def state_to_index(state: str) -> int:
+    """Map a driver state string to its ordinal 0..4 (raises on unknown)."""
+    try:
+        return _STATE_INDEX[str(state).strip().lower()]
+    except KeyError as e:
+        raise ValueError(f"unknown driver state {state!r}") from e
+
+
+def index_to_state(i: int) -> str:
+    """Map an ordinal to a canonical state, clamping into range."""
+    return DRIVER_STATES[max(0, min(len(DRIVER_STATES) - 1, i))]
+
+
 @dataclass
 class FoldsModel:
     model_id: str
     status: str
     outcomes: dict[str, float]      # label -> probability (when succeeded)
     raw: dict[str, Any]
+    drivers: list[dict[str, Any]] = None  # catalogue: [{code, name, stateDescriptors?}]
+    driver_states: dict[str, str] = None  # code -> current state (normalized)
 
 
 class FoldsClient:
@@ -82,13 +108,35 @@ class FoldsClient:
         # Live API returns capitalized status ("Running"/"Succeeded"); normalize.
         status = str(d.get("status", "unknown")).lower()
         # `probability` is only present once succeeded; skip outcomes lacking it.
+        current = d.get("current", {}) or {}
         outcomes = {
             o["label"]: float(o["probability"])
-            for o in (d.get("current", {}) or {}).get("outcomes", [])
+            for o in current.get("outcomes", [])
             if o.get("probability") is not None
         }
+        catalogue = d.get("drivers") or []
+        # Normalize current states (tolerate the "Negligent" descriptor spelling).
+        driver_states: dict[str, str] = {}
+        for c in current.get("drivers", []) or []:
+            code, st = c.get("code"), c.get("state")
+            if code and st is not None:
+                driver_states[code] = index_to_state(state_to_index(st))
         return FoldsModel(model_id=d.get("modelId", model_id), status=status,
-                          outcomes=outcomes, raw=d)
+                          outcomes=outcomes, raw=d,
+                          drivers=catalogue, driver_states=driver_states)
+
+    def set_drivers(self, model_id: str, states: dict[str, str]) -> str:
+        """Set ALL driver states and trigger a recompute. PUT /models/{id}/drivers.
+
+        The API requires every driver in the catalogue to be supplied; a partial
+        body 400s ("One or more drivers were not supplied"). Returns the new
+        status (202 -> "running"); poll get_model() for the recomputed outcomes.
+        """
+        body = {"drivers": [{"code": code, "state": index_to_state(state_to_index(st))}
+                            for code, st in states.items()]}
+        _, data = request("PUT", config.FOLDS_BASE + f"/models/{model_id}/drivers",
+                          headers=self._hdr(), json_body=body)
+        return str((data or {}).get("data", {}).get("status", "unknown")).lower()
 
     def retry_model(self, model_id: str) -> None:
         request("POST", config.FOLDS_BASE + f"/models/{model_id}/retry", headers=self._hdr())
