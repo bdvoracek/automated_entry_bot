@@ -1,0 +1,50 @@
+{
+  "id": "b200-2026-12-31",
+  "question": "What will the NVIDIA B200 GPU rental price index be on 31 December 2026 (USD per GPU-hour)?",
+  "tier": "Advanced",
+  "outcomes": [
+    "< $5.50",
+    "$5.50-7.00",
+    "$7.00-8.50",
+    "$8.50-10.00",
+    "> $10.00"
+  ],
+  "bin_labels": [
+    "< $5.50",
+    "$5.50-7.00",
+    "$7.00-8.50",
+    "$8.50-10.00",
+    "> $10.00"
+  ],
+  "bin_edges": [
+    4.0,
+    5.5,
+    7.0,
+    8.5,
+    10.0,
+    14.0
+  ],
+  "scaling": {
+    "range_min": 5.5,
+    "range_max": 10.0,
+    "zero_point": null,
+    "open_lower_bound": true,
+    "open_upper_bound": true,
+    "cdf_size": 201
+  },
+  "anchor": 7.75,
+  "spot": 7.7,
+  "model_ids": [
+    "UW",
+    "UX",
+    "UY",
+    "UZ",
+    "Ua",
+    "Ub",
+    "Uc",
+    "Ud",
+    "Ue",
+    "Uf"
+  ],
+  "created_at": "2026-07-30"
+}
