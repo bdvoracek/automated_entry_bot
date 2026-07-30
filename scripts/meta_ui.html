@@ -74,8 +74,21 @@
   .cdf .medlab.base{fill:#9aa2b2;font-weight:600}
   .cdf .taillab{fill:#9a9a9a;font-size:9.5px;font-weight:700}
   .cdf .lgd{fill:var(--muted);font-size:10px;font-weight:600}
-  .cdf .pct{stroke:#c9c9c9;stroke-width:1;stroke-dasharray:3 3;opacity:.45}
-  .cdf .pctlab{fill:#b6b6b6;font-size:9px;font-weight:700;font-variant-numeric:tabular-nums}
+  .cdf .band{fill:#ffffff;opacity:.045}
+  .cdf .bandedge{stroke:#bcbcbc;stroke-width:1;stroke-dasharray:4 3;opacity:.5}
+  .cdf .bandlab{fill:#8f8f8f;font-size:9px;font-weight:600;letter-spacing:.03em}
+  /* stat strip under the density */
+  .dstats{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px 24px;align-items:flex-end}
+  .dstats .lg{width:100%;display:flex;gap:16px;color:var(--muted);font-size:11px;margin-bottom:4px}
+  .dstats .lg i{display:inline-flex;align-items:center;gap:6px;font-style:normal}
+  .dstats .lg .sw{width:15px;border-top:2px solid var(--coral);display:inline-block}
+  .dstats .lg .sw.base{border-top:2px dashed #8f97a8}
+  .dstats .stat{display:flex;flex-direction:column;gap:2px}
+  .dstats .stat b{font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700}
+  .dstats .stat .v{font-size:15px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--ink)}
+  .dstats .stat .v small{font-size:10.5px;font-weight:600;margin-left:3px}
+  .dstats .up{color:var(--coral)} .dstats .down{color:var(--blue)} .dstats .flat{color:var(--muted)}
+  .pane.min .dstats{display:none}
   .bar-track{position:relative;height:12px;background:#232323;border-radius:999px;overflow:visible}
   .bar-fill{position:absolute;top:0;left:0;height:100%;width:0;background:var(--coral);border-radius:999px;
     transition:width .7s cubic-bezier(.2,.7,.2,1)}
@@ -127,6 +140,47 @@
   .members td.c{color:var(--ink);width:70px}
   .members td.res{text-align:right}
   .members td .arrow{color:var(--coral)}
+  .members .mgrp{margin-top:12px}
+  .members .mgrp-h{font-size:10px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;margin-bottom:5px}
+  .members .mgrp.keep .mgrp-h{color:#8f97a8}
+  .members .mgrp.inv .mgrp-h{color:var(--coral)}
+  .members .mgrp.bi .mgrp-h{color:#7f7f7f}
+  .dsub .invtag{color:var(--coral);font-weight:600}
+  /* insights (causal fragments) */
+  .ins{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px;box-shadow:var(--shadow);margin-top:14px}
+  .ins-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .ins-head h3{font-size:16px;font-weight:640;margin:0;letter-spacing:-.01em}
+  .ins-meta{display:flex;align-items:center;gap:12px;font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+  .ins-kind{font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;font-weight:700;padding:3px 8px;border-radius:999px}
+  .ins-kind.tail{color:var(--coral);background:#e0846a22}
+  .ins-kind.center{color:var(--blue);background:#6f9bff22}
+  .ins-kind.role-source{color:#e0b15a;background:#e0b15a22}
+  .ins-kind.role-mediator{color:#6f9bff;background:#6f9bff22}
+  .ins-kind.role-integrator{color:#5ac6b0;background:#5ac6b022}
+  .ins-kind.role-sink{color:#9a9a9a;background:#9a9a9a22}
+  .ins-kind.role-driver{color:var(--coral);background:#e0846a22}
+  .dag{width:100%;height:auto;display:block;margin:8px 0 2px}
+  .dag .flab{font-size:11px;line-height:1.2;color:#dcdad4;text-align:center}
+  .dag .edgelab{fill:#8a8a8a;font-size:9px;font-weight:600}
+  .drole{font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;font-weight:700;padding:2px 7px;border-radius:999px;margin-right:8px}
+  .drole.role-source{color:#e0b15a;background:#e0b15a22} .drole.role-mediator{color:#6f9bff;background:#6f9bff22}
+  .drole.role-integrator{color:#5ac6b0;background:#5ac6b022} .drole.role-sink{color:#9a9a9a;background:#9a9a9a22}
+  .drole.role-driver{color:var(--coral);background:#e0846a22}
+  .imp{display:flex;align-items:center;gap:7px}
+  .imp .bar{width:60px;height:5px;border-radius:3px;background:var(--track);overflow:hidden}
+  .imp .bar i{display:block;height:100%;background:var(--coral)}
+  /* causal fragment mini-DAG: influence-shaded circular nodes, blue parent / red child */
+  .frag-chain{display:flex;flex-wrap:wrap;align-items:flex-start;gap:4px;margin:18px 0 4px}
+  .fnode{display:flex;flex-direction:column;align-items:center;width:118px;text-align:center}
+  .fnode .disc{width:36px;height:36px;border-radius:50%;box-shadow:0 0 0 1px rgba(255,255,255,.1)}
+  .fnode.parent .disc{box-shadow:0 0 0 3px #5b8fd6}
+  .fnode.child .disc{box-shadow:0 0 0 3px #c0603f}
+  .fnode .flabel{font-size:11.5px;color:#dcdad4;margin-top:10px;line-height:1.28}
+  .farrow{font-size:20px;font-weight:800;line-height:36px;background:linear-gradient(90deg,#5b8fd6,#c0603f);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .frag-legend{display:flex;gap:16px;flex-wrap:wrap;font-size:11px;color:var(--muted);margin:2px 0 0}
+  .frag-legend i{display:inline-flex;align-items:center;gap:6px;font-style:normal}
+  .frag-legend .dot{width:11px;height:11px;border-radius:50%;display:inline-block}
+  .ins-p{color:#d0cec9;font-size:14px;line-height:1.66;margin:14px 0 0;max-width:80ch}
 
   /* action bar */
   .actionbar{position:fixed;left:0;right:0;bottom:0;background:linear-gradient(180deg,rgba(27,27,27,0),var(--bg) 34%);
@@ -182,6 +236,7 @@
     <div class="seg-wrap">
       <button class="seg active" id="tab-outcome">Outcome</button>
       <button class="seg" id="tab-drivers">Drivers</button>
+      <button class="seg" id="tab-insights">Insights</button>
     </div>
   </div>
 
@@ -200,7 +255,8 @@
         <div class="divider" id="divider" title="drag to resize · double-click to reset"><span></span></div>
         <div class="card pane" id="pane-dens">
           <div class="pane-h"><span>Unified density · price on 28 Aug 2026</span><button class="min" data-pane="dens" title="minimise">»</button></div>
-          <svg class="cdf" id="cdf" viewBox="0 0 460 320" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Probability density with tails"></svg>
+          <svg class="cdf" id="cdf" viewBox="0 0 460 300" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Probability density with tails"></svg>
+          <div class="dstats" id="dstats"></div>
         </div>
       </div>
       <div class="takeaway"><h2>Take away</h2><p id="takeaway">…</p></div>
@@ -213,12 +269,18 @@
       <div class="sortwrap">
         <label>Sort Order</label>
         <select id="sort">
-          <option value="desc">Driver Influence (Most to Least)</option>
-          <option value="asc">Driver Influence (Least to Most)</option>
+          <option value="desc">Causal influence (Most to Least)</option>
+          <option value="asc">Causal influence (Least to Most)</option>
         </select>
       </div>
     </div>
     <div id="drivers"></div>
+  </section>
+
+  <!-- INSIGHTS -->
+  <section class="view hidden" id="view-insights">
+    <p class="meta" style="margin:0 0 10px;font-size:12.5px">The stories the models keep telling — common cause-and-effect chains, ranked by how much they matter. <b>Node shade</b> = that driver's influence (pale → gold), <span style="color:#5b8fd6;font-weight:600">blue</span> marks the cause, <span style="color:#c0603f;font-weight:600">red</span> the effect.</p>
+    <div id="insights"></div>
   </section>
 </div>
 
@@ -247,20 +309,70 @@ async function boot(){
   $('sub').innerHTML=`<b>${MODEL.tier}</b> · ${MODEL.n_models} models · <b>${MODEL.n_unified}</b> unified drivers · driver changes are free`;
   MODEL.drivers.forEach(d=>{deltas[d.uid]=0;appliedDeltas[d.uid]=0;});
   renderBars(MODEL.baseline,null); renderDist(MODEL.baseline,null); setTakeaway(null);
-  renderDrivers(); initPanes();
+  renderDrivers(); initPanes(); renderInsights();
   $('sort').onchange=e=>{sortMode=e.target.value;renderDrivers();};
   $('tab-outcome').onclick=()=>switchView('outcome');
   $('tab-drivers').onclick=()=>switchView('drivers');
+  $('tab-insights').onclick=()=>switchView('insights');
   document.querySelectorAll('.tool').forEach(b=>b.onclick=()=>{
     if(b.dataset.act==='revert') $('reset').click(); else toast('Not wired in the meta-mode demo');
   });
 }
 
 function switchView(v){
-  $('view-outcome').classList.toggle('hidden',v!=='outcome');
-  $('view-drivers').classList.toggle('hidden',v!=='drivers');
-  $('tab-outcome').classList.toggle('active',v==='outcome');
-  $('tab-drivers').classList.toggle('active',v==='drivers');
+  ['outcome','drivers','insights'].forEach(k=>{
+    $('view-'+k).classList.toggle('hidden',v!==k);
+    $('tab-'+k).classList.toggle('active',v===k);
+  });
+}
+// influence -> node fill: cream (low) → gold (high); intermediate = grey; outcome = red
+function influenceColor(infl, outcome){
+  if(outcome) return '#b8503c';
+  if(infl==null) return '#5f5c57';
+  const lo=[239,233,220], hi=[207,159,66];
+  const c=lo.map((l,k)=>Math.round(l+(hi[k]-l)*Math.max(0,Math.min(1,infl))));
+  return `rgb(${c[0]},${c[1]},${c[2]})`;
+}
+// a fragment as a mini causal DAG: parents (blue, left) → focal (center) → children (red, right)
+function fragSVG(f){
+  const W=680, r=24;
+  const P=f.parents||[], C=f.children||[];
+  const rows=Math.max(P.length,C.length,1);
+  const H=Math.max(190, 40+rows*74), cy=H/2;
+  const place=(arr,x)=>arr.map((nd,i)=>({...nd,x,y: cy-(arr.length-1)*37+i*74}));
+  const par=place(P,118), ch=place(C,W-118), foc={...f.focal,x:W/2,y:cy};
+  const disc=(nd,ring,rw)=>`<circle cx="${nd.x}" cy="${nd.y}" r="${r}" fill="${influenceColor(nd.influence,nd.outcome)}" stroke="${ring}" stroke-width="${rw}"/>`;
+  const lab=(nd)=>`<foreignObject x="${nd.x-72}" y="${nd.y+r+1}" width="144" height="48"><div xmlns="http://www.w3.org/1999/xhtml" class="flab">${nd.label}</div></foreignObject>`;
+  const edge=(a,b,col,sup)=>{
+    const dx=b.x-a.x,dy=b.y-a.y,L=Math.hypot(dx,dy)||1,ux=dx/L,uy=dy/L;
+    const x1=a.x+ux*r,y1=a.y+uy*r,x2=b.x-ux*(r+7),y2=b.y-uy*(r+7);
+    const m=col==='#5b8fd6'?'b':'r';
+    return `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="${col}" stroke-width="2" marker-end="url(#ah-${m})"/>`+
+      (sup!=null?`<text x="${((x1+x2)/2).toFixed(1)}" y="${((y1+y2)/2-4).toFixed(1)}" class="edgelab" text-anchor="middle">${Math.round(sup*100)}%</text>`:'');
+  };
+  let s=`<svg viewBox="0 0 ${W} ${H}" class="dag" preserveAspectRatio="xMidYMid meet">`+
+    `<defs><marker id="ah-b" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#5b8fd6"/></marker>`+
+    `<marker id="ah-r" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#c0603f"/></marker></defs>`;
+  par.forEach(p=>s+=edge(p,foc,'#5b8fd6',p.support));
+  ch.forEach(c=>s+=edge(foc,c,'#c0603f',c.support));
+  par.forEach(p=>s+=disc(p,'#5b8fd6',3)+lab(p));
+  ch.forEach(c=>s+=disc(c,'#c0603f',3)+lab(c));
+  s+=disc(foc,'#ffffff',2)+lab(foc);
+  return s+'</svg>';
+}
+function renderInsights(){
+  const list=MODEL.insights||[];
+  if(!list.length){$('insights').innerHTML='<p class="meta">No causal fragments for this question yet.</p>';return;}
+  $('insights').innerHTML=list.map((f,i)=>`
+    <div class="ins">
+      <div class="ins-head"><h3>${i+1}. ${f.title}</h3>
+        <div class="ins-meta">
+          <span class="ins-kind role-${f.role}">${f.role}</span>
+          <span class="imp" title="importance ${f.importance}/100"><span class="bar"><i style="width:${f.importance}%"></i></span>${f.importance}</span>
+        </div></div>
+      ${fragSVG(f)}
+      <p class="ins-p">${f.insight}</p>
+    </div>`).join('');
 }
 
 // ---- resizable / minimisable split panes ----
@@ -342,32 +454,45 @@ function renderDist(dist, base){
   const dA=dens(dist), dB=base?dens(base):null;
   const sA=binStats(dist), sB=base?binStats(base):null;
   const ymax=(Math.max(...dA, ...(dB||[0]))*1.2)||1;
-  const W=460,H=320,m={l:16,r:16,t:44,b:44}, x0=edges[0]+1, x1=edges[n]-2;
+  const W=460,H=300,m={l:16,r:16,t:40,b:34}, x0=edges[0]+1, x1=edges[n]-2;
   const sx=v=> m.l+(Math.max(x0,Math.min(x1,v))-x0)/(x1-x0)*(W-m.l-m.r);
   const sy=v=> (H-m.b)-(v/ymax)*(H-m.t-m.b);
   const pts=d=>[[x0,0],...centers.map((c,i)=>[c,d[i]]),[x1,0]].map(([X,Y])=>[sx(X),sy(Y)]);
+  // behind: gridlines + P10–P90 band fill
   let g='';
   [60,70,80,90,100,110].forEach(xv=>{const xx=sx(xv);
     g+=`<line class="grid" x1="${xx.toFixed(1)}" y1="${m.t}" x2="${xx.toFixed(1)}" y2="${H-m.b}"/>`+
        `<text class="tick" x="${xx.toFixed(1)}" y="${H-m.b+16}" text-anchor="middle">$${xv}</text>`;});
-  [60,100].forEach(b=>{const xx=sx(b).toFixed(1); g+=`<line class="bound" x1="${xx}" y1="${m.t}" x2="${xx}" y2="${H-m.b}"/>`;});
-  g+=`<text class="taillab" x="${sx(x0).toFixed(1)}" y="${m.t+13}" text-anchor="start">&lt;$60 · ${(sA.below60*100).toFixed(0)}%</text>`;
-  g+=`<text class="taillab" x="${(W-m.r).toFixed(1)}" y="${m.t+13}" text-anchor="end">&gt;$100 · ${(sA.above100*100).toFixed(0)}%</text>`;
-  g+=`<line class="curve" x1="${m.l}" y1="16" x2="${m.l+18}" y2="16"/><text class="lgd" x="${m.l+24}" y="19.5">adjusted</text>`;
-  if(sB) g+=`<line class="dens-base" x1="${m.l+96}" y1="16" x2="${m.l+114}" y2="16"/><text class="lgd" x="${m.l+120}" y="19.5">before</text>`;
+  const bx=sx(sA.p10), bw=sx(sA.p90)-sx(sA.p10);
+  g+=`<rect class="band" x="${bx.toFixed(1)}" y="${m.t}" width="${bw.toFixed(1)}" height="${(H-m.b-m.t).toFixed(1)}"/>`;
+  // curves
   const A=pts(dA), curveA=catmull(A);
   const baseCurve=dB?`<path class="dens-base" d="${catmull(pts(dB))}"/>`:'';
-  // P10 / P90 (bottom labels) + median on top (with shift)
-  const pctLine=(p,lab)=>{const xx=sx(p).toFixed(1);
-    return `<line class="pct" x1="${xx}" y1="${m.t}" x2="${xx}" y2="${H-m.b}"/>`+
-           `<text class="pctlab" x="${xx}" y="${H-m.b-6}" text-anchor="middle">${lab} $${p.toFixed(0)}</text>`;};
-  let marks=pctLine(sA.p10,'P10')+pctLine(sA.p90,'P90');
+  // on top: band edges + label, then median (with shift)
+  let ov=`<line class="bandedge" x1="${bx.toFixed(1)}" y1="${m.t}" x2="${bx.toFixed(1)}" y2="${H-m.b}"/>`+
+         `<line class="bandedge" x1="${(bx+bw).toFixed(1)}" y1="${m.t}" x2="${(bx+bw).toFixed(1)}" y2="${H-m.b}"/>`+
+         `<text class="bandlab" x="${(bx+bw/2).toFixed(1)}" y="${(H-m.b-6).toFixed(1)}" text-anchor="middle">80% interval (P10–P90)</text>`;
   const medLine=(p,cls,lab,ly)=>{const xx=sx(p).toFixed(1);
     return `<line class="med ${cls}" x1="${xx}" y1="${m.t}" x2="${xx}" y2="${H-m.b}"/>`+
            `<text class="medlab ${cls}" x="${xx}" y="${ly}" text-anchor="middle">${lab}</text>`;};
-  if(sB) marks+=medLine(sB.p50,'base',`$${sB.p50.toFixed(0)}`, m.t-16);
-  marks+=medLine(sA.p50,'', sB?`median → $${sA.p50.toFixed(0)}`:`median $${sA.p50.toFixed(0)}`, m.t-4);
-  $('cdf').innerHTML=g+`<path class="area" d="${curveA} Z"/>`+baseCurve+`<path class="curve" d="${curveA}"/>`+marks;
+  if(sB) ov+=medLine(sB.p50,'base',`$${sB.p50.toFixed(0)}`, m.t-15);
+  ov+=medLine(sA.p50,'', sB?`median → $${sA.p50.toFixed(0)}`:`median $${sA.p50.toFixed(0)}`, m.t-4);
+  $('cdf').innerHTML=g+`<path class="area" d="${curveA} Z"/>`+baseCurve+`<path class="curve" d="${curveA}"/>`+ov;
+  renderDStats(sA,sB);
+}
+
+// the non-median values live here — a clean strip, current with "was X" on a shift
+function renderDStats(sA,sB){
+  const dir=(c,o)=>c>o?'up':c<o?'down':'flat';
+  const money=(c,o)=>`$${c.toFixed(0)}`+(o!=null?` <small class="${dir(c,o)}">was $${o.toFixed(0)}</small>`:'');
+  const pct=(c,o)=>{const f=x=>(x*100).toFixed(0)+'%';return f(c)+(o!=null?` <small class="${dir(c,o)}">was ${f(o)}</small>`:'');};
+  const chip=(lab,val)=>`<div class="stat"><b>${lab}</b><span class="v">${val}</span></div>`;
+  const lg=`<div class="lg"><i><span class="sw"></span>adjusted</i>${sB?'<i><span class="sw base"></span>before</i>':''}</div>`;
+  $('dstats').innerHTML = lg
+    + chip('P10', money(sA.p10, sB?sB.p10:null))
+    + chip('P90', money(sA.p90, sB?sB.p90:null))
+    + chip('P &gt; $100', pct(sA.above100, sB?sB.above100:null))
+    + chip('P &lt; $60', pct(sA.below60, sB?sB.below60:null));
 }
 
 function setTakeaway(res){
@@ -385,24 +510,35 @@ function setTakeaway(res){
   el.innerHTML=`Shifting ${setLbl} moved the forecast. <b>Median</b> ${arrow(sB.p50,sA.p50)}, <b>P10</b> ${arrow(sB.p10,sA.p10)}, <b>P90</b> ${arrow(sB.p90,sA.p90)}. The <b>&gt;$100 tail</b> goes from ${(sB.above100*100).toFixed(0)}% to <span class="${sA.above100>=sB.above100?'amber':'cool'}">${(sA.above100*100).toFixed(0)}%</span>. ${t.n_done}/${t.n_touched} models recomputed in ${t.total_s}s.`;
 }
 
+// member rows grouped by directionality; inverted members preview the OPPOSITE shift
+function memberRows(d,cur){
+  const g={keep:[],inv:[],bi:[]};
+  d.members.forEach(m=>{
+    const eff = m.invert ? -cur : cur;
+    const res = clampState(sidx(m.baseline)+eff);
+    const shown = cur!==0 ? `${m.baseline} <span class="arrow">→ ${res}</span>` : m.baseline;
+    const row = `<tr><td class="m">${m.model}</td><td class="c">${m.code}</td><td>${m.name}</td><td class="res">${shown}</td></tr>`;
+    (m.invert?g.inv:(m.dir===0?g.bi:g.keep)).push(row);
+  });
+  const sec=(t,rows,cls)=>rows.length?`<div class="mgrp ${cls}"><div class="mgrp-h">${t} · ${rows.length}</div><table>${rows.join('')}</table></div>`:'';
+  return sec('Direction kept',g.keep,'keep')+sec('Inverted to align',g.inv,'inv')+sec('Bidirectional · left as-is',g.bi,'bi');
+}
 function renderDrivers(){
-  const ordered=[...MODEL.drivers].sort((a,b)=>sortMode==='desc'?b.weight-a.weight:a.weight-b.weight);
+  const ordered=[...MODEL.drivers].sort((a,b)=>sortMode==='desc'?b.ci-a.ci:a.ci-b.ci);
   $('drivers').innerHTML=ordered.map(d=>{
     const cur=deltas[d.uid]||0;
     const sel=STOPS.map(v=>`<button class="stop ${v===cur?'active':''} ${v===0?'zero':''}" data-uid="${d.uid}" data-v="${v}">${v>0?'+'+v:v}</button>`).join('');
-    const rows=d.members.map(m=>{
-      const res=clampState(sidx(m.baseline)+cur);
-      const shown=cur!==0?`${m.baseline} <span class="arrow">→ ${res}</span>`:m.baseline;
-      return `<tr><td class="m">${m.model}</td><td class="c">${m.code}</td><td>${m.name}</td><td class="res">${shown}</td></tr>`;
-    }).join('');
+    const ninv=d.members.filter(m=>m.invert).length;
+    const invtag=ninv?` · <span class="invtag">⇄ ${ninv} inverted</span>`:'';
+    const pdir=d.mode_dir>0?'raises price':'lowers price';
     return `<div class="drow ${cur!==0?'on':''}" id="drow-${d.uid}">
       <div class="drow-top">
         <div><div class="dname">${d.name}<span class="changed"></span></div>
-          <div class="dsub">${d.models_covered}/${MODEL.n_models} models · <span class="wt">influence weight ${d.weight}</span></div></div>
+          <div class="dsub"><span class="drole role-${d.role||'driver'}">${d.role||'driver'}</span>${d.models_covered}/${MODEL.n_models} models · <span class="wt">CI ${(d.ci||0).toFixed(2)}</span> · ↑ ${pdir}${invtag}</div></div>
         <div class="sel">${sel}</div>
         <button class="chev" data-uid="${d.uid}">›</button>
       </div>
-      <div class="members" id="mem-${d.uid}"><table>${rows}</table></div>
+      <div class="members" id="mem-${d.uid}">${memberRows(d,cur)}</div>
     </div>`;
   }).join('');
   document.querySelectorAll('.stop').forEach(b=>b.onclick=()=>{
@@ -411,13 +547,7 @@ function renderDrivers(){
     const row=b.closest('.drow');
     row.querySelectorAll('.stop').forEach(s=>{s.classList.toggle('active',+s.dataset.v===v);});
     row.classList.toggle('on',v!==0);
-    // refresh the member preview arrows
-    const d=MODEL.drivers.find(x=>x.uid===uid);
-    row.querySelector('.members table').innerHTML=d.members.map(m=>{
-      const res=clampState(sidx(m.baseline)+v);
-      const shown=v!==0?`${m.baseline} <span class="arrow">→ ${res}</span>`:m.baseline;
-      return `<tr><td class="m">${m.model}</td><td class="c">${m.code}</td><td>${m.name}</td><td class="res">${shown}</td></tr>`;
-    }).join('');
+    row.querySelector('.members').innerHTML=memberRows(MODEL.drivers.find(x=>x.uid===uid),v);
     refreshPending();
   });
   document.querySelectorAll('.chev').forEach(c=>c.onclick=()=>{

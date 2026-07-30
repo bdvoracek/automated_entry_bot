@@ -1,0 +1,343 @@
+{
+  "question_id": 44704,
+  "tier": "Advanced",
+  "drivers": {
+    "1": {
+      "ci": 0.862,
+      "reach": 0.999,
+      "role": "driver",
+      "betweenness": 0.45
+    },
+    "2": {
+      "ci": 0.914,
+      "reach": 1.0,
+      "role": "driver",
+      "betweenness": 0.2
+    },
+    "3": {
+      "ci": 0.983,
+      "reach": 0.983,
+      "role": "driver",
+      "betweenness": 4.95
+    },
+    "4": {
+      "ci": 0.856,
+      "reach": 1.0,
+      "role": "source",
+      "betweenness": 0.0
+    },
+    "5": {
+      "ci": 0.632,
+      "reach": 0.998,
+      "role": "source",
+      "betweenness": 0.0
+    },
+    "6": {
+      "ci": 0.64,
+      "reach": 1.0,
+      "role": "driver",
+      "betweenness": 1.17
+    },
+    "7": {
+      "ci": 0.503,
+      "reach": 0.998,
+      "role": "mediator",
+      "betweenness": 11.67
+    },
+    "8": {
+      "ci": 0.626,
+      "reach": 1.0,
+      "role": "mediator",
+      "betweenness": 16.95
+    },
+    "9": {
+      "ci": 0.235,
+      "reach": 0.778,
+      "role": "sink",
+      "betweenness": 0.0
+    },
+    "10": {
+      "ci": 0.482,
+      "reach": 1.0,
+      "role": "integrator",
+      "betweenness": 1.0
+    },
+    "11": {
+      "ci": 0.171,
+      "reach": 0.878,
+      "role": "driver",
+      "betweenness": 0.0
+    },
+    "12": {
+      "ci": 0.367,
+      "reach": 1.0,
+      "role": "mediator",
+      "betweenness": 5.12
+    },
+    "13": {
+      "ci": 0.194,
+      "reach": 1.0,
+      "role": "sink",
+      "betweenness": 0.0
+    },
+    "14": {
+      "ci": 0.129,
+      "reach": 1.0,
+      "role": "driver",
+      "betweenness": 1.5
+    },
+    "15": {
+      "ci": 0.065,
+      "reach": 1.0,
+      "role": "source",
+      "betweenness": 0.0
+    }
+  },
+  "fragments": [
+    {
+      "id": "frag-2",
+      "focal_uid": 2,
+      "title": "The reserve is the world's shock absorber",
+      "insight": "When conflict flares or OPEC moves, governments reach for their strategic reserves \u2014 and that decision ripples straight into how full the world's storage tanks are, and into how traders bet. Almost every model wires it this way, which is why the reserve sits at the busy centre of the map: it's the lever policymakers actually pull when something goes wrong.",
+      "role": "driver",
+      "importance": 100,
+      "aci": 0.888,
+      "focal": {
+        "uid": 2,
+        "label": "Strategic Petroleum Reserve Policy",
+        "influence": 0.914,
+        "outcome": false
+      },
+      "parents": [
+        {
+          "uid": 4,
+          "label": "Middle East / US-Iran Conflict Risk",
+          "influence": 0.856,
+          "outcome": false,
+          "support": 1.0
+        },
+        {
+          "uid": 8,
+          "label": "OPEC & Saudi Production Policy",
+          "influence": 0.626,
+          "outcome": false,
+          "support": 0.889
+        }
+      ],
+      "children": [
+        {
+          "uid": 10,
+          "label": "Global Oil Inventories / Crude Stocks",
+          "influence": 0.482,
+          "outcome": false,
+          "support": 1.0
+        },
+        {
+          "uid": 13,
+          "label": "Speculative Market Positioning",
+          "influence": 0.194,
+          "outcome": false,
+          "support": 1.0
+        }
+      ]
+    },
+    {
+      "id": "frag-4",
+      "focal_uid": 4,
+      "title": "Where the trouble starts",
+      "insight": "Middle-East and US\u2013Iran tension is a true root cause \u2014 nothing feeds into it, but it feeds almost everything else: reserve releases, the dollar, trader positioning, and the price directly. When this lights up it sets off several chains at once, which is why a single flare-up can move the forecast so much.",
+      "role": "source",
+      "importance": 96,
+      "aci": 0.856,
+      "focal": {
+        "uid": 4,
+        "label": "Middle East / US-Iran Conflict Risk",
+        "influence": 0.856,
+        "outcome": false
+      },
+      "parents": [],
+      "children": [
+        {
+          "uid": 2,
+          "label": "Strategic Petroleum Reserve Policy",
+          "influence": 0.914,
+          "outcome": false,
+          "support": 1.0
+        },
+        {
+          "uid": 13,
+          "label": "Speculative Market Positioning",
+          "influence": 0.194,
+          "outcome": false,
+          "support": 1.0
+        }
+      ]
+    },
+    {
+      "id": "frag-1",
+      "focal_uid": 1,
+      "title": "The chokepoint the conflict runs through",
+      "insight": "Rising tension points straight at the Strait of Hormuz \u2014 the narrow waterway that carries about a fifth of the world's seaborne oil. From there it flows into both trader nerves and the price itself. It's the physical bottleneck that turns a diplomatic crisis into a real supply scare.",
+      "role": "driver",
+      "importance": 86,
+      "aci": 0.766,
+      "focal": {
+        "uid": 1,
+        "label": "Strait of Hormuz Navigation Security",
+        "influence": 0.863,
+        "outcome": false
+      },
+      "parents": [
+        {
+          "uid": 4,
+          "label": "Middle East / US-Iran Conflict Risk",
+          "influence": 0.856,
+          "outcome": false,
+          "support": 0.889
+        }
+      ],
+      "children": [
+        {
+          "uid": 13,
+          "label": "Speculative Market Positioning",
+          "influence": 0.194,
+          "outcome": false,
+          "support": 0.889
+        },
+        {
+          "uid": "DV",
+          "label": "Brent price",
+          "influence": 1.0,
+          "outcome": true,
+          "support": 0.889
+        }
+      ]
+    },
+    {
+      "id": "frag-3",
+      "focal_uid": 3,
+      "title": "The barrels that fill the gap",
+      "insight": "Russian and other non-OPEC oil is the swing that offsets \u2014 or amplifies \u2014 OPEC and geopolitics. Conflict and OPEC decisions push on it, and it lands on both the price and the world's storage tanks. This is the 'who actually ships the oil' part of the story once the politics are set.",
+      "role": "driver",
+      "importance": 65,
+      "aci": 0.573,
+      "focal": {
+        "uid": 3,
+        "label": "Non-OPEC / Russian Supply & Sanctions",
+        "influence": 1.0,
+        "outcome": false
+      },
+      "parents": [
+        {
+          "uid": 4,
+          "label": "Middle East / US-Iran Conflict Risk",
+          "influence": 0.856,
+          "outcome": false,
+          "support": 0.667
+        },
+        {
+          "uid": 8,
+          "label": "OPEC & Saudi Production Policy",
+          "influence": 0.626,
+          "outcome": false,
+          "support": 0.333
+        }
+      ],
+      "children": [
+        {
+          "uid": "DV",
+          "label": "Brent price",
+          "influence": 1.0,
+          "outcome": true,
+          "support": 0.778
+        },
+        {
+          "uid": 10,
+          "label": "Global Oil Inventories / Crude Stocks",
+          "influence": 0.482,
+          "outcome": false,
+          "support": 0.556
+        }
+      ]
+    },
+    {
+      "id": "frag-5",
+      "focal_uid": 5,
+      "title": "A wildcard from the weather",
+      "insight": "Hurricane season is a genuine wildcard \u2014 nothing causes it, but a big storm hits the price directly and knocks out US Gulf output. It's disconnected from the wars-and-rates machinery, so it doesn't move the everyday view; it just adds the odd chance of a sudden jolt.",
+      "role": "source",
+      "importance": 59,
+      "aci": 0.527,
+      "focal": {
+        "uid": 5,
+        "label": "Atlantic Hurricane / Gulf Storm",
+        "influence": 0.633,
+        "outcome": false
+      },
+      "parents": [],
+      "children": [
+        {
+          "uid": "DV",
+          "label": "Brent price",
+          "influence": 1.0,
+          "outcome": true,
+          "support": 0.889
+        },
+        {
+          "uid": 7,
+          "label": "US Shale / Domestic Crude Production",
+          "influence": 0.504,
+          "outcome": false,
+          "support": 0.778
+        }
+      ]
+    },
+    {
+      "id": "frag-6",
+      "focal_uid": 6,
+      "title": "China sets the demand temperature",
+      "insight": "A strong world economy shows up first in China's factories, and China's appetite lands on both the price and trader positioning. This is the demand pulse of the whole system \u2014 hot China, warmer market; cooling China, and the air comes out.",
+      "role": "driver",
+      "importance": 54,
+      "aci": 0.48,
+      "focal": {
+        "uid": 6,
+        "label": "Chinese Industrial Demand",
+        "influence": 0.64,
+        "outcome": false
+      },
+      "parents": [
+        {
+          "uid": 12,
+          "label": "Global Economic Growth (GDP & PMI)",
+          "influence": 0.367,
+          "outcome": false,
+          "support": 0.778
+        },
+        {
+          "uid": 14,
+          "label": "US Dollar Index / Strength",
+          "influence": 0.129,
+          "outcome": false,
+          "support": 0.444
+        }
+      ],
+      "children": [
+        {
+          "uid": "DV",
+          "label": "Brent price",
+          "influence": 1.0,
+          "outcome": true,
+          "support": 1.0
+        },
+        {
+          "uid": 13,
+          "label": "Speculative Market Positioning",
+          "influence": 0.194,
+          "outcome": false,
+          "support": 0.778
+        }
+      ]
+    }
+  ]
+}

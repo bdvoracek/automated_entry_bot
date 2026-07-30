@@ -18,6 +18,7 @@ venv/
 # Pipeline job state (runtime), but keep versioned unified-driver mappings
 state/*
 !state/unified_drivers_*.json
+!state/causal_*.json
 
 # Claude Code local settings (personal, not shared)
 .claude/settings.local.json

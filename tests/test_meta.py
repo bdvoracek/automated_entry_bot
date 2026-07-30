@@ -91,3 +91,28 @@ def test_sort_both_directions():
     m = _weighted_mapping()
     assert [u.uid for u in m.sorted_by_weight(descending=True)] == [1, 2]
     assert [u.uid for u in m.sorted_by_weight(descending=False)] == [2, 1]
+
+
+def test_inverted_member_shifts_opposite():
+    # One cluster, two members: aligned (invert=False) and inverted (invert=True).
+    m = UnifiedMapping(
+        question_id=1, tier="Advanced", models=["A", "B"], unified=[
+            UnifiedDriver(uid=1, name="Supply tightness", members={
+                "A": [{"code": "x", "name": "", "baseline": "Medium", "invert": False}],
+                "B": [{"code": "y", "name": "", "baseline": "Medium", "invert": True}]}),
+        ])
+    resolved, _ = resolve_states(m, {1: +1})
+    assert resolved["A"]["x"] == "High"   # aligned goes up
+    assert resolved["B"]["y"] == "Low"    # inverted goes down (same semantic direction)
+
+
+def test_apply_directions_sets_mode_and_invert():
+    from aeb.directionality import apply_directions
+    doc = {"unified": [{"uid": 1, "name": "c", "members": {
+        "A": [{"code": "x"}], "B": [{"code": "y"}], "C": [{"code": "z"}]}}]}
+    # two +1, one -1  -> mode +1, the -1 member is inverted
+    apply_directions(doc, {("A", "x"): 1, ("B", "y"): 1, ("C", "z"): -1})
+    u = doc["unified"][0]
+    assert u["mode_dir"] == 1
+    flags = {m["code"]: m["invert"] for mems in u["members"].values() for m in mems}
+    assert flags == {"x": False, "y": False, "z": True}

@@ -14,6 +14,7 @@ A move mutates model driver states live; Reset (and startup) restore baseline.
 from __future__ import annotations
 
 import json
+import re
 import sqlite3
 import sys
 import threading
@@ -68,6 +69,17 @@ def to_cdf(agg: dict[str, float]) -> list[float]:
     return [round(x, 6) for x in bins_to_cdf(EDGES, masses, SCALING)]
 
 
+def _load_causal() -> dict:
+    """Consensus causal artifact (driver CI/role + ranked fragment subgraphs),
+    produced by scripts/build_causal.py."""
+    p = ROOT / "state" / f"causal_{mp.question_id}_{mp.tier.lower()}.json"
+    return json.loads(p.read_text()) if p.exists() else {"drivers": {}, "fragments": []}
+
+
+_CAUSAL = _load_causal()
+_CI = {int(k): v for k, v in _CAUSAL.get("drivers", {}).items()}
+
+
 def _question_title() -> str:
     try:
         con = sqlite3.connect(DB_PATH)
@@ -93,14 +105,19 @@ def _model_payload() -> dict:
     for u in mp.sorted_by_weight(descending=True):   # Most-to-Least by default
         bi = mp.unified_baseline_index(u.uid)
         members = [{"model": mid, "code": m["code"], "name": m["name"],
-                    "baseline": m["baseline"], "rank": m.get("rank")}
+                    "baseline": m["baseline"], "rank": m.get("rank"),
+                    "dir": int(m.get("dir", 0)), "invert": bool(m.get("invert"))}
                    for mid, mems in u.members.items() for m in mems]
         members.sort(key=lambda m: (m["rank"] is None, m["rank"]))  # most influential first
+        ci = _CI.get(u.uid, {})
         drivers.append({
             "uid": u.uid, "name": u.name,
             "neutral_idx": bi, "models_covered": u.models_covered(),
             "member_count": u.member_count(), "members": members,
             "weight": u.weight(), "influence_points": u.influence_points(),
+            "mode_dir": u.mode_dir,
+            "ci": ci.get("ci", 0), "role": ci.get("role", "driver"),
+            "reach": ci.get("reach", 0), "betweenness": ci.get("betweenness", 0),
         })
     return {
         "question": _question_title(),
@@ -109,6 +126,7 @@ def _model_payload() -> dict:
         "cdf": to_cdf(_baseline), "cdf_x": CDF_X,
         "range": [SCALING.range_min, SCALING.range_max],
         "bin_edges": EDGES, "bin_labels": LABELS,   # effective edges incl. open-tail extents
+        "insights": _CAUSAL.get("fragments", []),
     }
 
 

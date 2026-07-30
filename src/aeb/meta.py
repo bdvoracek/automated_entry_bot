@@ -35,8 +35,9 @@ from .folds import (
 class UnifiedDriver:
     uid: int
     name: str
-    # model_id -> [{code, name, baseline}]  (a model may have 0, 1 or 2 members)
+    # model_id -> [{code, name, baseline, rank?, dir?, invert?}]
     members: dict[str, list[dict[str, Any]]]
+    mode_dir: int = 1  # cluster's majority price direction (+1 bullish, -1 bearish)
 
     def member_count(self) -> int:
         return sum(len(v) for v in self.members.values())
@@ -105,7 +106,8 @@ class UnifiedMapping:
 
 def load_mapping(path: str | Path) -> UnifiedMapping:
     raw = json.loads(Path(path).read_text())
-    unified = [UnifiedDriver(uid=u["uid"], name=u["name"], members=u["members"])
+    unified = [UnifiedDriver(uid=u["uid"], name=u["name"], members=u["members"],
+                             mode_dir=int(u.get("mode_dir", 1)))
                for u in raw["unified"]]
     return UnifiedMapping(question_id=raw["question_id"], tier=raw["tier"],
                           models=raw["models"], unified=unified)
@@ -127,12 +129,16 @@ def resolve_states(
         for mid, members in u.members.items():
             for mem in members:
                 b = state_to_index(mem["baseline"])
-                new = index_to_state(b + delta)          # clamps to 0..4
+                # Inverted members (semantically flipped vs the cluster mode) move
+                # the opposite way, so the whole cluster shifts coherently.
+                eff = -delta if mem.get("invert") else delta
+                new = index_to_state(b + eff)            # clamps to 0..4
                 resolved[mid][mem["code"]] = new
                 if new != mem["baseline"]:
                     changes.append({"model": mid, "uid": u.uid, "unified": u.name,
                                     "code": mem["code"], "from": mem["baseline"],
-                                    "to": new, "delta": delta})
+                                    "to": new, "delta": delta,
+                                    "invert": bool(mem.get("invert"))})
     return resolved, changes
 
 
