@@ -136,7 +136,12 @@
   .stop:hover{color:var(--ink)}
   .stop.active{background:var(--white);color:#1a1a1a}
   .stop.zero{font-size:11px} .stop.zero.active{background:#4d4d4d;color:var(--ink)}
-  .cst{display:inline-flex;flex-direction:column;line-height:.62}   /* stacked double chevron */
+  /* SVG chevrons: crisp, bold, stacked for the doubles */
+  .stop .cv{display:block;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+  .stop .cv.s1{width:22px;height:13px}
+  .stop .cv.s2{width:22px;height:21px}
+  .stop .cv.dot{width:22px;height:8px;stroke:none}
+  .stop .cv.dot circle{fill:currentColor}
   .chev{background:none;border:none;color:var(--blue);font-size:22px;cursor:pointer;line-height:1;padding:2px;
     transition:transform .18s;justify-self:end}
   .chev.open{transform:rotate(90deg)}
@@ -304,7 +309,12 @@
 <script>
 const STOPS=[-2,-1,0,1,2];
 // semantic chevrons: single = one-notch nudge, stacked double = strong nudge
-const CHEV={'-2':'<span class="cst"><span>⌄</span><span>⌄</span></span>','-1':'⌄','0':'·','1':'⌃','2':'<span class="cst"><span>⌃</span><span>⌃</span></span>'};
+const CHEV={
+  '-2':'<svg class="cv s2" viewBox="0 0 24 22"><path d="M4 4 L12 11 L20 4"/><path d="M4 12 L12 19 L20 12"/></svg>',
+  '-1':'<svg class="cv s1" viewBox="0 0 24 14"><path d="M4 4 L12 11 L20 4"/></svg>',
+   '0':'<svg class="cv dot" viewBox="0 0 24 8"><circle cx="12" cy="4" r="2.4"/></svg>',
+   '1':'<svg class="cv s1" viewBox="0 0 24 14"><path d="M4 11 L12 4 L20 11"/></svg>',
+   '2':'<svg class="cv s2" viewBox="0 0 24 22"><path d="M4 10 L12 3 L20 10"/><path d="M4 18 L12 11 L20 18"/></svg>'};
 const STOPLBL={'-2':'strong down','-1':'down','0':'hold','1':'up','2':'strong up'};
 const STATES=["Negligible","Low","Medium","High","Extreme"];
 let MODEL=null, deltas={}, appliedDeltas={}, busy=false, sortMode='desc';
