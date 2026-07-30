@@ -93,8 +93,15 @@
   .qswitch select{background:transparent;border:none;color:var(--ink);font:inherit;font-size:13.5px;font-weight:600;cursor:pointer;outline:none}
   .qswitch select option{background:#242424}
   /* stat strip under the density */
-  .dstats{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px 24px;align-items:flex-end}
-  .dstats .lg{width:100%;display:flex;gap:16px;color:var(--muted);font-size:11px;margin-bottom:4px}
+  .dstats{margin-top:16px}
+  .statrow{display:flex;flex-wrap:wrap;gap:12px 26px;align-items:flex-end}
+  #dchips{display:contents}
+  .ystat{display:flex;flex-direction:column;gap:2px}
+  .ystat b.lab{font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700}
+  .ystat .yv{display:flex;align-items:center;gap:7px;font-size:13.5px}
+  .ystat input{width:72px;background:#242424;border:1px solid var(--line);border-radius:8px;color:var(--ink);font:inherit;font-size:13.5px;font-weight:600;padding:5px 8px;outline:none}
+  .ystat input:focus{border-color:#6f9bff}
+  .dstats .lg{width:100%;display:flex;gap:16px;color:var(--muted);font-size:11px;margin-bottom:8px}
   .dstats .lg i{display:inline-flex;align-items:center;gap:6px;font-style:normal}
   .dstats .lg .sw{width:15px;border-top:2px solid var(--coral);display:inline-block}
   .dstats .lg .sw.base{border-top:2px dashed #8f97a8}
@@ -279,10 +286,13 @@
         <div class="card pane" id="pane-dens">
           <div class="pane-h"><span>Unified density · price on the resolution date</span><button class="min" data-pane="dens" title="minimise">»</button></div>
           <svg class="cdf" id="cdf" viewBox="0 0 460 300" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Probability density with tails"></svg>
-          <div class="dstats" id="dstats"></div>
-          <div class="ymark">
-            <label>Probability vs a price</label>
-            <div class="yrow"><span>$</span><input id="yin" type="number" step="0.01" placeholder="price"><span class="yout" id="yout"></span></div>
+          <div class="dstats" id="dstats">
+            <div class="lg" id="dlg"></div>
+            <div class="statrow">
+              <span id="dchips"></span>
+              <div class="ystat"><b class="lab">Probability vs a price</b>
+                <span class="yv">$<input id="yin" type="number" step="0.01" placeholder="price"><span class="yout" id="yout"></span></span></div>
+            </div>
           </div>
         </div>
       </div>
@@ -575,10 +585,9 @@ function renderDStats(sA,sB){
   const money=(c,o)=>`${dol(c)}`+(o!=null?` <small class="${dir(c,o)}">was ${dol(o)}</small>`:'');
   const pct=(c,o)=>{const f=x=>(x*100).toFixed(0)+'%';return f(c)+(o!=null?` <small class="${dir(c,o)}">was ${f(o)}</small>`:'');};
   const chip=(lab,val)=>`<div class="stat"><b>${lab}</b><span class="v">${val}</span></div>`;
-  const lg=`<div class="lg"><i><span class="sw"></span>adjusted</i>${sB?'<i><span class="sw base"></span>before</i>':''}</div>`;
-  $('dstats').innerHTML = lg
-    + chip('P10', money(sA.p10, sB?sB.p10:null))
-    + chip('P90', money(sA.p90, sB?sB.p90:null));
+  $('dlg').innerHTML = sB ? '<i><span class="sw"></span>adjusted</i><i><span class="sw base"></span>before</i>' : '';
+  $('dchips').innerHTML = chip('P10', money(sA.p10, sB?sB.p10:null))
+                        + chip('P90', money(sA.p90, sB?sB.p90:null));
 }
 
 function setTakeaway(res){
