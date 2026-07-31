@@ -1,0 +1,1889 @@
+{
+  "question_id": "alphacen-arrival",
+  "tier": "Advanced",
+  "n_unified": 14,
+  "models": [
+    "Uh",
+    "Ui",
+    "Uj",
+    "Uk",
+    "Ul",
+    "Um",
+    "Un",
+    "Uo",
+    "Up",
+    "Uq"
+  ],
+  "unified": [
+    {
+      "uid": 1,
+      "name": "Relativistic Propulsion",
+      "members": {
+        "Uh": [
+          {
+            "code": "BPT",
+            "name": "Breakthrough Propulsion Technology",
+            "baseline": "Negligible",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Ui": [
+          {
+            "code": "RPT",
+            "name": "Relativistic Propulsion Technology",
+            "baseline": "Negligible",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uj": [
+          {
+            "code": "RPS",
+            "name": "Relativistic Propulsion Systems",
+            "baseline": "Negligible",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uk": [
+          {
+            "code": "RPS",
+            "name": "Relativistic Propulsion Systems",
+            "baseline": "Negligible",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Ul": [
+          {
+            "code": "RPS",
+            "name": "Relativistic Propulsion Systems",
+            "baseline": "Negligible",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Um": [
+          {
+            "code": "FTLP",
+            "name": "Faster Than Light Propulsion",
+            "baseline": "Negligible",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12,
+            "dir": -1,
+            "invert": false
+          },
+          {
+            "code": "RPS",
+            "name": "Relativistic Propulsion Systems",
+            "baseline": "Negligible",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Un": [
+          {
+            "code": "RPS",
+            "name": "Relativistic Propulsion Systems",
+            "baseline": "Negligible",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uo": [
+          {
+            "code": "RPT",
+            "name": "Relativistic Propulsion Technology",
+            "baseline": "Negligible",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Up": [
+          {
+            "code": "RPS",
+            "name": "Relativistic Propulsion Systems",
+            "baseline": "Negligible",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uq": [
+          {
+            "code": "RPS",
+            "name": "Relativistic Propulsion Systems",
+            "baseline": "Negligible",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5,
+            "dir": -1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": -1
+    },
+    {
+      "uid": 2,
+      "name": "Antimatter Production & Storage",
+      "members": {
+        "Uh": [
+          {
+            "code": "AP",
+            "name": "Antimatter Propulsion",
+            "baseline": "Negligible",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Ui": [],
+        "Uj": [
+          {
+            "code": "APS",
+            "name": "Antimatter Production and Storage",
+            "baseline": "Low",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uk": [
+          {
+            "code": "APS",
+            "name": "Antimatter Production and Storage",
+            "baseline": "Negligible",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Ul": [
+          {
+            "code": "APS",
+            "name": "Antimatter Production and Storage",
+            "baseline": "Negligible",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Um": [
+          {
+            "code": "APS",
+            "name": "Antimatter Production and Storage",
+            "baseline": "Negligible",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Un": [
+          {
+            "code": "APS",
+            "name": "Antimatter Production and Storage",
+            "baseline": "Negligible",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uo": [
+          {
+            "code": "APS",
+            "name": "Antimatter Production and Storage",
+            "baseline": "Negligible",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Up": [
+          {
+            "code": "APS",
+            "name": "Antimatter Production and Storage",
+            "baseline": "Negligible",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uq": [
+          {
+            "code": "APS",
+            "name": "Antimatter Production and Storage",
+            "baseline": "Negligible",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14,
+            "dir": -1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": -1
+    },
+    {
+      "uid": 3,
+      "name": "Fusion Power & Propulsion",
+      "members": {
+        "Uh": [
+          {
+            "code": "NFP",
+            "name": "Nuclear Fusion Propulsion",
+            "baseline": "Negligible",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Ui": [
+          {
+            "code": "NFP",
+            "name": "Nuclear Fusion Power",
+            "baseline": "Low",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uj": [
+          {
+            "code": "NFP",
+            "name": "Nuclear Fusion Power",
+            "baseline": "Medium",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uk": [
+          {
+            "code": "NFPG",
+            "name": "Nuclear Fusion Power Generation",
+            "baseline": "Negligible",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Ul": [
+          {
+            "code": "NFP",
+            "name": "Nuclear Fusion Power",
+            "baseline": "Low",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Um": [
+          {
+            "code": "NFP",
+            "name": "Nuclear Fusion Power",
+            "baseline": "Low",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Un": [
+          {
+            "code": "FED",
+            "name": "Fusion Energy Development",
+            "baseline": "Low",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uo": [
+          {
+            "code": "NFPD",
+            "name": "Nuclear Fusion Power Density",
+            "baseline": "Negligible",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Up": [
+          {
+            "code": "NFPD",
+            "name": "Nuclear Fusion Power Density",
+            "baseline": "Low",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uq": [
+          {
+            "code": "NFP",
+            "name": "Nuclear Fusion Power",
+            "baseline": "Low",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8,
+            "dir": -1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": -1
+    },
+    {
+      "uid": 4,
+      "name": "Laser-Pushed Lightsail",
+      "members": {
+        "Uh": [
+          {
+            "code": "DEP",
+            "name": "Directed Energy Propulsion",
+            "baseline": "Negligible",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Ui": [],
+        "Uj": [
+          {
+            "code": "LSI",
+            "name": "Laser Sail Infrastructure",
+            "baseline": "Negligible",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uk": [
+          {
+            "code": "SST",
+            "name": "Solar Sail Technology",
+            "baseline": "Medium",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Ul": [],
+        "Um": [
+          {
+            "code": "LPSI",
+            "name": "Laser Pushed Sail Infrastructure",
+            "baseline": "Low",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Un": [],
+        "Uo": [],
+        "Up": [
+          {
+            "code": "LPST",
+            "name": "Laser Pushed Sail Technology",
+            "baseline": "Low",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uq": []
+      },
+      "mode_dir": -1
+    },
+    {
+      "uid": 5,
+      "name": "Closed-Loop Life Support",
+      "members": {
+        "Uh": [
+          {
+            "code": "CLLSS",
+            "name": "Closed Loop Life Support Systems",
+            "baseline": "Low",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Ui": [
+          {
+            "code": "LSL",
+            "name": "Life Support Longevity",
+            "baseline": "Low",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uj": [
+          {
+            "code": "CLLSS",
+            "name": "Closed Loop Life Support Systems",
+            "baseline": "High",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uk": [
+          {
+            "code": "CLLSS",
+            "name": "Closed Loop Life Support Systems",
+            "baseline": "Low",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Ul": [
+          {
+            "code": "CLLSS",
+            "name": "Closed Loop Life Support Systems",
+            "baseline": "Low",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Um": [
+          {
+            "code": "CLLSS",
+            "name": "Closed Loop Life Support Systems",
+            "baseline": "Medium",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Un": [
+          {
+            "code": "CLLSS",
+            "name": "Closed Loop Life Support Systems",
+            "baseline": "Low",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uo": [
+          {
+            "code": "LDLSS",
+            "name": "Long Duration Life Support Systems",
+            "baseline": "Low",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Up": [
+          {
+            "code": "CLLSS",
+            "name": "Closed Loop Life Support Systems",
+            "baseline": "Low",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uq": [
+          {
+            "code": "CLLSS",
+            "name": "Closed Loop Life Support Systems",
+            "baseline": "Low",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13,
+            "dir": -1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": -1
+    },
+    {
+      "uid": 6,
+      "name": "Human Stasis & Hibernation",
+      "members": {
+        "Uh": [
+          {
+            "code": "HCH",
+            "name": "Human Cryostasis and Hibernation",
+            "baseline": "Negligible",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Ui": [
+          {
+            "code": "BS",
+            "name": "Biological Stasis",
+            "baseline": "Negligible",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uj": [
+          {
+            "code": "HBS",
+            "name": "Human Biological Stasis",
+            "baseline": "Low",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uk": [
+          {
+            "code": "HSHT",
+            "name": "Human Stasis and Hibernation Technology",
+            "baseline": "Negligible",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Ul": [
+          {
+            "code": "HBS",
+            "name": "Human Biological Stasis",
+            "baseline": "Negligible",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Um": [
+          {
+            "code": "HBLS",
+            "name": "Human Biological Longevity and Stasis",
+            "baseline": "Low",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Un": [
+          {
+            "code": "CST",
+            "name": "Cryogenic Stasis Technology",
+            "baseline": "Negligible",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uo": [
+          {
+            "code": "HSC",
+            "name": "Human Stasis and Cryopreservation",
+            "baseline": "Negligible",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Up": [
+          {
+            "code": "HCH",
+            "name": "Human Cryogenic Hibernation",
+            "baseline": "Negligible",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uq": [
+          {
+            "code": "HBS",
+            "name": "Human Biological Stasis",
+            "baseline": "Negligible",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9,
+            "dir": -1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": -1
+    },
+    {
+      "uid": 7,
+      "name": "Crew Biology & Resilience",
+      "members": {
+        "Uh": [
+          {
+            "code": "HBSS",
+            "name": "Human Biological Sustainability in Space",
+            "baseline": "Low",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Ui": [
+          {
+            "code": "GESA",
+            "name": "Genetic Engineering for Space Adaptation",
+            "baseline": "Low",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uj": [
+          {
+            "code": "RR",
+            "name": "Radiation Resistance",
+            "baseline": "Low",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uk": [],
+        "Ul": [
+          {
+            "code": "GER",
+            "name": "Genetic Engineering for Resilience",
+            "baseline": "Low",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Um": [
+          {
+            "code": "PSC",
+            "name": "Psychological Stability of Crew",
+            "baseline": "Low",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Un": [
+          {
+            "code": "GERR",
+            "name": "Genetic Engineering for Radiation Resistance",
+            "baseline": "Negligible",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uo": [
+          {
+            "code": "GERR",
+            "name": "Genetic Engineering for Radiation Resistance",
+            "baseline": "Negligible",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Up": [
+          {
+            "code": "GESR",
+            "name": "Genetic Engineering for Space Resilience",
+            "baseline": "Low",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uq": [
+          {
+            "code": "GESA",
+            "name": "Genetic Engineering for Space Adaptation",
+            "baseline": "Low",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10,
+            "dir": -1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": -1
+    },
+    {
+      "uid": 8,
+      "name": "Radiation & Dust Shielding",
+      "members": {
+        "Uh": [
+          {
+            "code": "RSC",
+            "name": "Radiation Shielding Capability",
+            "baseline": "Low",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Ui": [
+          {
+            "code": "IMP",
+            "name": "Interstellar Medium Protection",
+            "baseline": "Negligible",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10,
+            "dir": -1,
+            "invert": false
+          },
+          {
+            "code": "IRS",
+            "name": "Interstellar Radiation Shielding",
+            "baseline": "Low",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uj": [
+          {
+            "code": "IS",
+            "name": "Interstellar Shielding",
+            "baseline": "Low",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uk": [
+          {
+            "code": "IRS",
+            "name": "Interstellar Radiation Shielding",
+            "baseline": "Negligible",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Ul": [
+          {
+            "code": "IRS",
+            "name": "Interstellar Radiation Shielding",
+            "baseline": "Low",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Um": [
+          {
+            "code": "IDS",
+            "name": "Interstellar Dust Shielding",
+            "baseline": "Low",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8,
+            "dir": -1,
+            "invert": false
+          },
+          {
+            "code": "RPT",
+            "name": "Radiation Protection Technology",
+            "baseline": "Low",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Un": [
+          {
+            "code": "DSRS",
+            "name": "Deep Space Radiation Shielding",
+            "baseline": "Low",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11,
+            "dir": -1,
+            "invert": false
+          },
+          {
+            "code": "IDM",
+            "name": "Interstellar Dust Mitigation",
+            "baseline": "Negligible",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uo": [
+          {
+            "code": "IMM",
+            "name": "Interstellar Medium Mitigation",
+            "baseline": "Negligible",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8,
+            "dir": -1,
+            "invert": false
+          },
+          {
+            "code": "RST",
+            "name": "Radiation Shielding Technology",
+            "baseline": "Low",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Up": [
+          {
+            "code": "IRS",
+            "name": "Interstellar Radiation Shielding",
+            "baseline": "Low",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uq": [
+          {
+            "code": "RST",
+            "name": "Radiation Shielding Technology",
+            "baseline": "Medium",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4,
+            "dir": -1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": -1
+    },
+    {
+      "uid": 9,
+      "name": "AI & Autonomous Ship Systems",
+      "members": {
+        "Uh": [
+          {
+            "code": "AIMM",
+            "name": "Artificial Intelligence for Mission Management",
+            "baseline": "Medium",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Ui": [
+          {
+            "code": "AGI",
+            "name": "Artificial General Intelligence",
+            "baseline": "Medium",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uj": [
+          {
+            "code": "AGI",
+            "name": "Artificial General Intelligence",
+            "baseline": "Medium",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uk": [
+          {
+            "code": "ANAI",
+            "name": "Autonomous Navigation and Artificial Intelligence",
+            "baseline": "Low",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Ul": [
+          {
+            "code": "AIAM",
+            "name": "Artificial Intelligence and Autonomous Maintenance",
+            "baseline": "Medium",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Um": [
+          {
+            "code": "AGI",
+            "name": "Artificial General Intelligence",
+            "baseline": "Medium",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Un": [
+          {
+            "code": "AAIS",
+            "name": "Autonomous Artificial Intelligence Systems",
+            "baseline": "Medium",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uo": [
+          {
+            "code": "AANM",
+            "name": "Autonomous AI Navigation and Maintenance",
+            "baseline": "Low",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Up": [
+          {
+            "code": "AASM",
+            "name": "Autonomous AI Ship Maintenance",
+            "baseline": "Low",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uq": [
+          {
+            "code": "AGI",
+            "name": "Artificial General Intelligence",
+            "baseline": "Medium",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15,
+            "dir": -1,
+            "invert": false
+          },
+          {
+            "code": "SRR",
+            "name": "Spacecraft Reliability and Redundancy",
+            "baseline": "Low",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2,
+            "dir": -1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": -1
+    },
+    {
+      "uid": 10,
+      "name": "Multi-Generational Political Will",
+      "members": {
+        "Uh": [
+          {
+            "code": "PIC",
+            "name": "Political Will and International Cooperation",
+            "baseline": "Low",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Ui": [
+          {
+            "code": "P",
+            "name": "Political Will",
+            "baseline": "Low",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uj": [
+          {
+            "code": "MGP",
+            "name": "Multi Generational Political Will",
+            "baseline": "Low",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uk": [
+          {
+            "code": "ICPC",
+            "name": "International Cooperation and Political Commitment",
+            "baseline": "Low",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Ul": [
+          {
+            "code": "PLTC",
+            "name": "Political Will and Long Term Commitment",
+            "baseline": "Low",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Um": [
+          {
+            "code": "PFC",
+            "name": "Political Will and Funding Continuity",
+            "baseline": "Low",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Un": [
+          {
+            "code": "PC",
+            "name": "Political Will and Continuity",
+            "baseline": "Low",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uo": [
+          {
+            "code": "PMGC",
+            "name": "Political Will and Multi Generational Commitment",
+            "baseline": "Low",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Up": [
+          {
+            "code": "MGPC",
+            "name": "Multi Generational Political Commitment",
+            "baseline": "Low",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uq": [
+          {
+            "code": "PIC",
+            "name": "Political Will and International Cooperation",
+            "baseline": "Medium",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7,
+            "dir": -1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": -1
+    },
+    {
+      "uid": 11,
+      "name": "Funding, Economy & Launch Cost",
+      "members": {
+        "Uh": [
+          {
+            "code": "FSC",
+            "name": "Funding Scale and Continuity",
+            "baseline": "Low",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9,
+            "dir": -1,
+            "invert": false
+          },
+          {
+            "code": "GES",
+            "name": "Global Economic Stability",
+            "baseline": "Medium",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Ui": [
+          {
+            "code": "GES",
+            "name": "Global Economic Stability",
+            "baseline": "Medium",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12,
+            "dir": -1,
+            "invert": false
+          },
+          {
+            "code": "LCR",
+            "name": "Launch Cost Reduction",
+            "baseline": "Low",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uj": [
+          {
+            "code": "GES",
+            "name": "Global Economic Stability",
+            "baseline": "Medium",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uk": [
+          {
+            "code": "GESF",
+            "name": "Global Economic Stability and Funding",
+            "baseline": "Low",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11,
+            "dir": -1,
+            "invert": false
+          },
+          {
+            "code": "LVCOAC",
+            "name": "Launch Vehicle Capability and Orbit Access Cost",
+            "baseline": "Low",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Ul": [
+          {
+            "code": "GES",
+            "name": "Global Economic Stability",
+            "baseline": "Medium",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Um": [
+          {
+            "code": "GES",
+            "name": "Global Economic Stability",
+            "baseline": "Medium",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Un": [
+          {
+            "code": "GES",
+            "name": "Global Economic Stability",
+            "baseline": "Low",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uo": [
+          {
+            "code": "EOLCR",
+            "name": "Earth to Orbit Launch Cost Reduction",
+            "baseline": "Low",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13,
+            "dir": -1,
+            "invert": false
+          },
+          {
+            "code": "GES",
+            "name": "Global Economic Stability",
+            "baseline": "Medium",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Up": [
+          {
+            "code": "GES",
+            "name": "Global Economic Stability",
+            "baseline": "Medium",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uq": [
+          {
+            "code": "GES",
+            "name": "Global Economic Stability",
+            "baseline": "Medium",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11,
+            "dir": -1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": -1
+    },
+    {
+      "uid": 12,
+      "name": "Habitable-Target Discovery",
+      "members": {
+        "Uh": [
+          {
+            "code": "DSED",
+            "name": "Destination Selection and Exoplanet Discovery",
+            "baseline": "Low",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Ui": [
+          {
+            "code": "EHD",
+            "name": "Exoplanet Habitability Discovery",
+            "baseline": "Low",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uj": [
+          {
+            "code": "ELED",
+            "name": "Earth Like Exoplanet Discovery",
+            "baseline": "Low",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uk": [
+          {
+            "code": "DHE",
+            "name": "Discovery of Habitable Exoplanet",
+            "baseline": "Low",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Ul": [
+          {
+            "code": "DHE",
+            "name": "Discovery of Habitable Exoplanets",
+            "baseline": "Low",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Um": [
+          {
+            "code": "HED",
+            "name": "Habitable Exoplanet Discovery",
+            "baseline": "Medium",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Un": [
+          {
+            "code": "EED",
+            "name": "Earthlike Exoplanet Discovery",
+            "baseline": "Low",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uo": [
+          {
+            "code": "HED",
+            "name": "Habitable Exoplanet Discovery",
+            "baseline": "Low",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Up": [
+          {
+            "code": "ELED",
+            "name": "Earth Like Exoplanet Discovery",
+            "baseline": "Low",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uq": [
+          {
+            "code": "EI",
+            "name": "Exoplanet Identification",
+            "baseline": "Low",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12,
+            "dir": -1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": -1
+    },
+    {
+      "uid": 13,
+      "name": "Robotic Precursor Missions",
+      "members": {
+        "Uh": [
+          {
+            "code": "PIM",
+            "name": "Precursor Interstellar Missions",
+            "baseline": "Negligible",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Ui": [
+          {
+            "code": "RPM",
+            "name": "Robotic Precursor Missions",
+            "baseline": "Low",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uj": [
+          {
+            "code": "IPM",
+            "name": "Interstellar Precursor Missions",
+            "baseline": "Negligible",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uk": [
+          {
+            "code": "PRM",
+            "name": "Precursor Robotic Missions",
+            "baseline": "Negligible",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Ul": [
+          {
+            "code": "IPM",
+            "name": "Interstellar Precursor Missions",
+            "baseline": "Low",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Um": [],
+        "Un": [
+          {
+            "code": "UPM",
+            "name": "Uncrewed Precursor Missions",
+            "baseline": "Negligible",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uo": [
+          {
+            "code": "PUIP",
+            "name": "Precursor Uncrewed Interstellar Probes",
+            "baseline": "Negligible",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Up": [
+          {
+            "code": "UIPM",
+            "name": "Uncrewed Interstellar Precursor Missions",
+            "baseline": "Low",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uq": [
+          {
+            "code": "PRM",
+            "name": "Precursor Robotic Missions",
+            "baseline": "Low",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6,
+            "dir": -1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": -1
+    },
+    {
+      "uid": 14,
+      "name": "Space Manufacturing & ISRU",
+      "members": {
+        "Uh": [
+          {
+            "code": "SRU",
+            "name": "In Situ Resource Utilization",
+            "baseline": "Low",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Ui": [
+          {
+            "code": "OM",
+            "name": "Orbital Manufacturing",
+            "baseline": "Low",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5,
+            "dir": -1,
+            "invert": false
+          },
+          {
+            "code": "SRU",
+            "name": "In Situ Resource Utilization",
+            "baseline": "Medium",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uj": [
+          {
+            "code": "OMI",
+            "name": "Orbital Manufacturing Infrastructure",
+            "baseline": "Low",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4,
+            "dir": -1,
+            "invert": false
+          },
+          {
+            "code": "SRU",
+            "name": "In Situ Resource Utilization",
+            "baseline": "Low",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uk": [
+          {
+            "code": "OMS",
+            "name": "Orbital Manufacturing and Shipyards",
+            "baseline": "Low",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5,
+            "dir": -1,
+            "invert": false
+          },
+          {
+            "code": "SRU",
+            "name": "In Situ Resource Utilization",
+            "baseline": "Low",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Ul": [
+          {
+            "code": "AMRE",
+            "name": "Asteroid Mining and Resource Extraction",
+            "baseline": "Low",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14,
+            "dir": -1,
+            "invert": false
+          },
+          {
+            "code": "SBMC",
+            "name": "Space Based Manufacturing and Construction",
+            "baseline": "Low",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2,
+            "dir": -1,
+            "invert": false
+          },
+          {
+            "code": "SRU",
+            "name": "In Situ Resource Utilization",
+            "baseline": "Low",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Um": [
+          {
+            "code": "SSRE",
+            "name": "Solar System Resource Extraction",
+            "baseline": "Low",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Un": [
+          {
+            "code": "SBMI",
+            "name": "Space Based Manufacturing and Infrastructure",
+            "baseline": "Low",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3,
+            "dir": -1,
+            "invert": false
+          },
+          {
+            "code": "SRU",
+            "name": "In Situ Resource Utilization",
+            "baseline": "Low",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uo": [
+          {
+            "code": "SRU",
+            "name": "In Situ Resource Utilization",
+            "baseline": "Low",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Up": [
+          {
+            "code": "SBMI",
+            "name": "Space Based Manufacturing Infrastructure",
+            "baseline": "Low",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3,
+            "dir": -1,
+            "invert": false
+          },
+          {
+            "code": "SRU",
+            "name": "In Situ Resource Utilization",
+            "baseline": "Low",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2,
+            "dir": -1,
+            "invert": false
+          }
+        ],
+        "Uq": [
+          {
+            "code": "SBM",
+            "name": "Space Based Manufacturing",
+            "baseline": "Low",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3,
+            "dir": -1,
+            "invert": false
+          },
+          {
+            "code": "SRU",
+            "name": "In Situ Resource Utilization",
+            "baseline": "Low",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1,
+            "dir": -1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": -1
+    }
+  ]
+}

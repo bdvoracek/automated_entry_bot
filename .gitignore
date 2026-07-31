@@ -21,6 +21,8 @@ state/*
 !state/causal_*.json
 !state/gold_job.json
 !state/b200_job.json
+!state/alphacen_job.json
+!state/prose_*.json
 
 # Claude Code local settings (personal, not shared)
 .claude/settings.local.json

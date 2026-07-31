@@ -1,0 +1,17 @@
+{
+ "dv_name": "Arrival year",
+ "prose": {
+  "9": ["The crew that never sleeps",
+        "A century-long crossing cannot be flown from mission control - the light delay to Alpha Centauri alone is over four years each way. Money and political commitment buy the autonomy, and once a ship can navigate, diagnose and repair itself it also unlocks the industry that builds it. Nearly every model wires this straight into the arrival date."],
+  "11": ["Who pays for a century",
+         "Sustained political will is what turns a healthy economy into an actual interstellar budget, and cheap access to orbit is what makes the sheer mass affordable. It lands on the arrival date directly and bankrolls the fusion work underneath it. The most mundane driver on the map is the one gating all the exotic ones."],
+  "2": ["The fuel that doesn't exist yet",
+        "Antimatter is made today in nanograms; a crewed crossing would need kilograms. Fusion power and off-Earth industry are what could make that scale-up thinkable, and if it lands it feeds straight into relativistic propulsion - the difference between a decades-long crossing and one no crew could outlive."],
+  "5": ["Keeping people alive for decades",
+        "A ship that recycles 99% of its air, water and food is a fundamentally different vehicle from one that recycles 70% - the second needs resupply nobody can send. Orbital industry and shipboard autonomy feed the loop, and the loop pushes on both stasis technology and the date itself."],
+  "12": ["A reason to go",
+         "Almost nothing causes the discovery of a habitable world at Alpha Centauri - in the models it is a root cause, a fact about the universe we either find or we don't. Confirm an Earth-analog and robotic precursors follow, and the whole programme gains a target worth a century of effort."],
+  "8": ["Going fast makes space lethal",
+        "At a fifth of light speed a grain of interstellar dust arrives like a bomb, and cosmic rays never let up. Fusion power and the propulsion it feeds both raise the shielding bar, and shielding in turn decides whether the life-support loop is survivable at all. It sits between speed and survival."]
+ }
+}

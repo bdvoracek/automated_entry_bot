@@ -284,14 +284,14 @@
         </div>
         <div class="divider" id="divider" title="drag to resize · double-click to reset"><span></span></div>
         <div class="card pane" id="pane-dens">
-          <div class="pane-h"><span>Unified density · price on the resolution date</span><button class="min" data-pane="dens" title="minimise">»</button></div>
+          <div class="pane-h"><span id="dens-sub">Unified density · price on the resolution date</span><button class="min" data-pane="dens" title="minimise">»</button></div>
           <svg class="cdf" id="cdf" viewBox="0 0 460 300" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Probability density with tails"></svg>
           <div class="dstats" id="dstats">
             <div class="lg" id="dlg"></div>
             <div class="statrow">
               <span id="dchips"></span>
-              <div class="ystat"><b class="lab">Probability vs a price</b>
-                <span class="yv">$<input id="yin" type="number" step="0.01" placeholder="price"><span class="yout" id="yout"></span></span></div>
+              <div class="ystat"><b class="lab" id="ylab">Probability vs a price</b>
+                <span class="yv"><span id="yunit">$</span><input id="yin" type="number" step="0.01" placeholder="price"><span class="yout" id="yout"></span></span></div>
             </div>
           </div>
         </div>
@@ -342,8 +342,10 @@ const STOPLBL={'-2':'strong down','-1':'down','0':'hold','1':'up','2':'strong up
 const STATES=["Negligible","Low","Medium","High","Extreme"];
 let MODEL=null, deltas={}, appliedDeltas={}, busy=false, sortMode='desc';
 let DEC=0;  // price decimals: 2 when the question trades low (e.g. GPU $/hr), else whole
-const dol=v=>'$'+(+v).toLocaleString(undefined,{minimumFractionDigits:DEC,maximumFractionDigits:DEC});
-let yardstick=null, _lastDist=null, _lastBase=null;   // user "probability vs a price" marker
+let UNIT='$', GROUP=true, NOUN='price';   // axis presentation (a date question: '', false, 'year')
+const dol=v=>UNIT+(+v).toLocaleString(undefined,
+  {minimumFractionDigits:DEC,maximumFractionDigits:DEC,useGrouping:GROUP});
+let yardstick=null, _lastDist=null, _lastBase=null;   // user "probability vs a value" marker
 // cumulative probability mass below price x, uniform within each bin
 function massBelow(dist, x){
   const e=MODEL.bin_edges, L=MODEL.bin_labels; let c=0;
@@ -367,7 +369,15 @@ const toast=m=>{const t=$('toast');t.textContent=m;t.classList.add('show');setTi
 async function boot(){
   MODEL=await (await fetch(api('/api/model'))).json();
   DEC = (MODEL.spot!=null && Math.abs(MODEL.spot)<30) ? 2 : 0;
+  UNIT = MODEL.unit!=null ? MODEL.unit : '$';
+  GROUP = MODEL.group!==false;
+  NOUN = MODEL.noun || 'price';
   yardstick = (MODEL.spot!=null) ? MODEL.spot : null;   // default the yardstick to today's spot
+  $('dens-sub').textContent = 'Unified density · ' + (MODEL.dens_sub || 'price on the resolution date');
+  $('ylab').textContent = 'Probability vs a ' + NOUN;
+  $('yunit').textContent = UNIT;
+  $('yin').step = DEC===2 ? 0.01 : 1;
+  $('yin').placeholder = NOUN;
   $('q').textContent=MODEL.question;
   $('sub').innerHTML=`<b>${MODEL.tier}</b> · ${MODEL.n_models} models · <b>${MODEL.n_unified}</b> unified drivers · driver changes are free`;
   const qsel=$('qsel');
@@ -549,7 +559,7 @@ function renderDist(dist, base){
   const step=niceStep((x1-x0)/6);
   for(let xv=Math.ceil(x0/step)*step; xv<=x1; xv+=step){const xx=sx(xv);
     g+=`<line class="grid" x1="${xx.toFixed(1)}" y1="${m.t}" x2="${xx.toFixed(1)}" y2="${H-m.b}"/>`+
-       `<text class="tick" x="${xx.toFixed(1)}" y="${H-m.b+16}" text-anchor="middle">$${xv.toLocaleString()}</text>`;}
+       `<text class="tick" x="${xx.toFixed(1)}" y="${H-m.b+16}" text-anchor="middle">${UNIT}${xv.toLocaleString(undefined,{useGrouping:GROUP})}</text>`;}
   const bx=sx(sA.p10), bw=sx(sA.p90)-sx(sA.p10);
   g+=`<rect class="band" x="${bx.toFixed(1)}" y="${m.t}" width="${bw.toFixed(1)}" height="${(H-m.b-m.t).toFixed(1)}"/>`;
   // curves
@@ -625,7 +635,8 @@ function renderDrivers(){
     const sel=STOPS.map(v=>`<button class="stop ${v===cur?'active':''} ${v===0?'zero':''}" data-uid="${d.uid}" data-v="${v}" title="${STOPLBL[v]}">${CHEV[v]}</button>`).join('');
     const ninv=d.members.filter(m=>m.invert).length;
     const invtag=ninv?` · <span class="invtag">⇄ ${ninv} inverted</span>`:'';
-    const pdir=d.mode_dir>0?'raises price':'lowers price';
+    const dw=MODEL.dir_words||['raises price','lowers price'];
+    const pdir=d.mode_dir>0?dw[0]:dw[1];
     return `<div class="drow ${cur!==0?'on':''}" id="drow-${d.uid}">
       <div class="drow-top">
         <div><div class="dname">${d.name}<span class="changed"></span></div>

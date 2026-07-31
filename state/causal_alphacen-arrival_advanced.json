@@ -1,0 +1,360 @@
+{
+  "question_id": "alphacen-arrival",
+  "tier": "Advanced",
+  "drivers": {
+    "1": {
+      "ci": 0.362,
+      "reach": 1.0,
+      "role": "integrator",
+      "betweenness": 4.17
+    },
+    "2": {
+      "ci": 0.806,
+      "reach": 0.98,
+      "role": "driver",
+      "betweenness": 0.0
+    },
+    "3": {
+      "ci": 0.401,
+      "reach": 1.0,
+      "role": "driver",
+      "betweenness": 1.0
+    },
+    "4": {
+      "ci": 0.109,
+      "reach": 0.5,
+      "role": "driver",
+      "betweenness": 0.0
+    },
+    "5": {
+      "ci": 0.763,
+      "reach": 1.0,
+      "role": "integrator",
+      "betweenness": 4.17
+    },
+    "6": {
+      "ci": 0.638,
+      "reach": 1.0,
+      "role": "driver",
+      "betweenness": 0.0
+    },
+    "7": {
+      "ci": 0.477,
+      "reach": 0.98,
+      "role": "driver",
+      "betweenness": 1.83
+    },
+    "8": {
+      "ci": 0.605,
+      "reach": 1.0,
+      "role": "mediator",
+      "betweenness": 10.17
+    },
+    "9": {
+      "ci": 1.0,
+      "reach": 1.0,
+      "role": "driver",
+      "betweenness": 4.0
+    },
+    "10": {
+      "ci": 0.362,
+      "reach": 1.0,
+      "role": "mediator",
+      "betweenness": 11.17
+    },
+    "11": {
+      "ci": 0.914,
+      "reach": 1.0,
+      "role": "driver",
+      "betweenness": 0.0
+    },
+    "12": {
+      "ci": 0.73,
+      "reach": 1.0,
+      "role": "source",
+      "betweenness": 2.0
+    },
+    "13": {
+      "ci": 0.247,
+      "reach": 0.988,
+      "role": "integrator",
+      "betweenness": 2.0
+    },
+    "14": {
+      "ci": 0.342,
+      "reach": 1.0,
+      "role": "mediator",
+      "betweenness": 6.5
+    }
+  },
+  "fragments": [
+    {
+      "id": "frag-9",
+      "focal_uid": 9,
+      "title": "The crew that never sleeps",
+      "insight": "A century-long crossing cannot be flown from mission control - the light delay to Alpha Centauri alone is over four years each way. Money and political commitment buy the autonomy, and once a ship can navigate, diagnose and repair itself it also unlocks the industry that builds it. Nearly every model wires this straight into the arrival date.",
+      "role": "driver",
+      "importance": 100,
+      "aci": 0.775,
+      "focal": {
+        "uid": 9,
+        "label": "AI & Autonomous Ship Systems",
+        "influence": 1.0,
+        "outcome": false
+      },
+      "parents": [
+        {
+          "uid": 11,
+          "label": "Funding, Economy & Launch Cost",
+          "influence": 0.914,
+          "outcome": false,
+          "support": 0.6
+        },
+        {
+          "uid": 10,
+          "label": "Multi-Generational Political Will",
+          "influence": 0.362,
+          "outcome": false,
+          "support": 0.5
+        }
+      ],
+      "children": [
+        {
+          "uid": 14,
+          "label": "Space Manufacturing & ISRU",
+          "influence": 0.342,
+          "outcome": false,
+          "support": 1.0
+        },
+        {
+          "uid": "DV",
+          "label": "Arrival year",
+          "influence": 1.0,
+          "outcome": true,
+          "support": 1.0
+        }
+      ]
+    },
+    {
+      "id": "frag-11",
+      "focal_uid": 11,
+      "title": "Who pays for a century",
+      "insight": "Sustained political will is what turns a healthy economy into an actual interstellar budget, and cheap access to orbit is what makes the sheer mass affordable. It lands on the arrival date directly and bankrolls the fusion work underneath it. The most mundane driver on the map is the one gating all the exotic ones.",
+      "role": "driver",
+      "importance": 98,
+      "aci": 0.762,
+      "focal": {
+        "uid": 11,
+        "label": "Funding, Economy & Launch Cost",
+        "influence": 0.914,
+        "outcome": false
+      },
+      "parents": [
+        {
+          "uid": 10,
+          "label": "Multi-Generational Political Will",
+          "influence": 0.362,
+          "outcome": false,
+          "support": 0.7
+        }
+      ],
+      "children": [
+        {
+          "uid": "DV",
+          "label": "Arrival year",
+          "influence": 1.0,
+          "outcome": true,
+          "support": 1.0
+        },
+        {
+          "uid": 3,
+          "label": "Fusion Power & Propulsion",
+          "influence": 0.401,
+          "outcome": false,
+          "support": 0.8
+        }
+      ]
+    },
+    {
+      "id": "frag-2",
+      "focal_uid": 2,
+      "title": "The fuel that doesn't exist yet",
+      "insight": "Antimatter is made today in nanograms; a crewed crossing would need kilograms. Fusion power and off-Earth industry are what could make that scale-up thinkable, and if it lands it feeds straight into relativistic propulsion - the difference between a decades-long crossing and one no crew could outlive.",
+      "role": "driver",
+      "importance": 86,
+      "aci": 0.665,
+      "focal": {
+        "uid": 2,
+        "label": "Antimatter Production & Storage",
+        "influence": 0.822,
+        "outcome": false
+      },
+      "parents": [
+        {
+          "uid": 3,
+          "label": "Fusion Power & Propulsion",
+          "influence": 0.401,
+          "outcome": false,
+          "support": 0.9
+        },
+        {
+          "uid": 14,
+          "label": "Space Manufacturing & ISRU",
+          "influence": 0.342,
+          "outcome": false,
+          "support": 0.7
+        }
+      ],
+      "children": [
+        {
+          "uid": "DV",
+          "label": "Arrival year",
+          "influence": 1.0,
+          "outcome": true,
+          "support": 0.9
+        },
+        {
+          "uid": 1,
+          "label": "Relativistic Propulsion",
+          "influence": 0.362,
+          "outcome": false,
+          "support": 0.8
+        }
+      ]
+    },
+    {
+      "id": "frag-5",
+      "focal_uid": 5,
+      "title": "Keeping people alive for decades",
+      "insight": "A ship that recycles 99% of its air, water and food is a fundamentally different vehicle from one that recycles 70% - the second needs resupply nobody can send. Orbital industry and shipboard autonomy feed the loop, and the loop pushes on both stasis technology and the date itself.",
+      "role": "integrator",
+      "importance": 84,
+      "aci": 0.649,
+      "focal": {
+        "uid": 5,
+        "label": "Closed-Loop Life Support",
+        "influence": 0.763,
+        "outcome": false
+      },
+      "parents": [
+        {
+          "uid": 14,
+          "label": "Space Manufacturing & ISRU",
+          "influence": 0.342,
+          "outcome": false,
+          "support": 1.0
+        },
+        {
+          "uid": 9,
+          "label": "AI & Autonomous Ship Systems",
+          "influence": 1.0,
+          "outcome": false,
+          "support": 0.9
+        }
+      ],
+      "children": [
+        {
+          "uid": "DV",
+          "label": "Arrival year",
+          "influence": 1.0,
+          "outcome": true,
+          "support": 1.0
+        },
+        {
+          "uid": 6,
+          "label": "Human Stasis & Hibernation",
+          "influence": 0.638,
+          "outcome": false,
+          "support": 0.5
+        }
+      ]
+    },
+    {
+      "id": "frag-12",
+      "focal_uid": 12,
+      "title": "A reason to go",
+      "insight": "Almost nothing causes the discovery of a habitable world at Alpha Centauri - in the models it is a root cause, a fact about the universe we either find or we don't. Confirm an Earth-analog and robotic precursors follow, and the whole programme gains a target worth a century of effort.",
+      "role": "source",
+      "importance": 66,
+      "aci": 0.511,
+      "focal": {
+        "uid": 12,
+        "label": "Habitable-Target Discovery",
+        "influence": 0.73,
+        "outcome": false
+      },
+      "parents": [
+        {
+          "uid": 9,
+          "label": "AI & Autonomous Ship Systems",
+          "influence": 1.0,
+          "outcome": false,
+          "support": 0.4
+        }
+      ],
+      "children": [
+        {
+          "uid": "DV",
+          "label": "Arrival year",
+          "influence": 1.0,
+          "outcome": true,
+          "support": 1.0
+        },
+        {
+          "uid": 13,
+          "label": "Robotic Precursor Missions",
+          "influence": 0.25,
+          "outcome": false,
+          "support": 0.7
+        }
+      ]
+    },
+    {
+      "id": "frag-8",
+      "focal_uid": 8,
+      "title": "Going fast makes space lethal",
+      "insight": "At a fifth of light speed a grain of interstellar dust arrives like a bomb, and cosmic rays never let up. Fusion power and the propulsion it feeds both raise the shielding bar, and shielding in turn decides whether the life-support loop is survivable at all. It sits between speed and survival.",
+      "role": "mediator",
+      "importance": 62,
+      "aci": 0.484,
+      "focal": {
+        "uid": 8,
+        "label": "Radiation & Dust Shielding",
+        "influence": 0.605,
+        "outcome": false
+      },
+      "parents": [
+        {
+          "uid": 3,
+          "label": "Fusion Power & Propulsion",
+          "influence": 0.401,
+          "outcome": false,
+          "support": 1.0
+        },
+        {
+          "uid": 1,
+          "label": "Relativistic Propulsion",
+          "influence": 0.362,
+          "outcome": false,
+          "support": 0.7
+        }
+      ],
+      "children": [
+        {
+          "uid": "DV",
+          "label": "Arrival year",
+          "influence": 1.0,
+          "outcome": true,
+          "support": 1.0
+        },
+        {
+          "uid": 5,
+          "label": "Closed-Loop Life Support",
+          "influence": 0.763,
+          "outcome": false,
+          "support": 0.5
+        }
+      ]
+    }
+  ]
+}

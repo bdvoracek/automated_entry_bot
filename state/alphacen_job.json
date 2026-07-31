@@ -1,0 +1,51 @@
+{
+  "id": "alphacen-arrival",
+  "question": "When will the first human being physically arrive within the Alpha Centauri star system (in orbit around or on the surface of any body gravitationally bound to Alpha Centauri A, B, or Proxima Centauri)?",
+  "tier": "Advanced",
+  "outcomes": [
+    "Before 2200",
+    "2200-2299",
+    "2300-2399",
+    "2400-2499",
+    "2500 or later"
+  ],
+  "bin_labels": [
+    "Before 2200",
+    "2200-2299",
+    "2300-2399",
+    "2400-2499",
+    "2500 or later"
+  ],
+  "bin_edges": [
+    2100,
+    2200,
+    2300,
+    2400,
+    2500,
+    2700
+  ],
+  "scaling": {
+    "range_min": 2200,
+    "range_max": 2500,
+    "zero_point": null,
+    "open_lower_bound": true,
+    "open_upper_bound": true,
+    "cdf_size": 201
+  },
+  "anchor": 2350,
+  "spot": null,
+  "additional_context": "Resolution: the arrival of at least one living human being (crewed vehicle, generation ship, or a human body revived in-system) inside the Alpha Centauri system - in orbit around, or on the surface of, any body gravitationally bound to Alpha Centauri A, Alpha Centauri B, or Proxima Centauri. Uncrewed probes, telepresence, robotic landers and human remains do not count. The date is the date of arrival, not the date of launch. Alpha Centauri is 4.37 light years away, so any arrival implies both a successful interstellar propulsion programme and crew survival over a multi-decade cruise. Treat 'never' or 'not before the year 3000' as falling in the final bin, '2500 or later'. Today is 30 July 2026.",
+  "model_ids": [
+    "Uh",
+    "Ui",
+    "Uj",
+    "Uk",
+    "Ul",
+    "Um",
+    "Un",
+    "Uo",
+    "Up",
+    "Uq"
+  ],
+  "created_at": "2026-07-31"
+}

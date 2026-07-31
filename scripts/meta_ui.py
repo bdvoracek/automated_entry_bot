@@ -61,8 +61,15 @@ def _bins_from_job(path):
 class Pack:
     """Everything the UI needs for one question, plus its own MetaEngine/lock."""
 
-    def __init__(self, key, title, mapping_path, labels, edges, scaling, spot, causal_path):
+    def __init__(self, key, title, mapping_path, labels, edges, scaling, spot, causal_path,
+                 unit="$", group=True, noun="price",
+                 dens_sub="price on the resolution date",
+                 dir_words=("raises price", "lowers price")):
         self.key, self.title, self.spot = key, title, spot
+        # axis presentation: money questions read "$4,080"; a date question's
+        # axis is a year, so it takes no unit and no thousands separator.
+        self.unit, self.group, self.noun, self.dens_sub = unit, group, noun, dens_sub
+        self.dir_words = list(dir_words)   # what "slider up" does: [mode +1, mode -1]
         self.mp = load_mapping(mapping_path)
         self.engine = MetaEngine(self.mp)
         self.labels, self.edges, self.scaling = labels, edges, scaling
@@ -114,6 +121,8 @@ class Pack:
             "range": [self.scaling.range_min, self.scaling.range_max],
             "bin_edges": self.edges, "bin_labels": self.order or self.labels,
             "spot": self.spot, "insights": self.fragments,
+            "unit": self.unit, "group": self.group, "noun": self.noun,
+            "dens_sub": self.dens_sub, "dir_words": self.dir_words,
             "questions": [{"key": k, "title": p.title} for k, p in PACKS.items()],
         }
 
@@ -166,6 +175,16 @@ def _build_packs():
     bt2, bl2, be2, bs2 = _bins_from_job(STATE / "b200_job.json")
     packs["b200"] = Pack("b200", bt2, STATE / "unified_drivers_b200_advanced.json",
                          bl2, be2, bs2, 7.70, STATE / "causal_b200_advanced.json")
+    # date question: the axis is a year, so no currency unit and no 1,000s comma
+    ac_map = STATE / "unified_drivers_alphacen_advanced.json"
+    if ac_map.exists():
+        at, al, ae, as_ = _bins_from_job(STATE / "alphacen_job.json")
+        packs["alphacen"] = Pack("alphacen", at, ac_map, al, ae, as_, None,
+                                 STATE / "causal_alphacen-arrival_advanced.json",
+                                 unit="", group=False, noun="year",
+                                 dens_sub="year of first human arrival",
+                                 dir_words=("pushes arrival later",
+                                            "pushes arrival earlier"))
     return packs
 
 

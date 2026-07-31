@@ -16,9 +16,11 @@ from aeb import causal, config  # noqa: E402
 from aeb.http import request  # noqa: E402
 from aeb.meta import load_mapping  # noqa: E402
 
-MAPPING = ROOT / "state" / "unified_drivers_44704_advanced.json"
+# default question is Brent; pass another mapping path as argv[1]
+MAPPING = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "state" / "unified_drivers_44704_advanced.json"
 
-# accessible, 51Folds-voice prose per focal unified-driver id
+# accessible, 51Folds-voice prose per focal unified-driver id. Other questions
+# keep theirs in state/prose_<qid>_<tier>.json ({uid: [title, insight]}).
 PROSE = {
     2: ("The reserve is the world's shock absorber",
         "When conflict flares or OPEC moves, governments reach for their strategic reserves — and that "
@@ -50,9 +52,17 @@ PROSE = {
 
 def main():
     mp = load_mapping(MAPPING)
+    prose = PROSE
+    pf = ROOT / "state" / f"prose_{mp.question_id}_{mp.tier.lower()}.json"
+    if pf.exists():
+        raw = json.loads(pf.read_text())
+        prose = {int(k): tuple(v) for k, v in raw.get("prose", {}).items()}
+        dv_name = raw.get("dv_name", "outcome")
+    else:
+        dv_name = "Brent price"
     uids = [u.uid for u in mp.unified]
     name = {u.uid: u.name for u in mp.unified}
-    name[causal.DV] = "Brent price"
+    name[causal.DV] = dv_name
     code2uid = {(mid, m["code"]): u.uid for u in mp.unified
                 for mid, mems in u.members.items() for m in mems}
     maxip = max(u.influence_points() for u in mp.unified) or 1
@@ -86,7 +96,7 @@ def main():
     fragments = []
     for f in frags:
         F = f["focal"]
-        title, insight = PROSE.get(F, (name[F], ""))
+        title, insight = prose.get(F, (name[F], ""))
         fragments.append({
             "id": f"frag-{F}", "focal_uid": F, "title": title, "insight": insight,
             "role": roles[F], "importance": round(100 * f["importance"] / mx),
