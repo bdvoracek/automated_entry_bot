@@ -1,0 +1,1029 @@
+{
+  "question_id": "amzn-max-2029",
+  "tier": "Advanced",
+  "n_unified": 17,
+  "models": [
+    "VM",
+    "VO",
+    "VR",
+    "VT",
+    "VV"
+  ],
+  "unified": [
+    {
+      "uid": 1,
+      "name": "AWS Revenue Growth",
+      "members": {
+        "VM": [
+          {
+            "code": "ARG",
+            "name": "AWS Revenue Growth",
+            "baseline": "Extreme",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VO": [
+          {
+            "code": "ARG",
+            "name": "AWS Revenue Growth",
+            "baseline": "Extreme",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VR": [
+          {
+            "code": "AARGR",
+            "name": "AWS Annual Revenue Growth Rate",
+            "baseline": "High",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VT": [
+          {
+            "code": "ARG",
+            "name": "AWS Revenue Growth",
+            "baseline": "Extreme",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VV": [
+          {
+            "code": "ARG",
+            "name": "AWS Revenue Growth",
+            "baseline": "Extreme",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13,
+            "dir": 1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": 1
+    },
+    {
+      "uid": 2,
+      "name": "Cloud Market Share",
+      "members": {
+        "VM": [
+          {
+            "code": "CMS",
+            "name": "Cloud Market Share",
+            "baseline": "Medium",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VO": [
+          {
+            "code": "CMS",
+            "name": "Cloud Market Share",
+            "baseline": "Extreme",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VR": [
+          {
+            "code": "AMSVC",
+            "name": "AWS Market Share vs Competition",
+            "baseline": "Medium",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VT": [
+          {
+            "code": "CCMS",
+            "name": "Cloud Computing Market Share",
+            "baseline": "Medium",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VV": [
+          {
+            "code": "CIMS",
+            "name": "Cloud Infrastructure Market Share",
+            "baseline": "High",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10,
+            "dir": 1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": 1
+    },
+    {
+      "uid": 3,
+      "name": "AWS Operating Margin & Custom Silicon",
+      "members": {
+        "VM": [
+          {
+            "code": "AOM",
+            "name": "AWS Operating Margin",
+            "baseline": "High",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VR": [
+          {
+            "code": "AOM",
+            "name": "AWS Operating Margins",
+            "baseline": "Medium",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VT": [
+          {
+            "code": "PSD",
+            "name": "Proprietary Silicon Development",
+            "baseline": "High",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VV": [
+          {
+            "code": "AOMS",
+            "name": "AWS Operating Margin Sustainability",
+            "baseline": "High",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15,
+            "dir": 1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": 1
+    },
+    {
+      "uid": 4,
+      "name": "Advertising Revenue Growth",
+      "members": {
+        "VM": [
+          {
+            "code": "ARGD",
+            "name": "Advertising Revenue Growth",
+            "baseline": "High",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VO": [
+          {
+            "code": "ARGD",
+            "name": "Advertising Revenue Growth",
+            "baseline": "High",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VR": [
+          {
+            "code": "ARG",
+            "name": "Advertising Revenue Growth",
+            "baseline": "High",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VT": [
+          {
+            "code": "ARGD",
+            "name": "Advertising Revenue Growth",
+            "baseline": "High",
+            "rank": 2,
+            "n_drivers": 15,
+            "points": 13,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VV": [
+          {
+            "code": "ARGD",
+            "name": "Advertising Revenue Growth",
+            "baseline": "High",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12,
+            "dir": 1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": 1
+    },
+    {
+      "uid": 5,
+      "name": "Generative AI Monetization",
+      "members": {
+        "VM": [
+          {
+            "code": "GAA",
+            "name": "Generative AI Adoption",
+            "baseline": "High",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VO": [
+          {
+            "code": "GAI",
+            "name": "Generative AI Integration",
+            "baseline": "High",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VR": [
+          {
+            "code": "GAM",
+            "name": "Generative AI Monetization",
+            "baseline": "Medium",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VT": [
+          {
+            "code": "GAM",
+            "name": "Generative AI Monetization",
+            "baseline": "High",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VV": [
+          {
+            "code": "GAM",
+            "name": "Generative AI Monetization",
+            "baseline": "Medium",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8,
+            "dir": 1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": 1
+    },
+    {
+      "uid": 6,
+      "name": "AI Capex Scale & Efficiency",
+      "members": {
+        "VM": [
+          {
+            "code": "AICE",
+            "name": "AI Infrastructure Capital Expenditure",
+            "baseline": "High",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VO": [
+          {
+            "code": "CEE",
+            "name": "Capital Expenditure Efficiency",
+            "baseline": "Medium",
+            "rank": 3,
+            "n_drivers": 15,
+            "points": 12,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VR": [
+          {
+            "code": "AICE",
+            "name": "AI Infrastructure Capital Expenditure",
+            "baseline": "High",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VT": [
+          {
+            "code": "CEE",
+            "name": "Capital Expenditure Efficiency",
+            "baseline": "High",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VV": [
+          {
+            "code": "CEE",
+            "name": "Capital Expenditure Efficiency",
+            "baseline": "Medium",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11,
+            "dir": 1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": 1
+    },
+    {
+      "uid": 7,
+      "name": "Retail Operating Margin",
+      "members": {
+        "VM": [
+          {
+            "code": "ROM",
+            "name": "Retail Operating Margin",
+            "baseline": "Extreme",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VO": [
+          {
+            "code": "ROME",
+            "name": "Retail Operating Margin Expansion",
+            "baseline": "Medium",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VR": [
+          {
+            "code": "AOME",
+            "name": "Amazon Operating Margin Expansion",
+            "baseline": "Medium",
+            "rank": 4,
+            "n_drivers": 15,
+            "points": 11,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VT": [
+          {
+            "code": "ROME",
+            "name": "Retail Operating Margin Expansion",
+            "baseline": "High",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VV": [
+          {
+            "code": "NAROM",
+            "name": "North America Retail Operating Margin",
+            "baseline": "Medium",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4,
+            "dir": 1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": 1
+    },
+    {
+      "uid": 8,
+      "name": "Logistics Automation & Labor Costs",
+      "members": {
+        "VM": [
+          {
+            "code": "LAE",
+            "name": "Logistics Automation Efficiency",
+            "baseline": "Medium",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VO": [
+          {
+            "code": "LNA",
+            "name": "Logistics Network Automation",
+            "baseline": "Medium",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4,
+            "dir": 1,
+            "invert": false
+          },
+          {
+            "code": "LCP",
+            "name": "Labor Cost Pressures",
+            "baseline": "Medium",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5,
+            "dir": -1,
+            "invert": true
+          }
+        ],
+        "VR": [
+          {
+            "code": "LNE",
+            "name": "Logistics Network Efficiency",
+            "baseline": "Medium",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VT": [
+          {
+            "code": "LAR",
+            "name": "Logistics Automation and Robotics",
+            "baseline": "High",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VV": [
+          {
+            "code": "LAR",
+            "name": "Logistics Automation and Robotics",
+            "baseline": "Medium",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5,
+            "dir": 1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": 1
+    },
+    {
+      "uid": 9,
+      "name": "Antitrust & Regulatory Action",
+      "members": {
+        "VM": [
+          {
+            "code": "ALO",
+            "name": "Antitrust Litigation Outcomes",
+            "baseline": "Medium",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VO": [
+          {
+            "code": "ARA",
+            "name": "Antitrust Regulatory Actions",
+            "baseline": "Negligible",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15,
+            "dir": -1,
+            "invert": true
+          }
+        ],
+        "VR": [
+          {
+            "code": "RAA",
+            "name": "Regulatory Antitrust Actions",
+            "baseline": "High",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1,
+            "dir": -1,
+            "invert": true
+          }
+        ],
+        "VT": [
+          {
+            "code": "ARA",
+            "name": "Antitrust and Regulatory Actions",
+            "baseline": "High",
+            "rank": 0,
+            "n_drivers": 15,
+            "points": 15,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VV": [
+          {
+            "code": "ARA",
+            "name": "Antitrust Regulatory Actions",
+            "baseline": "Medium",
+            "rank": 1,
+            "n_drivers": 15,
+            "points": 14,
+            "dir": 1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": 1
+    },
+    {
+      "uid": 10,
+      "name": "Monetary Policy & Interest Rates",
+      "members": {
+        "VM": [
+          {
+            "code": "MP",
+            "name": "Monetary Policy",
+            "baseline": "Medium",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VO": [
+          {
+            "code": "IRE",
+            "name": "Interest Rate Environment",
+            "baseline": "High",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7,
+            "dir": -1,
+            "invert": true
+          }
+        ],
+        "VR": [
+          {
+            "code": "FRMP",
+            "name": "Federal Reserve Monetary Policy",
+            "baseline": "Medium",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VT": [
+          {
+            "code": "MPIR",
+            "name": "Monetary Policy and Interest Rates",
+            "baseline": "Medium",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VV": [
+          {
+            "code": "FRIRP",
+            "name": "Federal Reserve Interest Rate Policy",
+            "baseline": "Medium",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9,
+            "dir": 1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": 1
+    },
+    {
+      "uid": 11,
+      "name": "Consumer Spending & Purchasing Power",
+      "members": {
+        "VM": [
+          {
+            "code": "CST",
+            "name": "Consumer Spending Trends",
+            "baseline": "High",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VO": [
+          {
+            "code": "CST",
+            "name": "Consumer Spending Trends",
+            "baseline": "Medium",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VR": [
+          {
+            "code": "ICPP",
+            "name": "Inflation and Consumer Purchasing Power",
+            "baseline": "Low",
+            "rank": 11,
+            "n_drivers": 15,
+            "points": 4,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VT": [
+          {
+            "code": "CST",
+            "name": "Consumer Spending Trends",
+            "baseline": "High",
+            "rank": 5,
+            "n_drivers": 15,
+            "points": 10,
+            "dir": 1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": 1
+    },
+    {
+      "uid": 12,
+      "name": "Global Macro & E-commerce Growth",
+      "members": {
+        "VM": [
+          {
+            "code": "GMG",
+            "name": "Global Macroeconomic Growth",
+            "baseline": "Medium",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VR": [
+          {
+            "code": "GMG",
+            "name": "Global Macroeconomic Growth",
+            "baseline": "Medium",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VT": [
+          {
+            "code": "GECMG",
+            "name": "Global E-commerce Market Growth",
+            "baseline": "Medium",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7,
+            "dir": 1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": 1
+    },
+    {
+      "uid": 13,
+      "name": "E-commerce Market Share",
+      "members": {
+        "VR": [
+          {
+            "code": "ECMS",
+            "name": "E-commerce Market Share",
+            "baseline": "High",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VV": [
+          {
+            "code": "GECMS",
+            "name": "Global E-commerce Market Share",
+            "baseline": "Medium",
+            "rank": 8,
+            "n_drivers": 15,
+            "points": 7,
+            "dir": 1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": 1
+    },
+    {
+      "uid": 14,
+      "name": "Prime & Subscription Services",
+      "members": {
+        "VM": [
+          {
+            "code": "PMR",
+            "name": "Prime Membership Retention",
+            "baseline": "High",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VO": [
+          {
+            "code": "PMR",
+            "name": "Prime Membership Retention",
+            "baseline": "High",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VR": [
+          {
+            "code": "PMRG",
+            "name": "Prime Member Retention and Growth",
+            "baseline": "Low",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VT": [
+          {
+            "code": "PMD",
+            "name": "Prime Membership Dynamics",
+            "baseline": "Medium",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VV": [
+          {
+            "code": "PMRP",
+            "name": "Prime Membership Retention and Pricing",
+            "baseline": "High",
+            "rank": 12,
+            "n_drivers": 15,
+            "points": 3,
+            "dir": 1,
+            "invert": false
+          },
+          {
+            "code": "SSRG",
+            "name": "Subscription Services Revenue Growth",
+            "baseline": "Medium",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1,
+            "dir": 1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": 1
+    },
+    {
+      "uid": 15,
+      "name": "International Retail Profitability",
+      "members": {
+        "VM": [
+          {
+            "code": "IRP",
+            "name": "International Retail Profitability",
+            "baseline": "Medium",
+            "rank": 10,
+            "n_drivers": 15,
+            "points": 5,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VO": [
+          {
+            "code": "IRP",
+            "name": "International Retail Profitability",
+            "baseline": "Medium",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VT": [
+          {
+            "code": "IME",
+            "name": "International Market Expansion",
+            "baseline": "Medium",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VV": [
+          {
+            "code": "IRP",
+            "name": "International Retail Profitability",
+            "baseline": "Medium",
+            "rank": 9,
+            "n_drivers": 15,
+            "points": 6,
+            "dir": 1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": 1
+    },
+    {
+      "uid": 16,
+      "name": "Free Cash Flow & Capital Returns",
+      "members": {
+        "VM": [
+          {
+            "code": "FCFG",
+            "name": "Free Cash Flow Generation",
+            "baseline": "Medium",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VO": [
+          {
+            "code": "SBP",
+            "name": "Stock Buyback Programs",
+            "baseline": "Negligible",
+            "rank": 14,
+            "n_drivers": 15,
+            "points": 1,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VR": [
+          {
+            "code": "CAS",
+            "name": "Capital Allocation Strategy",
+            "baseline": "Low",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VT": [
+          {
+            "code": "FCFG",
+            "name": "Free Cash Flow Generation",
+            "baseline": "Low",
+            "rank": 6,
+            "n_drivers": 15,
+            "points": 9,
+            "dir": 1,
+            "invert": false
+          }
+        ],
+        "VV": [
+          {
+            "code": "SBPS",
+            "name": "Share Buyback Program Scale",
+            "baseline": "Low",
+            "rank": 13,
+            "n_drivers": 15,
+            "points": 2,
+            "dir": 1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": 1
+    },
+    {
+      "uid": 17,
+      "name": "Healthcare Division Scaling",
+      "members": {
+        "VO": [
+          {
+            "code": "HDS",
+            "name": "Healthcare Division Scaling",
+            "baseline": "Low",
+            "rank": 7,
+            "n_drivers": 15,
+            "points": 8,
+            "dir": 1,
+            "invert": false
+          }
+        ]
+      },
+      "mode_dir": 1
+    }
+  ]
+}

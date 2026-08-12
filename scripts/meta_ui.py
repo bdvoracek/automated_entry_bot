@@ -185,6 +185,16 @@ def _build_packs():
                                  dens_sub="year of first human arrival",
                                  dir_words=("pushes arrival later",
                                             "pushes arrival earlier"))
+    # running-max question: the axis is the PEAK price over a 3-year window, so
+    # spot is the floor of the distribution rather than its centre
+    az_map = STATE / "unified_drivers_amzn_advanced.json"
+    if az_map.exists():
+        zt, zl, ze, zs = _bins_from_job(STATE / "amzn_job.json")
+        packs["amzn"] = Pack("amzn", zt, az_map, zl, ze, zs, 272.27,
+                             STATE / "causal_amzn-max-2029_advanced.json",
+                             noun="peak price",
+                             dens_sub="highest price reached by August 2029",
+                             dir_words=("raises the peak", "lowers the peak"))
     return packs
 
 

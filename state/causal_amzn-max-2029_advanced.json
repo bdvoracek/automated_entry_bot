@@ -1,0 +1,371 @@
+{
+  "question_id": "amzn-max-2029",
+  "tier": "Advanced",
+  "drivers": {
+    "1": {
+      "ci": 1.0,
+      "reach": 1.0,
+      "role": "integrator",
+      "betweenness": 1.03
+    },
+    "2": {
+      "ci": 0.824,
+      "reach": 1.0,
+      "role": "integrator",
+      "betweenness": 0.33
+    },
+    "3": {
+      "ci": 0.573,
+      "reach": 0.928,
+      "role": "driver",
+      "betweenness": 0.7
+    },
+    "4": {
+      "ci": 0.868,
+      "reach": 1.0,
+      "role": "integrator",
+      "betweenness": 3.4
+    },
+    "5": {
+      "ci": 0.559,
+      "reach": 1.0,
+      "role": "mediator",
+      "betweenness": 10.03
+    },
+    "6": {
+      "ci": 0.926,
+      "reach": 1.0,
+      "role": "mediator",
+      "betweenness": 6.17
+    },
+    "7": {
+      "ci": 0.279,
+      "reach": 1.0,
+      "role": "integrator",
+      "betweenness": 3.2
+    },
+    "8": {
+      "ci": 0.382,
+      "reach": 1.0,
+      "role": "driver",
+      "betweenness": 2.0
+    },
+    "9": {
+      "ci": 0.868,
+      "reach": 1.0,
+      "role": "source",
+      "betweenness": 0.87
+    },
+    "10": {
+      "ci": 0.441,
+      "reach": 1.0,
+      "role": "source",
+      "betweenness": 0.0
+    },
+    "11": {
+      "ci": 0.477,
+      "reach": 0.982,
+      "role": "driver",
+      "betweenness": 2.37
+    },
+    "12": {
+      "ci": 0.259,
+      "reach": 0.978,
+      "role": "driver",
+      "betweenness": 2.67
+    },
+    "13": {
+      "ci": 0.173,
+      "reach": 0.784,
+      "role": "driver",
+      "betweenness": 0.5
+    },
+    "14": {
+      "ci": 0.206,
+      "reach": 1.0,
+      "role": "driver",
+      "betweenness": 3.53
+    },
+    "15": {
+      "ci": 0.322,
+      "reach": 0.952,
+      "role": "integrator",
+      "betweenness": 1.2
+    },
+    "16": {
+      "ci": 0.426,
+      "reach": 1.0,
+      "role": "sink",
+      "betweenness": 0.0
+    },
+    "17": {
+      "ci": 0.0,
+      "reach": 0.0,
+      "role": "source",
+      "betweenness": 0.0
+    }
+  },
+  "fragments": [
+    {
+      "id": "frag-6",
+      "focal_uid": 6,
+      "title": "The spending decision everything hangs off",
+      "insight": "How much Amazon pours into AI infrastructure - and how much revenue each dollar of it actually returns - sits at the busy centre of the map. Cheap money makes the build-out affordable, and the build-out is what buys cloud share and, eventually, the peak price. It is the one lever that is genuinely Amazon's own choice rather than something the world does to it, which is why almost every model routes through it.",
+      "role": "mediator",
+      "importance": 100,
+      "aci": 0.865,
+      "focal": {
+        "uid": 6,
+        "label": "AI Capex Scale & Efficiency",
+        "influence": 0.926,
+        "outcome": false
+      },
+      "parents": [
+        {
+          "uid": 10,
+          "label": "Monetary Policy & Interest Rates",
+          "influence": 0.441,
+          "outcome": false,
+          "support": 0.8
+        }
+      ],
+      "children": [
+        {
+          "uid": 2,
+          "label": "Cloud Market Share",
+          "influence": 0.824,
+          "outcome": false,
+          "support": 1.0
+        },
+        {
+          "uid": "DV",
+          "label": "AMZN peak price",
+          "influence": 1.0,
+          "outcome": true,
+          "support": 1.0
+        }
+      ]
+    },
+    {
+      "id": "frag-4",
+      "focal_uid": 4,
+      "title": "The quiet margin machine",
+      "insight": "Advertising is where two other stories cash out: AI makes the targeting sharper, and Prime supplies the audience and the purchase data. It lands on both the share price and retail profitability, because ad dollars arrive at far higher margin than anything shipped in a box. For a question about the PEAK price, this is the driver most likely to deliver an upside surprise the market has not already paid for.",
+      "role": "integrator",
+      "importance": 95,
+      "aci": 0.824,
+      "focal": {
+        "uid": 4,
+        "label": "Advertising Revenue Growth",
+        "influence": 0.868,
+        "outcome": false
+      },
+      "parents": [
+        {
+          "uid": 5,
+          "label": "Generative AI Monetization",
+          "influence": 0.559,
+          "outcome": false,
+          "support": 1.0
+        },
+        {
+          "uid": 14,
+          "label": "Prime & Subscription Services",
+          "influence": 0.206,
+          "outcome": false,
+          "support": 1.0
+        }
+      ],
+      "children": [
+        {
+          "uid": "DV",
+          "label": "AMZN peak price",
+          "influence": 1.0,
+          "outcome": true,
+          "support": 1.0
+        },
+        {
+          "uid": 7,
+          "label": "Retail Operating Margin",
+          "influence": 0.279,
+          "outcome": false,
+          "support": 0.8
+        }
+      ]
+    },
+    {
+      "id": "frag-1",
+      "focal_uid": 1,
+      "title": "The engine the whole valuation runs on",
+      "insight": "AWS growth is fed by generative-AI demand and by holding cloud share, and it pushes straight onto the price and onto AWS's own margins. Every model in the ensemble ranks it at or near the top. If the peak print over the next three years is going to be a big one, the models are near-unanimous that this is the number that gets it there.",
+      "role": "integrator",
+      "importance": 93,
+      "aci": 0.8,
+      "focal": {
+        "uid": 1,
+        "label": "AWS Revenue Growth",
+        "influence": 1.0,
+        "outcome": false
+      },
+      "parents": [
+        {
+          "uid": 5,
+          "label": "Generative AI Monetization",
+          "influence": 0.559,
+          "outcome": false,
+          "support": 1.0
+        },
+        {
+          "uid": 2,
+          "label": "Cloud Market Share",
+          "influence": 0.824,
+          "outcome": false,
+          "support": 0.8
+        }
+      ],
+      "children": [
+        {
+          "uid": "DV",
+          "label": "AMZN peak price",
+          "influence": 1.0,
+          "outcome": true,
+          "support": 1.0
+        },
+        {
+          "uid": 3,
+          "label": "AWS Operating Margin & Custom Silicon",
+          "influence": 0.618,
+          "outcome": false,
+          "support": 0.4
+        }
+      ]
+    },
+    {
+      "id": "frag-9",
+      "focal_uid": 9,
+      "title": "The tail risk that caps the top",
+      "insight": "Antitrust is a true root cause on this map - very little feeds into it, but it reaches into cloud share and retail margin alike. Note the ensemble is split on how to even frame it: some models read the extreme end as a court-ordered breakup, others as the suits being dismissed. That disagreement is real signal, and it is the main thing standing between this forecast and its upper bins.",
+      "role": "source",
+      "importance": 80,
+      "aci": 0.694,
+      "focal": {
+        "uid": 9,
+        "label": "Antitrust & Regulatory Action",
+        "influence": 0.868,
+        "outcome": false
+      },
+      "parents": [
+        {
+          "uid": 5,
+          "label": "Generative AI Monetization",
+          "influence": 0.559,
+          "outcome": false,
+          "support": 0.4
+        }
+      ],
+      "children": [
+        {
+          "uid": 2,
+          "label": "Cloud Market Share",
+          "influence": 0.824,
+          "outcome": false,
+          "support": 1.0
+        },
+        {
+          "uid": 7,
+          "label": "Retail Operating Margin",
+          "influence": 0.279,
+          "outcome": false,
+          "support": 1.0
+        }
+      ]
+    },
+    {
+      "id": "frag-5",
+      "focal_uid": 5,
+      "title": "From capex to actual revenue",
+      "insight": "This is the hinge where AI spending turns into money. Capital expenditure and the regulatory climate flow in; AWS growth and cloud share flow out. The models treat it as the conversion step rather than a story of its own - if the spending happens but this does not follow, the whole upside case stalls.",
+      "role": "mediator",
+      "importance": 52,
+      "aci": 0.447,
+      "focal": {
+        "uid": 5,
+        "label": "Generative AI Monetization",
+        "influence": 0.559,
+        "outcome": false
+      },
+      "parents": [
+        {
+          "uid": 6,
+          "label": "AI Capex Scale & Efficiency",
+          "influence": 0.926,
+          "outcome": false,
+          "support": 0.8
+        },
+        {
+          "uid": 9,
+          "label": "Antitrust & Regulatory Action",
+          "influence": 0.868,
+          "outcome": false,
+          "support": 0.4
+        }
+      ],
+      "children": [
+        {
+          "uid": 1,
+          "label": "AWS Revenue Growth",
+          "influence": 1.0,
+          "outcome": false,
+          "support": 1.0
+        },
+        {
+          "uid": 2,
+          "label": "Cloud Market Share",
+          "influence": 0.824,
+          "outcome": false,
+          "support": 1.0
+        }
+      ]
+    },
+    {
+      "id": "frag-16",
+      "focal_uid": 16,
+      "title": "Where the money ends up",
+      "insight": "Free cash flow and buybacks are the end of the chain: the AI build-out consumes cash and regulation can threaten it, and what survives lands on the share price. It is a sink - nothing downstream of it - so it does not drive the story so much as record the result. Worth watching because heavy capex and a record buyback pull the peak price in opposite directions.",
+      "role": "sink",
+      "importance": 43,
+      "aci": 0.37,
+      "focal": {
+        "uid": 16,
+        "label": "Free Cash Flow & Capital Returns",
+        "influence": 0.426,
+        "outcome": false
+      },
+      "parents": [
+        {
+          "uid": 6,
+          "label": "AI Capex Scale & Efficiency",
+          "influence": 0.926,
+          "outcome": false,
+          "support": 0.8
+        },
+        {
+          "uid": 9,
+          "label": "Antitrust & Regulatory Action",
+          "influence": 0.868,
+          "outcome": false,
+          "support": 0.8
+        }
+      ],
+      "children": [
+        {
+          "uid": "DV",
+          "label": "AMZN peak price",
+          "influence": 1.0,
+          "outcome": true,
+          "support": 1.0
+        }
+      ]
+    }
+  ]
+}

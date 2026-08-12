@@ -1,0 +1,93 @@
+{
+  "question_id": "amzn-max-2029",
+  "tier": "Advanced",
+  "dv_name": "AMZN peak price",
+  "note": "Semantic-unification output over the Advanced ensemble. Members are (model, code) pairs; codes collide across models (VR's ARG is Advertising Revenue Growth, everyone else's ARG is AWS Revenue Growth), so pairs are required. dir: +1 = Negligible->Extreme raises the peak price, -1 = lowers it. Omitted dir defaults to +1.",
+  "clusters": [
+    {
+      "uid": 1,
+      "name": "AWS Revenue Growth",
+      "members": [["VM", "ARG"], ["VO", "ARG"], ["VR", "AARGR"], ["VT", "ARG"], ["VV", "ARG"]]
+    },
+    {
+      "uid": 2,
+      "name": "Cloud Market Share",
+      "members": [["VM", "CMS"], ["VO", "CMS"], ["VR", "AMSVC"], ["VT", "CCMS"], ["VV", "CIMS"]]
+    },
+    {
+      "uid": 3,
+      "name": "AWS Operating Margin & Custom Silicon",
+      "members": [["VM", "AOM"], ["VR", "AOM"], ["VT", "PSD"], ["VV", "AOMS"]]
+    },
+    {
+      "uid": 4,
+      "name": "Advertising Revenue Growth",
+      "members": [["VM", "ARGD"], ["VO", "ARGD"], ["VR", "ARG"], ["VT", "ARGD"], ["VV", "ARGD"]]
+    },
+    {
+      "uid": 5,
+      "name": "Generative AI Monetization",
+      "members": [["VM", "GAA"], ["VO", "GAI"], ["VR", "GAM"], ["VT", "GAM"], ["VV", "GAM"]]
+    },
+    {
+      "uid": 6,
+      "name": "AI Capex Scale & Efficiency",
+      "members": [["VM", "AICE"], ["VO", "CEE"], ["VR", "AICE"], ["VT", "CEE"], ["VV", "CEE"]]
+    },
+    {
+      "uid": 7,
+      "name": "Retail Operating Margin",
+      "members": [["VM", "ROM"], ["VO", "ROME"], ["VR", "AOME"], ["VT", "ROME"], ["VV", "NAROM"]]
+    },
+    {
+      "uid": 8,
+      "name": "Logistics Automation & Labor Costs",
+      "members": [["VM", "LAE"], ["VO", "LNA"], ["VO", "LCP", -1], ["VR", "LNE"], ["VT", "LAR"], ["VV", "LAR"]]
+    },
+    {
+      "uid": 9,
+      "name": "Antitrust & Regulatory Action",
+      "members": [["VM", "ALO"], ["VO", "ARA", -1], ["VR", "RAA", -1], ["VT", "ARA"], ["VV", "ARA"]]
+    },
+    {
+      "uid": 10,
+      "name": "Monetary Policy & Interest Rates",
+      "members": [["VM", "MP"], ["VO", "IRE", -1], ["VR", "FRMP"], ["VT", "MPIR"], ["VV", "FRIRP"]]
+    },
+    {
+      "uid": 11,
+      "name": "Consumer Spending & Purchasing Power",
+      "members": [["VM", "CST"], ["VO", "CST"], ["VR", "ICPP"], ["VT", "CST"]]
+    },
+    {
+      "uid": 12,
+      "name": "Global Macro & E-commerce Growth",
+      "members": [["VM", "GMG"], ["VR", "GMG"], ["VT", "GECMG"]]
+    },
+    {
+      "uid": 13,
+      "name": "E-commerce Market Share",
+      "members": [["VR", "ECMS"], ["VV", "GECMS"]]
+    },
+    {
+      "uid": 14,
+      "name": "Prime & Subscription Services",
+      "members": [["VM", "PMR"], ["VO", "PMR"], ["VR", "PMRG"], ["VT", "PMD"], ["VV", "PMRP"], ["VV", "SSRG"]]
+    },
+    {
+      "uid": 15,
+      "name": "International Retail Profitability",
+      "members": [["VM", "IRP"], ["VO", "IRP"], ["VT", "IME"], ["VV", "IRP"]]
+    },
+    {
+      "uid": 16,
+      "name": "Free Cash Flow & Capital Returns",
+      "members": [["VM", "FCFG"], ["VO", "SBP"], ["VR", "CAS"], ["VT", "FCFG"], ["VV", "SBPS"]]
+    },
+    {
+      "uid": 17,
+      "name": "Healthcare Division Scaling",
+      "members": [["VO", "HDS"]]
+    }
+  ]
+}
